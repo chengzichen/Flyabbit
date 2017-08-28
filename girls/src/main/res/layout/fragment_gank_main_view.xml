@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:tl="http://schemas.android.com/apk/res-auto"
+              xmlns:toolbar="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        toolbar:titleTextAppearance="@style/Toolbar.TitleText">
+    </android.support.v7.widget.Toolbar>
+    <!--<com.flyco.tablayout.CommonTabLayout-->
+        <!--android:id="@+id/ctl_tab"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:background="#6D8FB0"-->
+        <!--android:paddingLeft="5dp"-->
+        <!--android:paddingRight="5dp"-->
+        <!--tl:tl_iconVisible="false"-->
+        <!--tl:tl_indicator_margin_left="5dp"-->
+        <!--tl:tl_indicator_margin_right="5dp"-->
+        <!--tl:tl_indicator_style="BLOCK"-->
+        <!--tl:tl_textsize="14sp"/>-->
+    <!--<android.support.v4.view.ViewPager-->
+        <!--android:id="@+id/vp_gank_main"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--/>-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fl_rootview"
+        >
+
+    </FrameLayout>
+</LinearLayout>

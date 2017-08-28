@@ -1,0 +1,130 @@
+ext {
+
+    android = [
+            compileSdkVersion  : 25,
+            buildToolsVersion  : "26.0.0",
+
+            minSdkVersion      : 15,
+            targetSdkVersion   : 24,
+
+            versionCode        : 1,
+            versionName        : '1.0.0',
+
+            VSupportSdk        : '25.2.0',
+            VJunit             : '4.12',
+            VRxlifecycle       : "2.0.1",
+
+            //RX
+            VRxandroid         : "2.0.1",
+            VRxjava            : "2.0.1",
+            VRxbinding         : "2.0.0",
+            VRxpermissions     : "0.9.1@aar",
+
+            //network
+            VRetrofitSdk       : "2.2.0",
+            VOkhttp            : "3.4.2",
+            VOkIntegration     : "1.4.0@aar",
+            VGson              : "2.7",
+            VGlide             : "3.7.0",
+
+            //canary.
+            VBlockcanary       : "1.2.1",
+            VLeakcanary        : "1.5",
+
+            //other
+            VFlycoDialog_Lib   : "1.3.2@aar",
+            VFragmentation     : "0.10.4",
+            VLogger            : "1.15",
+            VEventbus          : "3.0.0",
+            VAvi_loading       : "2.1.3",
+            VJpush             : "3.0.5",
+            VJcore             : "1.1.2",
+            //di
+            VDagger            : "2.0.2",
+            VButterknife       : "8.4.0",
+            VAroutercompiler   : "1.1.2.1",
+            VArouterapi        : "1.2.1.1",
+            //ui
+            VBaseAdapterHelper : "2.9.27",
+            VUltraPtr          : "1.0.11",
+            VFlycoTabLayout_Lib: "2.1.2@aar",
+            VBanner            : "1.4.9"
+
+    ]
+
+    //上传时修改aar版本号
+    uploadArchives = [
+            "krlibrary"         : "1.0.12",
+            "krpay"             : "1.0.3",
+            "androidshare"      : "1.0.0",
+            "yxim"              : "1.0.5",
+            "krmy"              : "1.0.3",
+            "krhome"            : "1.0.2",
+            "krfind"            : "1.0.2",
+            "FlycoTabLayout_Lib": "1.0.0",
+            "zxing"             : "1.0.0",
+    ]
+
+    dependencies = [
+            //UI
+            "junit"                        : "junit:junit:${android["VJunit"]}",
+            "appcompat-v7"                 : "com.android.support:appcompat-v7:${android["VSupportSdk"]}",
+            "support-v4"                   : "com.android.support:support-v4:${android["VSupportSdk"]}",
+            "design"                       : "com.android.support:design:${android["VSupportSdk"]}",
+            "annotations"                  : "com.android.support:support-annotations:${android["VSupportSdk"]}",
+            "recyclerview-v7"              : "com.android.support:recyclerview-v7:${android["VSupportSdk"]}",
+            "palette-v7"                   : "com.android.support:palette-v7:${android["VSupportSdk"]}",
+            "circular-progress-button-v7"  : "com.github.dmytrodanylyk.circular-progress-button:library:1.1.3",
+            "cardview-v7"                  : "com.android.support:cardview-v7:${android["VSupportSdk"]}",
+            "BaseRecyclerViewAdapterHelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:${android["VBaseAdapterHelper"]}",
+            "ultra-ptr"                    : "in.srain.cube:ultra-ptr:${android["VUltraPtr"]}",
+            "FlycoDialog_Lib"              : "com.flyco.dialog:FlycoDialog_Lib:${android["VFlycoDialog_Lib"]}",
+            "FlycoTabLayout_Lib"           : "com.flyco.tablayout:FlycoTabLayout_Lib:${android["VFlycoTabLayout_Lib"]}",
+            "banner"                       : "com.youth.banner:banner:${android["VBanner"]}",
+            "percent"                      : "com.android.support:percent:${android["VSupportSdk"]}",
+            //rx
+            "rxandroid"                    : "io.reactivex.rxjava2:rxandroid:${android["VRxandroid"]}",
+            "rxjava"                       : "io.reactivex.rxjava2:rxjava:${android["VRxjava"]}",
+//            "rxbinding"                    : "com.jakewharton.rxbinding2:rxbinding:${android["VRxbinding"]}",
+//            "rxbinding-support-v4"         : "com.jakewharton.rxbinding2:rxbinding-support-v4:${android["VRxbinding"]}",
+            "rxpermissions"                : "com.tbruyelle.rxpermissions2:rxpermissions:${android["VRxpermissions"]}",
+            "rxlifecycle"                  : "com.trello.rxlifecycle2:rxlifecycle:${android["VRxlifecycle"]}",
+            "rxlifecycle-android"          : "com.trello.rxlifecycle2:rxlifecycle-android:${android["VRxlifecycle"]}",
+            "rxlifecycle-components"       : "com.trello.rxlifecycle2:rxlifecycle-components:${android["VRxlifecycle"]}",
+            //network
+            "gson"                         : "com.google.code.gson:gson:${android["VGson"]}",
+            "retrofit"                     : "com.squareup.retrofit2:retrofit:${android["VRetrofitSdk"]}",
+            "retrofit-converter-gson"      : "com.squareup.retrofit2:converter-gson:${android["VRetrofitSdk"]}",
+            "retrofit-adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava2:${android["VRetrofitSdk"]}",
+            "okhttp3-logging-interceptor"  : "com.squareup.okhttp3:logging-interceptor:${android["VOkhttp"]}",
+            "okhttp3"                      : "com.squareup.okhttp3:okhttp:${android["VOkhttp"]}",
+            "glide"                        : "com.github.bumptech.glide:glide:${android["VGlide"]}",
+            "glide-okhttp3-integration"    : "com.github.bumptech.glide:okhttp3-integration:${android["VOkIntegration"]}",
+            //canary
+            "blockcanary-debug"            : "com.github.moduth:blockcanary-android:${android["VBlockcanary"]}",
+            "blockcanary-release"          : "com.github.moduth:blockcanary-no-op:${android["VBlockcanary"]}",
+            "canary-debug"                 : "com.squareup.leakcanary:leakcanary-android:${android["VLeakcanary"]}",
+            "canary-release"               : "com.squareup.leakcanary:leakcanary-android-no-op:${android["VLeakcanary"]}",
+            //Cookie
+            "PersistentCookieJar"          : "com.github.franmontiel:PersistentCookieJar:v1.0.0",
+            //other
+            "fragmentation"                : "me.yokeyword:fragmentation:${android["VFragmentation"]}",
+            "logger"                       : "com.orhanobut:logger:${android["VLogger"]}",
+            "eventbus"                     : "org.greenrobot:eventbus:${android["VEventbus"]}",
+            "avi-loading"                  : "com.wang.avi:library:${android["VAvi_loading"]}",
+            "jpush"                        : "cn.jiguang.sdk:jpush:${android["VJpush"]}",
+            "jcore"                        : "cn.jiguang.sdk:jcore:${android["VJcore"]}",
+            //di
+            "javax.annotation"             : 'javax.annotation:jsr250-api:1.0',
+            "dagger"                       : "com.google.dagger:dagger:${android["VDagger"]}",
+            "dagger-compiler"              : "com.google.dagger:dagger-compiler:${android["VDagger"]}",
+            "butterknife"                  : "com.jakewharton:butterknife:${android["VButterknife"]}",
+            "butterknife-apt"              : "com.jakewharton:butterknife-compiler:${android["VButterknife"]}",
+            "arouter-compiler"             : "com.alibaba:arouter-compiler:${android["VAroutercompiler"]}",
+            "arouter-api"                  : "com.alibaba:arouter-api:${android["VArouterapi"]}",
+
+            //krlib ,这是本地的maven服务的@arr,进行更新的话请看modle下的deploy.sh文件,更新版本请修改上面uploadArchives对应版本
+    ]
+
+
+}

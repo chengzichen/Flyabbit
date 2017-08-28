@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/actionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/clr_ffffff"
+        android:orientation="vertical"
+        >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:id="@+id/actions_page_indicator"
+            android:layout_width="fill_parent"
+            android:layout_height="8.0dip"
+            android:layout_marginBottom="25dip"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/iv_join"
+            android:layout_marginBottom="25dip"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/shape_bnt_white"
+            android:layout_width="117dp"
+            android:layout_height="34dp"
+            android:textSize="@dimen/sp_15"
+            android:text="立即加入"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/clr_00c9bc"
+            />
+
+    </FrameLayout>
+

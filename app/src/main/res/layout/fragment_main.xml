@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@android:color/transparent"
+    >
+    <FrameLayout
+        android:id="@+id/fl_tab_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="52dp"/>
+
+    <com.dhc.library.widget.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_52"
+        android:layout_gravity="bottom"/>
+
+</FrameLayout>

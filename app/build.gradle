@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+
+        applicationId "com.dhc.flyabbit"
+
+        minSdkVersion rootProject.ext.android.minSdkVersion
+
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+
+        versionCode rootProject.ext.android.versionCode
+
+        versionName APP_VERSION
+
+        javaCompileOptions {
+
+            annotationProcessorOptions {
+
+                arguments = [moduleName: project.getName()]
+
+            }
+
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+
+        release {
+
+            minifyEnabled false
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+
+    }
+
+    configurations.all {
+
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
+
+    }
+
+    lintOptions {
+
+        abortOnError false
+
+    }
+    aaptOptions.cruncherEnabled = false
+
+    aaptOptions.useNewCruncher = false
+    // why do not there
+//    dexOptions {
+//        jumboMode true
+//        javaMaxHeapSize '4g'
+//    }
+
+
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+
+        targetCompatibility JavaVersion.VERSION_1_8
+
+    }
+    retrolambda {
+
+        javaVersion JavaVersion.VERSION_1_7
+
+    }
+//    resourcePrefix "kairu_imlib"
+    dexOptions {
+        incremental true
+        jumboMode true
+        //jenkins上使用有问题
+        //javaMaxHeapSize "4g"
+        preDexLibraries false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile rootProject.ext.dependencies["junit"]
+    provided rootProject.ext.dependencies["javax.annotation"]
+    debugCompile rootProject.ext.dependencies["canary-debug"]
+    releaseCompile rootProject.ext.dependencies["canary-release"]
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    //dagger2的apt注解
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+    //阿里的Arouter的注解
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    //    compile project(':library')
+    compile project(':my')
+    compile project(':home')
+    compile project(':girls')
+}

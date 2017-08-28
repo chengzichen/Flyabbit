@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--圆形头像-->
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ItemLayout">
+        <attr name="leftText" format="string"/>
+        <attr name="rightText" format="string"/>
+        <attr name="rightIconVisible" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="4"/>
+            <enum name="gone" value="8"/>
+        </attr>
+        <attr name="rightLayoutVisible" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="4"/>
+            <enum name="gone" value="8"/>
+        </attr>
+        <attr name="topLineVisible" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="4"/>
+            <enum name="gone" value="8"/>
+        </attr>
+        <attr name="bottomLineVisible" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="4"/>
+            <enum name="gone" value="8"/>
+        </attr>
+        <attr name="leftTextColor" format="color"/>
+        <attr name="leftTextSize" format="dimension"/>
+        <attr name="rightTextColor" format="color"/>
+        <attr name="rightTextSize" format="dimension"/>
+        <attr name="leftIconDrawable" format="reference"/>
+        <attr name="rightIconDrawable" format="reference"/>
+        <attr name="bottomLineColor" format="color"/>
+        <attr name="leftMargin" format="dimension"/>
+        <attr name="rightMargin" format="dimension"/>
+        <attr name="minHeight" format="dimension"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="IdentityImageView">
+        <attr name="iciv_bigimage" format="reference"></attr><!--大图片-->
+        <attr name="iciv_smallimage" format="reference"></attr><!--小图片-->
+        <attr name="iciv_angle" format="float"></attr><!--标识角度-->
+        <attr name="iciv_radiusscale" format="float"></attr><!--大小图片比例-->
+        <attr name="iciv_isprogress" format="boolean"></attr><!--是否有进度条-->
+        <attr name="iciv_progress_collor" format="color|reference"></attr><!--进度条颜色-->
+        <attr name="iciv_border_color" format="color|reference"></attr><!--边框颜色-->
+        <attr name="iciv_border_width" format="integer"></attr><!--边框宽度-->
+        <attr name="iciv_hint_smallimageview" format="boolean"></attr><!--是否隐藏小图片-->
+    </declare-styleable>
+
+
+    <!--StateButton  start-->
+    <declare-styleable name="StateButton">
+
+        <!--text color-->
+        <attr name="normalTextColor" format="color|reference"/>
+        <attr name="pressedTextColor" format="color|reference"/>
+        <attr name="unableTextColor" format="color|reference"/>
+
+        <!--stroke width and color, dash width, dash gap-->
+        <attr name="strokeDashWidth" format="dimension|reference"/>
+        <attr name="strokeDashGap" format="dimension|reference"/>
+        <attr name="normalStrokeWidth" format="dimension|reference"/>
+        <attr name="pressedStrokeWidth" format="dimension|reference"/>
+        <attr name="unableStrokeWidth" format="dimension|reference"/>
+        <attr name="normalStrokeColor" format="color|reference"/>
+        <attr name="pressedStrokeColor" format="color|reference"/>
+        <attr name="unableStrokeColor" format="color|reference"/>
+
+        <!--background color-->
+        <attr name="normalBackgroundColor" format="color|reference"/>
+        <attr name="pressedBackgroundColor" format="color|reference"/>
+        <attr name="unableBackgroundColor" format="color|reference"/>
+
+        <!--background radius-->
+        <attr name="radius" format="dimension|reference"/>
+        <attr name="round" format="boolean|reference"/>
+
+        <!--animation duration-->
+        <attr name="animationDuration" format="integer|reference"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="StateImageView">
+        <attr name="normalBackground" format="color|reference"/>
+        <attr name="pressedBackground" format="color|reference"/>
+        <attr name="unableBackground" format="color|reference"/>
+
+        <!--animation duration-->
+        <attr name="AnimationDuration" format="integer|reference"/>
+    </declare-styleable>
+    <!--StateButton  end-->
+
+    <declare-styleable name="Dialog">
+        <attr name="DialogTitleAppearance" format="reference" />
+        <attr name="DialogTitleText" format="reference|string" />
+        <attr name="DialogSpotColor" format="reference|color" />
+        <attr name="DialogSpotCount" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ShadowImageView">
+        <attr name="shadowRound" format="dimension" />
+        <attr name="shadowSrc" format="reference" />
+    </declare-styleable>
+    <declare-styleable name="loader_view">
+        <attr name="width_weight" format="float" />
+        <attr name="height_weight" format="float" />
+        <attr name="use_gradient" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandTextViewShow">
+        <attr name="expandMaxLine" format="integer" />
+        <attr name="expandTextColor" format="color" />
+        <attr name="expandTextSize" format="dimension" />
+        <attr name="expandTextPadding" format="dimension" />
+    </declare-styleable>
+</resources>

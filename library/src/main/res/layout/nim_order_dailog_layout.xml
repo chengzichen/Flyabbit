@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:id="@+id/view_dialog_content"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"
+        android:orientation="vertical"
+        android:background="@drawable/nim_dialog_base_shape">
+        <TextView
+            android:id="@+id/tv_text_title"
+            android:textColor="@color/clr_484B69"
+            android:textSize="@dimen/sp_12"
+            android:padding="@dimen/dp_10"
+            android:text="选择您的孩子"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:background="@color/clr_B9BAC4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"/>
+        <ListView
+            android:padding="@dimen/dp_5"
+            android:id="@+id/listview_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="77dp"
+        android:background="@drawable/nim_dialog_close_btn_cricle_bg"
+        android:src="@mipmap/nim_icon_dialog_close"
+        android:visibility="visible"/>
+</LinearLayout>
+
