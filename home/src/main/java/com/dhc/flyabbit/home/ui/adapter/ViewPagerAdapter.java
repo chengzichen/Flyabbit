@@ -37,7 +37,4 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         return mTitles[position];
     }
 
-    public void setBgColor(float rate){
-
-    }
 }

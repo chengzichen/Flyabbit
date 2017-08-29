@@ -15,21 +15,43 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:layout_marginTop="45dp"
+        android:id="@+id/iv_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:src="@mipmap/logo"/>
 
     <android.support.v7.widget.CardView
-        android:layout_margin="16dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
 
         <TextView
+            android:padding="@dimen/dp_16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Flyabbit"/>
+            android:text="Flyabbit是一个使用Retrofit+Rxjava2+dagger2+Mvp+Material Design 快速搭建的一个app,ui是其一,更重要的是我将通过一系列的文章从项目零开始 技术选型->到封装->组件化设计->本地Maven
+(nexus)简单使用->自动打包(Jenkins持续集成)->单元测试->线上Bug快速修复(热修复),为大家参考部分参考"/>
 
     </android.support.v7.widget.CardView>
+
+    <TextView
+        android:textColor="#6385a7"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp_16"
+        android:id="@+id/tv_github"
+        android:layout_margin="26dp"
+        android:text="Github:https://github.com/chengzichen/Flyabbit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="#6385a7"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp_20"
+        android:id="@+id/tv_author"
+        android:layout_marginLeft="@dimen/dp_26"
+        android:text="作者:@chengzichen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

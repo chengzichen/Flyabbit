@@ -28,6 +28,7 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
     private RecyclerView lv;
     private GankTechAdapter mGankTechAdapter;
     private SwipeRefreshLayout mSwipeRefreshLayout;
+
     public static GankPageFragment newInstance(String tag) {
         Bundle args = new Bundle();
         args.putString(TECH_TAG, tag);
@@ -42,7 +43,7 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
         mTag = getArguments().getString(TECH_TAG);
     }
 
-    public void setBgColor(int color){
+    public void setBgColor(int color) {
         lv.setBackgroundColor(color);
     }
 
@@ -64,7 +65,7 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
         // 设置布局管理器
         lv.setLayoutManager(layoutManager);
 
-        mGankTechAdapter = new GankTechAdapter(null,mTag);
+        mGankTechAdapter = new GankTechAdapter(null, mTag);
         mGankTechAdapter.setOnLoadMoreListener(this, lv);
         mGankTechAdapter.setLoadMoreView(new CustomLoadMoreView());
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -76,9 +77,9 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
         mGankTechAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                List<GankItemBean> gankItemBeen=    adapter.getData();
-                ((BaseActivity)_mActivity).start(WebViewCommonFragment.newInstance(gankItemBeen.get(position).getDesc(),
-                        gankItemBeen.get(position).getUrl(),gankItemBeen.get(position).get_id(),mTag));
+                List<GankItemBean> gankItemBeen = adapter.getData();
+                ((BaseActivity) _mActivity).start(WebViewCommonFragment.newInstance(gankItemBeen.get(position).getDesc(),
+                        gankItemBeen.get(position).getUrl(), gankItemBeen.get(position).get_id(), mTag));
             }
         });
         lv.setAdapter(mGankTechAdapter);
@@ -109,8 +110,8 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
         if (mSwipeRefreshLayout.isRefreshing()) {
             mSwipeRefreshLayout.setRefreshing(false);
         } else {
-            if (mGankTechAdapter!=null)
-            mGankTechAdapter.loadMoreFail();
+            if (mGankTechAdapter != null)
+                mGankTechAdapter.loadMoreFail();
         }
         ToastUtil.shortShow(_mActivity, msg);
     }
