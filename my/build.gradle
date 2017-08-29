@@ -4,7 +4,7 @@ if (isApp.toBoolean()) {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'me.tatarka.retrolambda'
-
+apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -23,7 +23,7 @@ android {
                 java {
                     exclude 'src/main/debug/**'
                     exclude '**/debug/**.java'
-                    exclude 'src/main/**/res/layout/find_activity_debug.xml'
+                    exclude 'src/main/**/res/layout/activity_debug.xml'
                 }
             }
         }
@@ -63,10 +63,23 @@ android {
     }
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
+    dexOptions {
+        incremental true
+        jumboMode true
+        //jenkins上使用有问题
+        //javaMaxHeapSize "4g"
+        preDexLibraries false
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    testCompile rootProject.ext.dependencies["junit"]
 
     compile project(':library')
 
@@ -75,4 +88,15 @@ dependencies {
 
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+}
+
+
+//添加
+publish {
+    userOrg = 'chengzichen'//bintray.com用户名
+    groupId = 'com.dhc.flyabbit.my'//jcenter上的路径
+    artifactId = 'mylib'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'Oh hi, this is flyabbit , show my lib'//描述，不重要
+    website = 'https://github.com/chengzichen/Flyabbit'//网站，不重要
 }
