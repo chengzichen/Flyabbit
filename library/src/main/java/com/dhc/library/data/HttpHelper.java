@@ -143,7 +143,7 @@ public class HttpHelper implements IDataHelper {
                 .addConverterFactory(new StringConverterFactory())//添加Gson格式化工厂
                 .addConverterFactory(GsonConverterFactory.create(gson));//添加Gson格式化工厂
         if (netConfig.isUseRx) {
-            builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
+            builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());//call 适配器
         }
         retrofit = builder.build();
         return retrofit;

@@ -54,15 +54,9 @@ ext {
 
     //上传时修改aar版本号
     uploadArchives = [
-            "krlibrary"         : "1.0.12",
-            "krpay"             : "1.0.3",
-            "androidshare"      : "1.0.0",
-            "yxim"              : "1.0.5",
-            "krmy"              : "1.0.3",
-            "krhome"            : "1.0.2",
-            "krfind"            : "1.0.2",
-            "FlycoTabLayout_Lib": "1.0.0",
-            "zxing"             : "1.0.0",
+            "homelib" : "1.0.0",
+            "girlslib": "1.0.0",
+            "mylib"   : "1.0.0",
     ]
 
     dependencies = [
@@ -85,8 +79,6 @@ ext {
             //rx
             "rxandroid"                    : "io.reactivex.rxjava2:rxandroid:${android["VRxandroid"]}",
             "rxjava"                       : "io.reactivex.rxjava2:rxjava:${android["VRxjava"]}",
-//            "rxbinding"                    : "com.jakewharton.rxbinding2:rxbinding:${android["VRxbinding"]}",
-//            "rxbinding-support-v4"         : "com.jakewharton.rxbinding2:rxbinding-support-v4:${android["VRxbinding"]}",
             "rxpermissions"                : "com.tbruyelle.rxpermissions2:rxpermissions:${android["VRxpermissions"]}",
             "rxlifecycle"                  : "com.trello.rxlifecycle2:rxlifecycle:${android["VRxlifecycle"]}",
             "rxlifecycle-android"          : "com.trello.rxlifecycle2:rxlifecycle-android:${android["VRxlifecycle"]}",
@@ -105,6 +97,7 @@ ext {
             "blockcanary-release"          : "com.github.moduth:blockcanary-no-op:${android["VBlockcanary"]}",
             "canary-debug"                 : "com.squareup.leakcanary:leakcanary-android:${android["VLeakcanary"]}",
             "canary-release"               : "com.squareup.leakcanary:leakcanary-android-no-op:${android["VLeakcanary"]}",
+            "canary-test"               : "com.squareup.leakcanary:leakcanary-android-no-op:${android["VLeakcanary"]}",
             //Cookie
             "PersistentCookieJar"          : "com.github.franmontiel:PersistentCookieJar:v1.0.0",
             //other
@@ -123,8 +116,11 @@ ext {
             "arouter-compiler"             : "com.alibaba:arouter-compiler:${android["VAroutercompiler"]}",
             "arouter-api"                  : "com.alibaba:arouter-api:${android["VArouterapi"]}",
 
-            //krlib ,这是本地的maven服务的@arr,进行更新的话请看modle下的deploy.sh文件,更新版本请修改上面uploadArchives对应版本
+            //本地lib ,这是本地的maven服务的@arr,进行更新的话请看modle下的deploy.sh文件,更新版本请修改上面uploadArchives对应版本
+
+
+            "homelib"                      : "com.dhc.flyabbit.home:homelib:${ uploadArchives["homelib"] }",
+            "girlslib"                     : "com.dhc.flyabbit.girls:girlslib:${ uploadArchives["girlslib"] }",
+            "mylib"                        : "com.dhc.flyabbit.my:mylib:${ uploadArchives["mylib"] }",
     ]
-
-
 }

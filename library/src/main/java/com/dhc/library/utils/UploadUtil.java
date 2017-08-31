@@ -52,14 +52,12 @@ public class UploadUtil {
                                                      String[] filePaths,
                                                      MediaType imageType) {
         MultipartBody.Builder builder = new MultipartBody.Builder();
-
         for (int i = 0; i <filePaths.length ; i++) {
             File file = new File(filePaths[i]);
             RequestBody requestBody = RequestBody.create(imageType, file);
             builder.addFormDataPart(key+i, file.getName(), requestBody);
         }
 //         Multipart body must have at least one part.
-//   at com.kairu.library.utils.UploadUtil.filesToMultipartBody(UploadUtil.java:62)
         builder.setType(MultipartBody.FORM);
         return builder.build();
     }

@@ -4,7 +4,7 @@ if (isApp.toBoolean()) {
     apply plugin: 'com.android.library'
 }
 apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.novoda.bintray-release'//添加
+//apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -91,12 +91,12 @@ dependencies {
 }
 
 
-//添加
-publish {
-    userOrg = 'chengzichen'//bintray.com用户名
-    groupId = 'com.dhc.flyabbit.my'//jcenter上的路径
-    artifactId = 'mylib'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = 'Oh hi, this is flyabbit , show my lib'//描述，不重要
-    website = 'https://github.com/chengzichen/Flyabbit'//网站，不重要
-}
+////这是上传jcenter使用,不用关心
+//publish {
+//    userOrg = 'chengzichen'//bintray.com用户名
+//    groupId = 'com.dhc.flyabbit.my'//jcenter上的路径
+//    artifactId = 'mylib'//项目名称
+//    publishVersion = '1.0.0'//版本号
+//    desc = 'Oh hi, this is flyabbit , show my lib'//描述，不重要
+//    website = 'https://github.com/chengzichen/Flyabbit'//网站，不重要
+//}
