@@ -10,7 +10,10 @@ Flyabbit是一个使用Retrofit+Rxjava2+dagger2+Mvp+Material Design 快速搭建
 第一篇-网络篇:
 
  - [[从零开始系列]AndroidApp研发之路(一) 网络请求的封装(一)](http://blog.csdn.net/chengzichen_/article/details/77659318)
-  
+
+第二篇-Retrofit源码解析
+
+  - [[从零开始系列]AndroidApp研发之路-<楼外篇>Retrofit的刨根问底篇](http://blog.csdn.net/chengzichen_/article/details/77840996)
   
 #关于个人
  

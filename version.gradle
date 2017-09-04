@@ -21,7 +21,7 @@ ext {
             VRxpermissions     : "0.9.1@aar",
 
             //network
-            VRetrofitSdk       : "2.2.0",
+            VRetrofitSdk       : "2.3.0",
             VOkhttp            : "3.4.2",
             VOkIntegration     : "1.4.0@aar",
             VGson              : "2.7",

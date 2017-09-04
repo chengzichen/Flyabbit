@@ -101,7 +101,7 @@ dependencies {
     }
     //network
     compile rootProject.ext.dependencies["gson"]
-    compile(rootProject.ext.dependencies["retrofit"]) {
+    compile (rootProject.ext.dependencies["retrofit"]) {
         exclude module: 'okhttp'
     }
     compile(rootProject.ext.dependencies["retrofit-converter-gson"]) {
