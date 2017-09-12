@@ -21,11 +21,6 @@ import me.yokeyword.fragmentation.helper.FragmentLifecycleCallbacks;
  * 创建者     邓浩宸
  * 创建时间   2017/3/20 10:03
  * 描述	      ${主页面}
- * <View
- * android:id="@+id/status_bar_view"
- * android:layout_width="match_parent"
- * android:layout_height="0dp"
- * android:background="@color/colorPrimary" />
  */
 @Route(path = "/app/MainActivity")
 public class MainActivity extends XDaggerActivity implements OnShowHomeListener {
