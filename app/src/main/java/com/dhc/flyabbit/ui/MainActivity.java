@@ -78,6 +78,7 @@ public class MainActivity extends XDaggerActivity implements OnShowHomeListener 
                 super.onFragmentCreated(fragment, savedInstanceState);
             }
             // 省略其余生命周期方法
+
         });
     }
 
