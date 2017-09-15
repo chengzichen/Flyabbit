@@ -3,6 +3,7 @@ package com.dhc.library.base;
 
 import android.app.Activity;
 import android.app.Application;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.multidex.MultiDexApplication;
 
@@ -12,6 +13,7 @@ import com.dhc.library.data.account.Account;
 import com.dhc.library.data.account.AccountProvider;
 import com.dhc.library.data.bean.LoginBean;
 import com.dhc.library.di.component.AppComponent;
+import com.dhc.library.di.component.DaggerAppComponent;
 import com.dhc.library.di.module.AppModule;
 import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.AppUtil;
@@ -19,7 +21,6 @@ import com.dhc.library.utils.storage.StorageUtil;
 import com.dhc.library.utils.sys.ScreenUtil;
 import com.google.gson.GsonBuilder;
 
-import com.dhc.library.di.component.DaggerAppComponent;
 import me.yokeyword.fragmentation.Fragmentation;
 import me.yokeyword.fragmentation.helper.ExceptionHandler;
 
@@ -123,5 +124,7 @@ public class BaseApplication extends MultiDexApplication  implements AccountProv
             AppManager.getInstance().removeActivity(activity);
         }
     }
+
+
 
 }

@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.CheckResult;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -13,22 +15,29 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
 import com.dhc.library.constant.ToolBarOptions;
-import com.dhc.library.rxpermissions.RxPermissions;
 import com.dhc.library.utils.ToolbarUtil;
 import com.dhc.library.utils.logger.KLog;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle2.LifecycleTransformer;
+import com.trello.rxlifecycle2.RxLifecycle;
+import com.trello.rxlifecycle2.android.FragmentEvent;
+import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
 
+import io.reactivex.Observable;
+import io.reactivex.subjects.BehaviorSubject;
 import me.yokeyword.fragmentation.SupportFragment;
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
-import static com.dhc.library.data.HttpHelper.context;
+
 
 /**
  * 创建者：邓浩宸
  * 时间 ：2016/11/15 16:08
  * 描述 ：无MVP的Fragment基类
  */
-public abstract class BaseFragment extends SupportFragment {
+public abstract class BaseFragment extends SupportFragment implements LifecycleProvider<FragmentEvent> {
     private static final Handler handler = new Handler();
     private Toolbar toolbar;
     protected View mView;
@@ -78,6 +87,7 @@ public abstract class BaseFragment extends SupportFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        lifecycleSubject.onNext(FragmentEvent.CREATE_VIEW);
         int layoutId = getLayoutId();
         if (layoutId > 0)
             mView = inflater.inflate(layoutId, null);
@@ -90,7 +100,7 @@ public abstract class BaseFragment extends SupportFragment {
      * @return
      */
     @Override
-    protected FragmentAnimator onCreateFragmentAnimator() {
+    public FragmentAnimator onCreateFragmentAnimator() {
         return new DefaultHorizontalAnimator();
     }
 
@@ -228,7 +238,7 @@ public abstract class BaseFragment extends SupportFragment {
     public boolean isSHowKeyboard() {
         if (_mActivity == null || getView() == null)
             return false;
-        InputMethodManager imm = (InputMethodManager) _mActivity.getSystemService(context.INPUT_METHOD_SERVICE);
+        InputMethodManager imm = (InputMethodManager) _mActivity.getSystemService(mContext.INPUT_METHOD_SERVICE);
         if (imm.hideSoftInputFromWindow(getView().getWindowToken(), 0)) {
             imm.showSoftInput(getView(), 0);
             return true;
@@ -275,14 +285,7 @@ public abstract class BaseFragment extends SupportFragment {
         return false;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        toolbar = null;
-        mView = null;
-        mContext = null;
-        KLog.t("ui ").i("Fragment: " + getClass().getSimpleName() + " onDestroyView()");
-    }
+
 
     protected abstract int getLayoutId();
 
@@ -304,5 +307,93 @@ public abstract class BaseFragment extends SupportFragment {
         super.onSupportInvisible();
         // todo,当该Fragment对用户不可见时
     }
+
+    /**------------------------             Rxlife用于管理Rxjava的生命周期的                ------------------------*/
+    /**------------------------                            end              ------------------------*/
+
+    private final BehaviorSubject<FragmentEvent> lifecycleSubject = BehaviorSubject.create();
+
+    @Override
+    @NonNull
+    @CheckResult
+    public final Observable<FragmentEvent> lifecycle() {
+        return lifecycleSubject.hide();
+    }
+
+    @Override
+    @NonNull
+    @CheckResult
+    public final <T> LifecycleTransformer<T> bindUntilEvent(@NonNull FragmentEvent event) {
+        return RxLifecycle.bindUntilEvent(lifecycleSubject, event);
+    }
+
+    @Override
+    @NonNull
+    @CheckResult
+    public final <T> LifecycleTransformer<T> bindToLifecycle() {
+        return RxLifecycleAndroid.bindFragment(lifecycleSubject);
+    }
+
+    @Override
+    public void onAttach(android.app.Activity activity) {
+        super.onAttach(activity);
+        lifecycleSubject.onNext(FragmentEvent.ATTACH);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        lifecycleSubject.onNext(FragmentEvent.CREATE);
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        lifecycleSubject.onNext(FragmentEvent.START);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        lifecycleSubject.onNext(FragmentEvent.RESUME);
+    }
+
+    @Override
+    public void onPause() {
+        lifecycleSubject.onNext(FragmentEvent.PAUSE);
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        lifecycleSubject.onNext(FragmentEvent.STOP);
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroyView() {
+        lifecycleSubject.onNext(FragmentEvent.DESTROY_VIEW);
+        super.onDestroyView();
+        toolbar = null;
+        mView = null;
+        mContext = null;
+        KLog.t("ui ").i("Fragment: " + getClass().getSimpleName() + " onDestroyView()");
+    }
+
+    @Override
+    public void onDestroy() {
+        lifecycleSubject.onNext(FragmentEvent.DESTROY);
+        super.onDestroy();
+    }
+
+    @Override
+    public void onDetach() {
+        lifecycleSubject.onNext(FragmentEvent.DETACH);
+        super.onDetach();
+    }
+    /**------------------------             Rxlife用于管理Rxjava的生命周期的                ------------------------*/
+    /**------------------------                            end              ------------------------*/
+
 
 }

@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="52dp"/>
 
-    <com.dhc.library.widget.BottomBar
+    <com.dhc.library.widget.bottombar.BottomBar
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_52"

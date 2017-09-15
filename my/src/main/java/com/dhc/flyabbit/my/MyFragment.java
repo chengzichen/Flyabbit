@@ -11,7 +11,7 @@ import com.dhc.library.base.BaseActivity;
 import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.constant.ToolBarOptions;
-import com.dhc.library.ui.WebViewCommonFragment;
+import com.dhc.library.base.WebViewCommonFragment;
 
 /**
  * 创建者：邓浩宸

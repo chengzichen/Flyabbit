@@ -15,7 +15,7 @@ import com.dhc.flyabbit.home.presenter.contract.IGankTechContract;
 import com.dhc.flyabbit.home.ui.adapter.GankTechAdapter;
 import com.dhc.library.base.BaseActivity;
 import com.dhc.library.base.XDaggerFragment;
-import com.dhc.library.ui.WebViewCommonFragment;
+import com.dhc.library.base.WebViewCommonFragment;
 import com.dhc.library.utils.ToastUtil;
 import com.dhc.library.widget.CustomLoadMoreView;
 

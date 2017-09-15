@@ -54,8 +54,9 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
+    //test
     testCompile rootProject.ext.dependencies["junit"]
+
     //ui
     compile(rootProject.ext.dependencies["appcompat-v7"]) {
         exclude module: 'support-annotations'
@@ -72,18 +73,17 @@ dependencies {
     compile(rootProject.ext.dependencies["cardview-v7"]) {
         exclude module: 'support-annotations'
     }
+    compile rootProject.ext.dependencies["banner"]
     compile rootProject.ext.dependencies["percent"]
+    compile rootProject.ext.dependencies["ultra-ptr"]
+    compile rootProject.ext.dependencies["photoview"]
+    compile rootProject.ext.dependencies["fragmentation"]
+    compile rootProject.ext.dependencies["FlycoDialog_Lib"]
+    compile rootProject.ext.dependencies["FlycoTabLayout_Lib"]
+    compile rootProject.ext.dependencies["glide-transformations"]
+    compile rootProject.ext.dependencies["overscroll-decor-android"]
     compile rootProject.ext.dependencies["circular-progress-button-v7"]
     compile rootProject.ext.dependencies["BaseRecyclerViewAdapterHelper"]
-    compile rootProject.ext.dependencies["ultra-ptr"]
-    compile rootProject.ext.dependencies["banner"]
-
-    compile 'com.android.support:multidex:1.0.1'
-    compile 'me.everything:overscroll-decor-android:1.0.4'
-    compile 'jp.wasabeef:glide-transformations:2.0.1'
-    compile 'com.github.chrisbanes.photoview:library:+'
-    //圆角图片
-    compile 'com.joooonho:selectableroundedimageview:1.0.1'
 
     //rx
     compile rootProject.ext.dependencies["rxjava"]
@@ -99,6 +99,7 @@ dependencies {
     compile(rootProject.ext.dependencies["rxlifecycle-components"]) {
         exclude module: 'rxjava'
     }
+
     //network
     compile rootProject.ext.dependencies["gson"]
     compile (rootProject.ext.dependencies["retrofit"]) {
@@ -110,29 +111,32 @@ dependencies {
     compile(rootProject.ext.dependencies["retrofit-adapter-rxjava"]) {
         exclude module: 'rxjava'
     }
+    compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["okhttp3"]
     compile rootProject.ext.dependencies["okhttp3-logging-interceptor"]
-    compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["glide-okhttp3-integration"]
+
     //other
-    compile rootProject.ext.dependencies["FlycoDialog_Lib"]
+    compile rootProject.ext.dependencies["rxpermissions"]
+    compile rootProject.ext.dependencies["multidex"]
+
+    //db
+    compile files('libs/ormlite-android-4.49.jar')
+    compile files('libs/ormlite-core-4.49.jar')
+
     //canary
     debugCompile rootProject.ext.dependencies["blockcanary-debug"]
     releaseCompile rootProject.ext.dependencies["blockcanary-release"]
+
     //Cookie
     compile rootProject.ext.dependencies["PersistentCookieJar"]
+
     //di
     compile rootProject.ext.dependencies["dagger"]
-    provided rootProject.ext.dependencies["javax.annotation"]
     compile rootProject.ext.dependencies["arouter-api"]
-    compile files('libs/ormlite-android-4.49.jar')
-    compile files('libs/ormlite-core-4.49.jar')
-    //dagger2的apt注解
-    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
-    //阿里的Arouter的apt注解
-    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
-    //Tab这里以lib的形式进行依赖了,用于修改源码
-    compile rootProject.ext.dependencies["FlycoTabLayout_Lib"]
+    provided rootProject.ext.dependencies["javax.annotation"]
+    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]                 //dagger2的apt注解
+    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]                //阿里的Arouter的apt注解
 
 }
 

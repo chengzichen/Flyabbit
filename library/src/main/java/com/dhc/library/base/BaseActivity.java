@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
+import android.support.annotation.CheckResult;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -12,10 +15,17 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.dhc.library.constant.ToolBarOptions;
-import com.dhc.library.rxpermissions.RxPermissions;
 import com.dhc.library.utils.ToolbarUtil;
 import com.dhc.library.utils.logger.KLog;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.trello.rxlifecycle2.LifecycleProvider;
+import com.trello.rxlifecycle2.LifecycleTransformer;
+import com.trello.rxlifecycle2.RxLifecycle;
+import com.trello.rxlifecycle2.android.ActivityEvent;
+import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
 
+import io.reactivex.Observable;
+import io.reactivex.subjects.BehaviorSubject;
 import me.yokeyword.fragmentation.SupportActivity;
 
 /**
@@ -23,11 +33,12 @@ import me.yokeyword.fragmentation.SupportActivity;
  * 时间 ：2016/11/15 16:08
  * 描述 ：无MVP的activity基类
  */
-public abstract class BaseActivity extends SupportActivity {
+public abstract class BaseActivity extends SupportActivity implements LifecycleProvider<ActivityEvent> {
     protected Context mContext;
     private Toolbar toolbar;
     public RxPermissions mRxPermissions;
     private ToolbarUtil mToolbarUtil;
+    private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();//重写RxLife控制生命周期
 
     protected <T extends View> T $(int resId) {
         return (T) super.findViewById(resId);
@@ -37,12 +48,13 @@ public abstract class BaseActivity extends SupportActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        lifecycleSubject.onNext(ActivityEvent.CREATE);
         if (getLayout() > 0) {
             setContentView(getLayout());
         }
         mContext = this;
-        if(isUseRxPermissions())
-        mRxPermissions  = new RxPermissions(this);
+        if (isUseRxPermissions())
+            mRxPermissions = new RxPermissions(this);
         KLog.t("ui").i("activity: " + getClass().getSimpleName() + " onCreate()");
         initEventAndData(savedInstanceState);
     }
@@ -82,7 +94,7 @@ public abstract class BaseActivity extends SupportActivity {
             throw new RuntimeException(
                     " options is null ");
         }
-        mToolbarUtil= new ToolbarUtil(this,toolbar,haveLine);
+        mToolbarUtil = new ToolbarUtil(this, toolbar, haveLine);
         if (!TextUtils.isEmpty(options.titleString)) {
             mToolbarUtil.setTitle(options.titleString);
 
@@ -107,8 +119,8 @@ public abstract class BaseActivity extends SupportActivity {
         }
     }
 
-    public void  setTitle(String title){
-        if (mToolbarUtil!=null)
+    public void setTitle(String title) {
+        if (mToolbarUtil != null)
             mToolbarUtil.setTitle(title);
     }
 
@@ -132,9 +144,10 @@ public abstract class BaseActivity extends SupportActivity {
 
     @Override
     protected void onDestroy() {
+        lifecycleSubject.onNext(ActivityEvent.DESTROY);
         super.onDestroy();
         KLog.t("ui").i("activity: " + getClass().getSimpleName() + " onDestroy()");
-        mRxPermissions=null;
+        mRxPermissions = null;
     }
 
     /**
@@ -190,9 +203,67 @@ public abstract class BaseActivity extends SupportActivity {
 
     protected abstract void initEventAndData(Bundle savedInstanceState);
 
-    public boolean isUseRxPermissions(){
-            return false;
+    public boolean isUseRxPermissions() {
+        return false;
     }
 
 
+    /**------------------------             Rxlife用于管理Rxjava的生命周期的                ------------------------*/
+    /**
+     * ------------------------             start               ------------------------
+     */
+
+    @Override
+    @NonNull
+    @CheckResult
+    public final Observable<ActivityEvent> lifecycle() {
+        return lifecycleSubject.hide();
+    }
+
+    @Override
+    @NonNull
+    @CheckResult
+    public final <T> LifecycleTransformer<T> bindUntilEvent(@NonNull ActivityEvent event) {
+        return RxLifecycle.bindUntilEvent(lifecycleSubject, event);
+    }
+
+    @Override
+    @NonNull
+    @CheckResult
+    public final <T> LifecycleTransformer<T> bindToLifecycle() {
+        return RxLifecycleAndroid.bindActivity(lifecycleSubject);
+    }
+
+
+    @Override
+    @CallSuper
+    protected void onStart() {
+        super.onStart();
+        lifecycleSubject.onNext(ActivityEvent.START);
+    }
+
+    @Override
+    @CallSuper
+    protected void onResume() {
+        super.onResume();
+        lifecycleSubject.onNext(ActivityEvent.RESUME);
+    }
+
+    @Override
+    @CallSuper
+    protected void onPause() {
+        lifecycleSubject.onNext(ActivityEvent.PAUSE);
+        super.onPause();
+    }
+
+    @Override
+    @CallSuper
+    protected void onStop() {
+        lifecycleSubject.onNext(ActivityEvent.STOP);
+        super.onStop();
+    }
+
+
+    /**------------------------             Rxlife用于管理Rxjava的生命周期的                ------------------------*/
+    /**------------------------                            end              ------------------------*/
 }

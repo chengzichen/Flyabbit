@@ -40,7 +40,7 @@
             android:layout_marginRight="14dp"
             android:layout_marginEnd="14dp" />
     </RelativeLayout>
-        <com.dhc.library.widget.PhotoViewDialogViewPager
+        <com.dhc.library.widget.photoview.PhotoViewDialogViewPager
             android:id="@+id/vp_images"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

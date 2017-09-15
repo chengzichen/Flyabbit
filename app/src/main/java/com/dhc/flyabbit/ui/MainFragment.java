@@ -11,8 +11,8 @@ import com.dhc.flyabbit.my.MyFragment;
 import com.dhc.library.OnBackToFirstListener;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.account.AccountManager;
-import com.dhc.library.widget.BottomBar;
-import com.dhc.library.widget.BottomBarTab;
+import com.dhc.library.widget.bottombar.BottomBar;
+import com.dhc.library.widget.bottombar.BottomBarTab;
 
 import me.yokeyword.fragmentation.SupportFragment;
 
