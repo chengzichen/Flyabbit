@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.dhc.flyabbit.R;
-import com.dhc.library.OnShowHomeListener;
+import com.dhc.library.utils.delegate.OnShowHomeListener;
 import com.dhc.library.base.XDaggerActivity;
 import com.dhc.library.data.SPHelper;
 import com.dhc.library.data.net.Constants;

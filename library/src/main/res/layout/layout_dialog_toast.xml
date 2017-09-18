@@ -4,9 +4,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:maxWidth="200dp"
-    android:background="@drawable/dialog_toast_bg_shape"
+    android:background="@drawable/bg_dialog_toast_bg_shape"
     android:gravity="center"
-    android:padding="@dimen/content_padding"
+    android:padding="@dimen/dp_8"
     android:text="当前已是最新版本"
     android:textColor="@color/clr_ffffff"
     android:textSize="@dimen/sp_17" />

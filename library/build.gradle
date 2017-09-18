@@ -44,6 +44,9 @@ android {
     retrolambda {
         javaVersion JavaVersion.VERSION_1_7
     }
+    dataBinding {
+        enabled = true
+    }
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
 }

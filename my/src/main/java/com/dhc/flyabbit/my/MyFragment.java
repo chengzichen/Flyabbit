@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dhc.library.OnBackToFirstListener;
+import com.dhc.library.utils.delegate.OnBackToFirstListener;
 import com.dhc.library.base.BaseActivity;
 import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
-import com.dhc.library.constant.ToolBarOptions;
+import com.dhc.library.data.bean.ToolBarOptions;
 import com.dhc.library.base.WebViewCommonFragment;
 
 /**

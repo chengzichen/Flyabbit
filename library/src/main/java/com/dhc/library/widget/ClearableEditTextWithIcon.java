@@ -25,7 +25,7 @@ import com.dhc.library.R;
 public class ClearableEditTextWithIcon extends AppCompatEditText implements OnTouchListener, TextWatcher {
 
 	// 删除符号
-	Drawable deleteImage = getResources().getDrawable(R.mipmap.nim_icon_edit_delete);
+	Drawable deleteImage = getResources().getDrawable(R.mipmap.ic_edit_delete);
 
 	Drawable icon;
 	//输入表情前的光标位置

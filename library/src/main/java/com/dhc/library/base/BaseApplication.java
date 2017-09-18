@@ -3,12 +3,11 @@ package com.dhc.library.base;
 
 import android.app.Activity;
 import android.app.Application;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.dhc.library.AppManager;
+import com.dhc.library.utils.AppManager;
 import com.dhc.library.data.account.Account;
 import com.dhc.library.data.account.AccountProvider;
 import com.dhc.library.data.bean.LoginBean;

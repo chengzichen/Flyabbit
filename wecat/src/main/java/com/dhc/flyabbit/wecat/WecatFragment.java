@@ -6,7 +6,7 @@ import android.view.View;
 import com.dhc.library.OnBackToFirstListener;
 import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
-import com.dhc.library.constant.ToolBarOptions;
+import com.dhc.library.bean.ToolBarOptions;
 
 /**
  * 创建者：邓浩宸

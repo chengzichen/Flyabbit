@@ -17,7 +17,7 @@ import com.dhc.flyabbit.home.di.HomeDiHelper;
 import com.dhc.flyabbit.home.presenter.TopGirlPresenter;
 import com.dhc.flyabbit.home.presenter.contract.ITopGirlContract;
 import com.dhc.flyabbit.home.ui.adapter.ViewPagerAdapter;
-import com.dhc.library.AppManager;
+import com.dhc.library.utils.AppManager;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.utils.sys.ScreenUtil;
 import com.flyco.animation.BounceEnter.BounceTopEnter;

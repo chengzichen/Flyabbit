@@ -10,7 +10,7 @@ import com.bumptech.glide.request.target.Target;
 import com.dhc.flyabbit.home.modle.GankRemoteDataService;
 import com.dhc.flyabbit.home.modle.bean.GankItemBean;
 import com.dhc.flyabbit.home.presenter.contract.ITopGirlContract;
-import com.dhc.library.base.RxPresenter;
+import com.dhc.library.base.XPresenter;
 import com.dhc.library.data.DatabaseHelper;
 import com.dhc.library.data.net.GankApiResponse;
 import com.dhc.library.data.net.GankSubscriber;
@@ -32,7 +32,7 @@ import io.reactivex.functions.Function;
  * @date 2017/8/26 17:37
  * @description TODO
  */
-public class TopGirlPresenter extends RxPresenter<ITopGirlContract.IView> implements ITopGirlContract.IPresenter {
+public class TopGirlPresenter extends XPresenter<ITopGirlContract.IView> implements ITopGirlContract.IPresenter {
 
     private GankRemoteDataService mZhiHuRemoteDataService;
 

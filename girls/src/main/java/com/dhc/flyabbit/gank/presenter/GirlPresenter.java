@@ -4,7 +4,7 @@ package com.dhc.flyabbit.gank.presenter;
 import com.dhc.flyabbit.gank.modle.GirlRemoteDataService;
 import com.dhc.flyabbit.gank.modle.bean.GankItemBean;
 import com.dhc.flyabbit.gank.presenter.contract.IGirlContract;
-import com.dhc.library.base.RxPresenter;
+import com.dhc.library.base.XPresenter;
 import com.dhc.library.data.net.GankApiResponse;
 import com.dhc.library.data.net.GankSubscriber;
 import com.dhc.library.utils.rx.BaseSubscriberListener;
@@ -19,7 +19,7 @@ import javax.inject.Inject;
  * 描述	  妹纸
  */
 
-public class GirlPresenter extends RxPresenter<IGirlContract.IView> implements IGirlContract.IPresenter {
+public class GirlPresenter extends XPresenter<IGirlContract.IView> implements IGirlContract.IPresenter {
     private int currentPage = 1;
     private GirlRemoteDataService mGirlRemoteDataService;
 

@@ -65,7 +65,7 @@ public class PhotoViewDialog extends Dialog {
     }
 
     private void initView() {
-        mView = View.inflate(mContext, R.layout.form_libfrary_dialog_images_brower, null);
+        mView = View.inflate(mContext, R.layout.layout_dialog_images_brower, null);
         mViewPager = (PhotoViewDialogViewPager) mView.findViewById(R.id.vp_images);
         mIndexText = (TextView) mView.findViewById(R.id.tv_image_index);
         iv_save_Image=(ImageView)mView.findViewById(R.id.iv_save_Image);
@@ -110,7 +110,7 @@ public class PhotoViewDialog extends Dialog {
             photoView.setOnPhotoTapListener(listener);
             Glide.with(mContext)
                     .load(mImgUrls.get(i))
-                    .error(R.mipmap.ic_camera)
+                    .error(R.mipmap.result_failed)
                     .into(new SimpleTarget<GlideDrawable>() {
                         @Override
                         public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {

@@ -14,7 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.dhc.library.constant.ToolBarOptions;
+import com.dhc.library.R;
+import com.dhc.library.data.bean.ToolBarOptions;
 import com.dhc.library.utils.ToolbarUtil;
 import com.dhc.library.utils.logger.KLog;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -154,22 +155,27 @@ public abstract class BaseActivity extends SupportActivity implements LifecycleP
      * 重新加载本页面
      */
     public final void reload() {
-        reload(getIntent());
+        reload(false);
     }
 
     /**
      * 重新加载
      *
-     * @param intent
+     * @param isNeedAnim  是否是需要动画
      */
-    public final void reload(Intent intent) {
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        finish();
-        startActivity(intent);
-        overridePendingTransition(0, 0);
+    public final void reload(boolean isNeedAnim) {
+        if (isNeedAnim) {
+            getWindow().setWindowAnimations(R.style.WindowAnimationFadeInOut);
+            recreate();
+        } else {
+            Intent intent = getIntent();
+            overridePendingTransition(0, 0);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            finish();
+            overridePendingTransition(0, 0);
+            startActivity(intent);
+        }
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (-1 != getMenuId())

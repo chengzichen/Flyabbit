@@ -4,7 +4,7 @@ package com.dhc.flyabbit.home.app;
 import android.app.Application;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.dhc.library.ApplicationLike;
+import com.dhc.library.utils.ApplicationLike;
 import com.dhc.library.base.BaseChildApplication;
 
 

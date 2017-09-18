@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.dhc.flyabbit.gank.R;
-import com.dhc.library.OnBackToFirstListener;
+import com.dhc.library.utils.delegate.OnBackToFirstListener;
 import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
-import com.dhc.library.constant.ToolBarOptions;
+import com.dhc.library.data.bean.ToolBarOptions;
 import com.flyco.tablayout.listener.CustomTabEntity;
 
 import java.util.ArrayList;

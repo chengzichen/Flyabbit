@@ -46,7 +46,7 @@ public class ImageUtil {
 
     public static Bitmap getDefaultBitmapWhenGetFail() {
         try {
-            return getBitmapImmutableCopy(AppContext.get().getResources(), R.mipmap.nim_image_download_failed);
+            return getBitmapImmutableCopy(AppContext.get().getResources(), R.mipmap.image_download_failed);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

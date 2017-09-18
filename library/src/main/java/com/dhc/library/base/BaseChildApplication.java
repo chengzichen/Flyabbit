@@ -4,8 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
-import com.dhc.library.ApplicationLike;
+import com.dhc.library.utils.ApplicationLike;
 import com.dhc.library.utils.logger.KLog;
 
 

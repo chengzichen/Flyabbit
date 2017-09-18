@@ -14,7 +14,7 @@ import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 
 import com.dhc.library.R;
-import com.dhc.library.constant.ToolBarOptions;
+import com.dhc.library.data.bean.ToolBarOptions;
 import com.dhc.library.widget.ProgressWebView;
 
 import java.lang.reflect.Method;

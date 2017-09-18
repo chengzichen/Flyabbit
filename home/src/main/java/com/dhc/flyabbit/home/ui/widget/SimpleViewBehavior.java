@@ -137,7 +137,7 @@ public class SimpleViewBehavior extends CoordinatorLayout.Behavior<View> {
             mStartBackgroundColor = ((ColorDrawable) child.getBackground()).getColor();
         }
 
-        // if there is animation id, load it and initialize
+        // if there is animation id, layer_load it and initialize
         if (mAnimationId != 0) {
             mAnimation = AnimationUtils.loadAnimation(child.getContext(), mAnimationId);
             mAnimation.initialize(child.getWidth(), child.getHeight(), parent.getWidth(), parent.getHeight());

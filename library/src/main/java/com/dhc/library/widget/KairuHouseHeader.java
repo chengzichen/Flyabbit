@@ -53,7 +53,7 @@ public class KairuHouseHeader extends FrameLayout implements PtrUIHandler {
             mRotateAniTime = arr.getInt(R.styleable.KaiRuPtrClassicHeader_kairu_ptr_rotate_ani_time, mRotateAniTime);
         }
         buildAnimation();
-        View header = LayoutInflater.from(getContext()).inflate(R.layout.layout_cube_ptr_classic_default_header, this);
+        View header = LayoutInflater.from(getContext()).inflate(R.layout.layout_cube_ptr_default_header, this);
 
         mRotateView = header.findViewById(R.id.ptr_classic_header_rotate_view);
 

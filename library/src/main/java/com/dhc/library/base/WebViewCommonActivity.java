@@ -10,7 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.dhc.library.R;
-import com.dhc.library.constant.ToolBarOptions;
+import com.dhc.library.data.bean.ToolBarOptions;
 import com.dhc.library.widget.ProgressWebView;
 
 import java.lang.reflect.InvocationTargetException;
@@ -54,7 +54,7 @@ public class WebViewCommonActivity extends XDaggerActivity {
         mProgressWebView = (ProgressWebView) findViewById(R.id.webview_progress);
         WebSettings ws = mProgressWebView.getSettings();
         ws.setJavaScriptEnabled(true);
-        //Don't use the cache, load from the network.不设置缓存,暂时
+        //Don't use the cache, layer_load from the network.不设置缓存,暂时
         ws.setCacheMode(WebSettings.LOAD_NO_CACHE);
         //ws.setAppCachePath(SystemUtility.getAppCachePath() + "web");// 设置应用缓存的路径
         //提高渲染优先级

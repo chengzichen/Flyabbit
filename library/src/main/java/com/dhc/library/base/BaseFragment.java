@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
-import com.dhc.library.constant.ToolBarOptions;
+import com.dhc.library.data.bean.ToolBarOptions;
 import com.dhc.library.utils.ToolbarUtil;
 import com.dhc.library.utils.logger.KLog;
 import com.tbruyelle.rxpermissions2.RxPermissions;

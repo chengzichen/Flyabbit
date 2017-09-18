@@ -30,7 +30,7 @@
             android:id="@+id/iv_join"
             android:layout_marginBottom="25dip"
             android:layout_gravity="bottom|center"
-            android:background="@drawable/shape_bnt_white"
+            android:background="@drawable/bg_bnt_white_shape"
             android:layout_width="117dp"
             android:layout_height="34dp"
             android:textSize="@dimen/sp_15"

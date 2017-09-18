@@ -12,7 +12,7 @@ public final class CustomLoadMoreView extends LoadMoreView {
 
     @Override
     public int getLayoutId() {
-        return R.layout.nim_view_load_more;
+        return R.layout.layout_load_more;
     }
 
     @Override

@@ -21,7 +21,7 @@ public class LoadingDialog {
         }
         dialog = new Dialog(context, R.style.dialog);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.loading_dialog);
+        dialog.setContentView(R.layout.layout_loading_dialog);
         WindowManager.LayoutParams lp = dialog.getWindow().getAttributes();
         lp.dimAmount = 0.5f;
         dialog.getWindow().setAttributes(lp);

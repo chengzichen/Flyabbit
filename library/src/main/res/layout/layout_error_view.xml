@@ -29,7 +29,7 @@
         android:layout_gravity="center"
         android:text="@string/kairu_lib_refresh"
         android:textColor="@color/clr_ffffff"
-        android:background="@drawable/content_net_error_shape"
+        android:background="@drawable/bg_content_net_error_shape"
         android:layout_marginBottom="170dp"
         android:textSize="@dimen/sp_20" />
     </LinearLayout>

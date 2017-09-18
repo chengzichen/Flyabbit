@@ -7,8 +7,8 @@ import android.support.v7.app.AppCompatDelegate;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.dhc.library.ApplicationLike;
-import com.dhc.library.AsLibUtil;
+import com.dhc.library.utils.ApplicationLike;
+import com.dhc.library.utils.AsLibUtil;
 import com.dhc.library.base.BaseApplication;
 import com.squareup.leakcanary.LeakCanary;
 

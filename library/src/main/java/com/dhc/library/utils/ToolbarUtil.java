@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dhc.library.R;
-import com.dhc.library.constant.OptionsButton;
+import com.dhc.library.data.bean.OptionsButton;
 import com.dhc.library.utils.sys.ScreenUtil;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class ToolbarUtil {
         mActivity = activity;
         this.toolbar = toolbar;
         if (haveLine) {
-            toolbar.setBackgroundResource(R.drawable.toolbat_bg_shape);
+            toolbar.setBackgroundResource(R.drawable.bg_toolbat_shape);
             toolbar.setPadding(0, 0, 0, ScreenUtil.dip2px(1f));
         }
     }
@@ -78,7 +78,7 @@ public class ToolbarUtil {
                 layoutParams = new Toolbar.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.MATCH_PARENT, Gravity.RIGHT | Gravity.CENTER);
                 rightImageView = new ImageView(mActivity);
                 rightImageView.setImageResource(button.iconId);
-                rightImageView.setBackgroundResource(R.drawable.nim_nim_action_bar_button_selector);
+                rightImageView.setBackgroundResource(R.drawable.bg_tool_bar_button_selector);
                 rightImageView.setPadding(ScreenUtil.dip2px(16), 0, ScreenUtil.dip2px(16), 0);
                 rightImageView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -110,7 +110,7 @@ public class ToolbarUtil {
                 } else {
                     layoutParams = new Toolbar.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.MATCH_PARENT, Gravity.RIGHT | Gravity.CENTER);
                     textView.setText(button.rightString);
-                    textView.setBackgroundResource(R.drawable.nim_nim_action_bar_button_selector);
+                    textView.setBackgroundResource(R.drawable.bg_tool_bar_button_selector);
                     mTVRightString = textView;
                 }
                 if (button.rightColor == 2) {

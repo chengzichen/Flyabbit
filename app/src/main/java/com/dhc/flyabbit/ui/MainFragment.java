@@ -8,7 +8,7 @@ import com.dhc.flyabbit.R;
 import com.dhc.flyabbit.gank.ui.GankFragment;
 import com.dhc.flyabbit.home.ui.HomeFragment;
 import com.dhc.flyabbit.my.MyFragment;
-import com.dhc.library.OnBackToFirstListener;
+import com.dhc.library.utils.delegate.OnBackToFirstListener;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.account.AccountManager;
 import com.dhc.library.widget.bottombar.BottomBar;

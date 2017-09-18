@@ -95,7 +95,7 @@
 
 
     <style name="mProgress_circle">
-        <item name="android:indeterminateDrawable">@drawable/load</item>
+        <item name="android:indeterminateDrawable">@drawable/layer_load</item>
         <item name="android:minWidth">25dp</item>
         <item name="android:minHeight">25dp</item>
         <item name="android:maxWidth">25dp</item>
@@ -121,5 +121,10 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:background">@color/clr_00000000</item>
         <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="WindowAnimationFadeInOut">
+        <item name="@android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="@android:windowExitAnimation">@anim/fade_out</item>
     </style>
 </resources>
