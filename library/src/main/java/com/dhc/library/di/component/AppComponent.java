@@ -35,4 +35,5 @@ public interface AppComponent {
      * that depend on {@link AppComponent}.
      */
     Random random();
+
 }

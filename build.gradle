@@ -20,6 +20,10 @@ allprojects {
         jcenter()
         mavenCentral()
         maven { url "https://jitpack.io" }
+        maven {
+            // All of React Native (JS, Android binaries) is installed from npm
+            url "$rootDir/./rn/node_modules/react-native/android"
+        }
     }
     tasks.withType(Javadoc) {
         options.addStringOption('Xdoclint:none', '-quiet')

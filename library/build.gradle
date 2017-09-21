@@ -140,7 +140,7 @@ dependencies {
     provided rootProject.ext.dependencies["javax.annotation"]
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]                 //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]                //阿里的Arouter的apt注解
-
+    compile "com.facebook.react:react-native:+" // From node_modules.
 }
 
 

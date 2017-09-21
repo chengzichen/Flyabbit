@@ -82,6 +82,9 @@ android {
         //javaMaxHeapSize "4g"
         preDexLibraries false
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -109,9 +112,11 @@ dependencies {
             exclude module: 'library'
         }
         compile project(':library')
+        compile project(':rn')
     } else {
         compile project(':my')
         compile project(':home')
         compile project(':girls')
+        compile project(':rn')
     }
 }

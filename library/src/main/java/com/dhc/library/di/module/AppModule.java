@@ -8,6 +8,7 @@ import com.dhc.library.data.DatabaseHelper;
 import com.dhc.library.data.HttpHelper;
 import com.dhc.library.data.IDataHelper;
 import com.dhc.library.di.ContextLife;
+import com.dhc.library.utils.AppUtil;
 
 import java.util.Random;
 
@@ -33,6 +34,7 @@ public class AppModule {
     @Singleton
     @ContextLife("Application")
     BaseApplication provideApplicationContext() {
+        AppUtil.syncIsDebug(application.getApplicationContext());
         return application;
     }
 
@@ -56,5 +58,6 @@ public class AppModule {
     public Random random() {
         return new Random();
     }
+
 
 }

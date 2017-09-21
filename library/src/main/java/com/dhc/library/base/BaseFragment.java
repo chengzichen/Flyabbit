@@ -15,6 +15,8 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
 import com.dhc.library.data.bean.ToolBarOptions;
+import com.dhc.library.di.IDaggerListener;
+import com.dhc.library.di.module.FragmentModule;
 import com.dhc.library.utils.ToolbarUtil;
 import com.dhc.library.utils.logger.KLog;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -37,7 +39,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  * 时间 ：2016/11/15 16:08
  * 描述 ：无MVP的Fragment基类
  */
-public abstract class BaseFragment extends SupportFragment implements LifecycleProvider<FragmentEvent> {
+public abstract class BaseFragment extends SupportFragment implements LifecycleProvider<FragmentEvent>,IDaggerListener {
     private static final Handler handler = new Handler();
     private Toolbar toolbar;
     protected View mView;
@@ -91,6 +93,7 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
         int layoutId = getLayoutId();
         if (layoutId > 0)
             mView = inflater.inflate(layoutId, null);
+        initInject(savedInstanceState);
         return mView;
     }
 
@@ -173,6 +176,10 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
                 }
             });
         }
+    }
+
+    protected FragmentModule getFragmentModule() {
+        return new FragmentModule(this);
     }
 
     protected  void doYouWantTodo(){
