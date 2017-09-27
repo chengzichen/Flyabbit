@@ -16,6 +16,8 @@ import android.view.View;
 
 import com.dhc.library.R;
 import com.dhc.library.data.bean.ToolBarOptions;
+import com.dhc.library.di.IDaggerListener;
+import com.dhc.library.di.module.ActivityModule;
 import com.dhc.library.utils.ToolbarUtil;
 import com.dhc.library.utils.logger.KLog;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -34,7 +36,7 @@ import me.yokeyword.fragmentation.SupportActivity;
  * 时间 ：2016/11/15 16:08
  * 描述 ：无MVP的activity基类
  */
-public abstract class BaseActivity extends SupportActivity implements LifecycleProvider<ActivityEvent> {
+public abstract class BaseActivity extends SupportActivity implements LifecycleProvider<ActivityEvent>,IDaggerListener {
     protected Context mContext;
     private Toolbar toolbar;
     public RxPermissions mRxPermissions;
@@ -48,6 +50,7 @@ public abstract class BaseActivity extends SupportActivity implements LifecycleP
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        initInject(savedInstanceState);
         super.onCreate(savedInstanceState);
         lifecycleSubject.onNext(ActivityEvent.CREATE);
         if (getLayout() > 0) {
@@ -71,6 +74,11 @@ public abstract class BaseActivity extends SupportActivity implements LifecycleP
                 onBackPressedSupport();
             }
         });
+    }
+
+
+    protected ActivityModule getActivityModule() {
+        return new ActivityModule(this);
     }
 
     /**

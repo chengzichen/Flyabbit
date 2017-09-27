@@ -8,9 +8,10 @@ import com.dhc.flyabbit.R;
 import com.dhc.flyabbit.gank.ui.GankFragment;
 import com.dhc.flyabbit.home.ui.HomeFragment;
 import com.dhc.flyabbit.my.MyFragment;
-import com.dhc.library.utils.delegate.OnBackToFirstListener;
+import com.dhc.flyabbit.rn.ReactNativeFragment;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.account.AccountManager;
+import com.dhc.library.utils.delegate.OnBackToFirstListener;
 import com.dhc.library.widget.bottombar.BottomBar;
 import com.dhc.library.widget.bottombar.BottomBarTab;
 
@@ -27,13 +28,14 @@ import me.yokeyword.fragmentation.SupportFragment;
 public class MainFragment extends XDaggerFragment implements OnBackToFirstListener {
 
     private BottomBar mBottomBar;
-    private String[] mTitles = {"干货", "妹子", "关于"};
+    private String[] mTitles = {"干货", "妹子","ReactNative", "关于"};
     private int[] mIconUnselectIds = {
             R.mipmap.ic_drawer_gank,
-            R.mipmap.ic_drawer_meizi, R.mipmap.ic_drawer_setting};
+            R.mipmap.ic_drawer_meizi, R.mipmap.ic_drawer_setting,R.mipmap.ic_drawer_setting};
     public static final int FIRST = 0;
     public static final int SECOND = 1;
     public static final int THIRD = 2;
+    public static final int FOUR = 3;
     public int current = -1;
     private SupportFragment[] mFragments = new SupportFragment[4];
 
@@ -49,7 +51,8 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
         mBottomBar = (BottomBar) view.findViewById(R.id.bottomBar);
         mBottomBar.addItem(new BottomBarTab(_mActivity, mIconUnselectIds[0], mTitles[0]))
                 .addItem(new BottomBarTab(_mActivity, mIconUnselectIds[1], mTitles[1]))
-                .addItem(new BottomBarTab(_mActivity, mIconUnselectIds[2], mTitles[2]));
+                .addItem(new BottomBarTab(_mActivity, mIconUnselectIds[2], mTitles[2]))
+                .addItem(new BottomBarTab(_mActivity, mIconUnselectIds[3], mTitles[3]));
 
 
         mBottomBar.setOnTabSelectedListener(new BottomBar.OnTabSelectedListener() {
@@ -86,15 +89,18 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
         if (savedInstanceState == null) {
             mFragments[FIRST] = HomeFragment.newInstance();
             mFragments[SECOND] = GankFragment.newInstance();
-            mFragments[THIRD] = MyFragment.newInstance();
+            mFragments[THIRD] = ReactNativeFragment.newInstance();
+            mFragments[FOUR] = MyFragment.newInstance();
             loadMultipleRootFragment(R.id.fl_tab_container, FIRST,
                     mFragments[FIRST],
                     mFragments[SECOND],
-                    mFragments[THIRD]);
+                    mFragments[THIRD],
+                    mFragments[FOUR]);
         } else {
             mFragments[FIRST] = findChildFragment(HomeFragment.class);
             mFragments[SECOND] = findChildFragment(GankFragment.class);
-            mFragments[THIRD] = findChildFragment(MyFragment.class);
+            mFragments[THIRD] = findChildFragment(ReactNativeFragment.class);
+            mFragments[FOUR] = findChildFragment(MyFragment.class);
         }
     }
 

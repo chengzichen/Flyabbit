@@ -70,6 +70,9 @@ android {
         //javaMaxHeapSize "4g"
         preDexLibraries false
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {

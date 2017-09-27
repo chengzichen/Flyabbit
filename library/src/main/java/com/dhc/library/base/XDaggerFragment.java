@@ -3,12 +3,9 @@ package com.dhc.library.base;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.dhc.library.di.IDaggerListener;
-import com.dhc.library.di.module.FragmentModule;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import javax.inject.Inject;
@@ -23,19 +20,8 @@ public abstract class XDaggerFragment<T extends IBasePresenter> extends BaseFrag
     @Inject
     protected T mPresenter;
     public boolean isShowView=false;
-    protected FragmentModule getFragmentModule() {
-        return new FragmentModule(this);
-    }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        int layoutId = getLayoutId();
-        if (layoutId > 0)
-            mView = inflater.inflate(layoutId, null);
-        initInject(savedInstanceState);
-        return mView;
-    }
+
 
     @Override
     public <E> LifecycleTransformer<E> bindLifecycle() {
