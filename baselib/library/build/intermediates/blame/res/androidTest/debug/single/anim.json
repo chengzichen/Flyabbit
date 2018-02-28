@@ -1,0 +1,198 @@
+[
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\v_fragment_pop_exit.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\fragmentation-core-1.1.8.aar\\b4884eab160735b0ace6f0915629c7af\\res\\anim\\v_fragment_pop_exit.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\dd_mask_in.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\dd_mask_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\v_fragment_exit.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\fragmentation-core-1.1.8.aar\\b4884eab160735b0ace6f0915629c7af\\res\\anim\\v_fragment_exit.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\pop_exit_no_anim.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\pop_exit_no_anim.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\step_in_right.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\step_in_right.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\step_out_right.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\step_out_right.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\h_fragment_pop_enter.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\fragmentation-core-1.1.8.aar\\b4884eab160735b0ace6f0915629c7af\\res\\anim\\h_fragment_pop_enter.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\29bc57e9230b6fddf44890b943d92b0d\\res\\anim\\design_snackbar_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\fade_out.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\uikit\\build\\intermediates\\bundles\\debug\\res\\anim\\fade_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\h_fragment_enter.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\fragmentation-core-1.1.8.aar\\b4884eab160735b0ace6f0915629c7af\\res\\anim\\h_fragment_enter.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\pickerview_dialog_scale_in.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\Android-PickerView-3.2.6.aar\\64b676b0f346615571644e4e98ee07b2\\res\\anim\\pickerview_dialog_scale_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\tooltip_enter.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\tooltip_enter.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\dd_menu_in.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\dd_menu_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\29bc57e9230b6fddf44890b943d92b0d\\res\\anim\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\anim_left_in.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\marqueeview-1.3.2.aar\\e1bb34479bf70e905c391e39688741c9\\res\\anim\\anim_left_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\anim_top_in.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\marqueeview-1.3.2.aar\\e1bb34479bf70e905c391e39688741c9\\res\\anim\\anim_top_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\anim_bottom_out.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\marqueeview-1.3.2.aar\\e1bb34479bf70e905c391e39688741c9\\res\\anim\\anim_bottom_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\not.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\not.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\pickerview_dialog_scale_out.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\Android-PickerView-3.2.6.aar\\64b676b0f346615571644e4e98ee07b2\\res\\anim\\pickerview_dialog_scale_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\dd_mask_out.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\dd_mask_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\29bc57e9230b6fddf44890b943d92b0d\\res\\anim\\design_snackbar_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\pickerview_slide_in_bottom.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\Android-PickerView-3.2.6.aar\\64b676b0f346615571644e4e98ee07b2\\res\\anim\\pickerview_slide_in_bottom.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\dd_menu_out.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\dd_menu_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\fade_in.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\uikit\\build\\intermediates\\bundles\\debug\\res\\anim\\fade_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\tooltip_exit.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\tooltip_exit.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\v_fragment_pop_enter.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\fragmentation-core-1.1.8.aar\\b4884eab160735b0ace6f0915629c7af\\res\\anim\\v_fragment_pop_enter.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\design-26.1.0.aar\\29bc57e9230b6fddf44890b943d92b0d\\res\\anim\\design_bottom_sheet_slide_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\anim_right_out.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\marqueeview-1.3.2.aar\\e1bb34479bf70e905c391e39688741c9\\res\\anim\\anim_right_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\anim_left_out.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\marqueeview-1.3.2.aar\\e1bb34479bf70e905c391e39688741c9\\res\\anim\\anim_left_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\pickerview_slide_out_bottom.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\Android-PickerView-3.2.6.aar\\64b676b0f346615571644e4e98ee07b2\\res\\anim\\pickerview_slide_out_bottom.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\h_fragment_exit.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\fragmentation-core-1.1.8.aar\\b4884eab160735b0ace6f0915629c7af\\res\\anim\\h_fragment_exit.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\anim_top_out.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\marqueeview-1.3.2.aar\\e1bb34479bf70e905c391e39688741c9\\res\\anim\\anim_top_out.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\login_in_below.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\login_in_below.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\v_fragment_enter.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\fragmentation-core-1.1.8.aar\\b4884eab160735b0ace6f0915629c7af\\res\\anim\\v_fragment_enter.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\anim_bottom_in.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\marqueeview-1.3.2.aar\\e1bb34479bf70e905c391e39688741c9\\res\\anim\\anim_bottom_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\no_anim.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\no_anim.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\e696831606a5d852bd5759bd58e283d8\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\h_fragment_pop_exit.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\fragmentation-core-1.1.8.aar\\b4884eab160735b0ace6f0915629c7af\\res\\anim\\h_fragment_pop_exit.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\anim_right_in.xml",
+        "source": "C:\\Users\\win7\\.gradle\\caches\\transforms-1\\files-1.1\\marqueeview-1.3.2.aar\\e1bb34479bf70e905c391e39688741c9\\res\\anim\\anim_right_in.xml"
+    },
+    {
+        "merged": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\res\\merged\\androidTest\\debug\\anim\\login_out_below.xml",
+        "source": "D:\\demo\\Flyabbit\\baselib\\library\\build\\intermediates\\bundles\\debug\\res\\anim\\login_out_below.xml"
+    }
+]
