@@ -1,16 +1,16 @@
 ext {
 
     android = [
-            compileSdkVersion      : 25,
-            buildToolsVersion      : "26.0.0",
+            compileSdkVersion      : 26,
+            buildToolsVersion      : "26.0.2",
 
             minSdkVersion          : 15,
-            targetSdkVersion       : 24,
+            targetSdkVersion       : 26,
 
             versionCode            : 1,
-            versionName            : '1.0.0',
+            versionName            : '.1.0',
 
-            VSupportSdk            : '25.2.0',
+            VSupportSdk            : '26.+',
             VJunit                 : '4.12',
             VRxlifecycle           : "2.0.1",
 
@@ -26,6 +26,7 @@ ext {
             VOkIntegration         : "1.4.0@aar",
             VGson                  : "2.7",
             VGlide                 : "3.7.0",
+            Vjackson               : "2.9.1",
 
             //canary.
             VBlockcanary           : "1.2.1",
@@ -33,15 +34,17 @@ ext {
 
             //other
             VFlycoDialog_Lib       : "1.3.2@aar",
-            VFragmentation         : "0.10.4",
+            VFragmentation         : "1.1.8",
             VLogger                : "1.15",
             VEventbus              : "3.0.0",
             VAvi_loading           : "2.1.3",
             VJpush                 : "3.0.5",
             VJcore                 : "1.1.2",
-            VMultidex                 : "1.0.1",
+            VMultidex              : "1.0.2",
+            VRxCache               : "1.8.1-2.x",
+            VJolyglotGson          : "0.0.3",
             //di
-            VDagger                : "2.0.2",
+            VDagger                : "2.13",
             VButterknife           : "8.4.0",
             VAroutercompiler       : "1.1.2.1",
             VArouterapi            : "1.2.1.1",
@@ -49,18 +52,24 @@ ext {
             VBaseAdapterHelper     : "2.9.27",
             VUltraPtr              : "1.0.11",
             VFlycoTabLayout_Lib    : "2.1.2@aar",
-            VBanner                : "1.4.9",
+            VBanner                : "1.4.10",
             VOverscrollDecorAndroid: "1.0.4",
             VGlideTransformations  : "2.0.1",
             VPhotoview             : "library:+",
+            VMarqueelibrary        : "1.3.2",
+            VVlayout               : "1.2.2@aar",
+            VCountdownview         : "2.1.6",
+            VMagicIndicator        : "1.5.0",
+            VSwitchbutton          : "1.4.6",
+            VPickerView            : "3.2.6",
+            VZxingAndroidEmbedded  : "3.5.0",
+            VZxing                 : "3.3.1",
+            VFlowlayout            : "1.1.2",
 
     ]
 
     //上传时修改aar版本号
     uploadArchives = [
-            "homelib" : "1.0.0",
-            "girlslib": "1.0.0",
-            "mylib"   : "1.0.0",
     ]
 
     dependencies = [
@@ -83,7 +92,15 @@ ext {
             "overscroll-decor-android"     : "me.everything:overscroll-decor-android:${android["VOverscrollDecorAndroid"]}",
             "glide-transformations"        : "jp.wasabeef:glide-transformations:${android["VGlideTransformations"]}",
             "photoview"                    : "com.github.chrisbanes.photoview:${android["VPhotoview"]}",
-
+            "marqueelibrary"               : "com.sunfusheng:marqueeview:${android["VMarqueelibrary"]}",
+            "vlayout"                      : "com.alibaba.android:vlayout:${android["VVlayout"]}",
+            "countdownview"                : "com.github.iwgang:countdownview:${android["VCountdownview"]}",
+            "MagicIndicator"               : "com.github.hackware1993:MagicIndicator:${android["VMagicIndicator"]}",
+            "switchbutton"                 : "com.kyleduo.switchbutton:library:${android["VSwitchbutton"]}",
+            "PickerView"                   : "com.contrarywind:Android-PickerView:${android["VPickerView"]}",
+            "zxing-android-embedded"       : "com.journeyapps:zxing-android-embedded:${android["VZxingAndroidEmbedded"]}",
+            "zxing"                        : "com.google.zxing:core:${android["VZxing"]}",
+            "flowlayout"                   : "com.hyman:flowlayout-lib:${android["VFlowlayout"]}",
             //rx
             "rxandroid"                    : "io.reactivex.rxjava2:rxandroid:${android["VRxandroid"]}",
             "rxjava"                       : "io.reactivex.rxjava2:rxjava:${android["VRxjava"]}",
@@ -95,9 +112,12 @@ ext {
             "gson"                         : "com.google.code.gson:gson:${android["VGson"]}",
             "retrofit"                     : "com.squareup.retrofit2:retrofit:${android["VRetrofitSdk"]}",
             "retrofit-converter-gson"      : "com.squareup.retrofit2:converter-gson:${android["VRetrofitSdk"]}",
+            "retrofit-converter-jackson"   : "com.squareup.retrofit2:converter-jackson:${android["VRetrofitSdk"]}",
             "retrofit-adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava2:${android["VRetrofitSdk"]}",
             "okhttp3-logging-interceptor"  : "com.squareup.okhttp3:logging-interceptor:${android["VOkhttp"]}",
             "okhttp3"                      : "com.squareup.okhttp3:okhttp:${android["VOkhttp"]}",
+            "jackson-core"                 : "com.fasterxml.jackson.core:jackson-core:${android["Vjackson"]}",
+            "jackson-annotation"           : "com.fasterxml.jackson.core:jackson-annotations:${android["Vjackson"]}",
             "glide"                        : "com.github.bumptech.glide:glide:${android["VGlide"]}",
             "glide-okhttp3-integration"    : "com.github.bumptech.glide:okhttp3-integration:${android["VOkIntegration"]}",
             //canary
@@ -115,7 +135,9 @@ ext {
             "avi-loading"                  : "com.wang.avi:library:${android["VAvi_loading"]}",
             "jpush"                        : "cn.jiguang.sdk:jpush:${android["VJpush"]}",
             "jcore"                        : "cn.jiguang.sdk:jcore:${android["VJcore"]}",
-            "multidex"                        : "com.android.support:multidex:${android["VMultidex"]}",
+            "multidex"                     : "com.android.support:multidex:${android["VMultidex"]}",
+            "RxCache"                      : "com.github.VictorAlbertos.RxCache:runtime:${android["VRxCache"]}",
+            "Jolyglot-Gson"                : "com.github.VictorAlbertos.Jolyglot:gson:${android["VJolyglotGson"]}",
             //di
             "javax.annotation"             : 'javax.annotation:jsr250-api:1.0',
             "dagger"                       : "com.google.dagger:dagger:${android["VDagger"]}",
@@ -124,12 +146,5 @@ ext {
             "butterknife-apt"              : "com.jakewharton:butterknife-compiler:${android["VButterknife"]}",
             "arouter-compiler"             : "com.alibaba:arouter-compiler:${android["VAroutercompiler"]}",
             "arouter-api"                  : "com.alibaba:arouter-api:${android["VArouterapi"]}",
-
-            //本地lib ,这是本地的maven服务的@arr,进行更新的话请看modle下的deploy.sh文件,更新版本请修改上面uploadArchives对应版本
-
-
-            "homelib"                      : "com.dhc.flyabbit.home:homelib:${uploadArchives["homelib"]}",
-            "girlslib"                     : "com.dhc.flyabbit.girls:girlslib:${uploadArchives["girlslib"]}",
-            "mylib"                        : "com.dhc.flyabbit.my:mylib:${uploadArchives["mylib"]}",
     ]
 }

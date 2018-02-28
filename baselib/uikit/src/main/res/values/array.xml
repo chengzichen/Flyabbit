@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 数据库Entity Class -->
+    <string-array name="db_tb">
+        <item>com.kairu.library.data.dao.Channel</item>
+        <item>com.kairu.library.data.dao.NewsItem</item>
+        <item>com.kairu.library.data.dao.OfflineResource</item>
+    </string-array>
+
+    <declare-styleable name="AmountView">
+        <!-- 左右2边+-按钮的宽度 -->
+        <attr name="btnWidth" format="dimension" />
+        <!-- 中间TextView的宽度 -->
+        <attr name="tvWidth" format="dimension" />
+        <!--<attr name="tvColor" format="color"/>-->
+        <attr name="tvTextSize" format="dimension"/>
+        <attr name="btnTextSize" format="dimension"/>
+    </declare-styleable>
+</resources>

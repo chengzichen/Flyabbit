@@ -8,11 +8,11 @@ import com.dhc.flyabbit.R;
 import com.dhc.flyabbit.gank.ui.GankFragment;
 import com.dhc.flyabbit.home.ui.HomeFragment;
 import com.dhc.flyabbit.my.MyFragment;
-import com.dhc.library.utils.delegate.OnBackToFirstListener;
+import com.dhc.lib.widget.bottombar.BottomBar;
+import com.dhc.lib.widget.bottombar.BottomBarTab;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.account.AccountManager;
-import com.dhc.library.widget.bottombar.BottomBar;
-import com.dhc.library.widget.bottombar.BottomBarTab;
+import com.dhc.library.framework.OnBackToFirstListener;
 
 import me.yokeyword.fragmentation.SupportFragment;
 

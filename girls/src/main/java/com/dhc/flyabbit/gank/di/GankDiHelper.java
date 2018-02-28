@@ -1,12 +1,12 @@
 package com.dhc.flyabbit.gank.di;
 
+import com.dhc.flyabbit.gank.di.component.DaggerGankActivityComponent;
+import com.dhc.flyabbit.gank.di.component.DaggerGankFragmentComponent;
 import com.dhc.flyabbit.gank.di.component.GankActivityComponent;
 import com.dhc.flyabbit.gank.di.component.GankFragmentComponent;
 import com.dhc.library.base.BaseApplication;
 import com.dhc.library.di.module.ActivityModule;
 import com.dhc.library.di.module.FragmentModule;
-import com.dhc.flyabbit.gank.di.component.DaggerGankActivityComponent;
-import com.dhc.flyabbit.gank.di.component.DaggerGankFragmentComponent;
 
 /**
  * 创建者     邓浩宸

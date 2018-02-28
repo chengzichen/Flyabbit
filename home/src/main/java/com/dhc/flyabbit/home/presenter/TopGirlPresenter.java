@@ -11,9 +11,9 @@ import com.dhc.flyabbit.home.modle.GankRemoteDataService;
 import com.dhc.flyabbit.home.modle.bean.GankItemBean;
 import com.dhc.flyabbit.home.presenter.contract.ITopGirlContract;
 import com.dhc.library.base.XPresenter;
-import com.dhc.library.data.DatabaseHelper;
 import com.dhc.library.data.net.GankApiResponse;
 import com.dhc.library.data.net.GankSubscriber;
+import com.dhc.library.data.net.NetError;
 import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.rx.BaseSubscriberListener;
 import com.dhc.library.utils.sys.ScreenUtil;
@@ -37,7 +37,7 @@ public class TopGirlPresenter extends XPresenter<ITopGirlContract.IView> impleme
     private GankRemoteDataService mZhiHuRemoteDataService;
 
     @Inject
-    public TopGirlPresenter(GankRemoteDataService zhiHuRemoteDataService, DatabaseHelper databaseHelper) {
+    public TopGirlPresenter(GankRemoteDataService zhiHuRemoteDataService) {
         this.mZhiHuRemoteDataService = zhiHuRemoteDataService;
     }
 
@@ -80,9 +80,9 @@ public class TopGirlPresenter extends XPresenter<ITopGirlContract.IView> impleme
                     }
 
                     @Override
-                    public void onFail(String errorCode, String errorMsg) {
-                        super.onFail(errorCode, errorMsg);
-                        getV().showError("-1", errorMsg);
+                    public void onFail(NetError errorMsg) {
+                        super.onFail(errorMsg);
+                        getV().showError("-1", errorMsg.getMessage());
                     }
                 }));
     }

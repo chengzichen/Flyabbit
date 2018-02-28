@@ -7,6 +7,7 @@ import com.dhc.flyabbit.gank.presenter.contract.IGirlContract;
 import com.dhc.library.base.XPresenter;
 import com.dhc.library.data.net.GankApiResponse;
 import com.dhc.library.data.net.GankSubscriber;
+import com.dhc.library.data.net.NetError;
 import com.dhc.library.utils.rx.BaseSubscriberListener;
 
 import java.util.List;
@@ -40,10 +41,11 @@ public class GirlPresenter extends XPresenter<IGirlContract.IView> implements IG
                     }
 
                     @Override
-                    public void onFail(String errorCode, String errorMsg) {
-                        super.onFail(errorCode, errorMsg);
-                        getV().showError("0",errorMsg);
+                    public void onFail(NetError errorMsg) {
+                        super.onFail(errorMsg);
+                        getV().showError("0",errorMsg.getMessage());
                     }
+
                 }));
     }
 
@@ -59,8 +61,8 @@ public class GirlPresenter extends XPresenter<IGirlContract.IView> implements IG
                     }
 
                     @Override
-                    public void onFail(String errorCode, String errorMsg) {
-                        super.onFail(errorCode, errorMsg);
+                    public void onFail(NetError errorMsg) {
+                        super.onFail(errorMsg);
                         getV().showError("0","加载更多数据失败ヽ(≧Д≦)ノ");
                     }
                 }));

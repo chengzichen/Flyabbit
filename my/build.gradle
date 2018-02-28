@@ -54,17 +54,12 @@ android {
         abortOnError false
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
     retrolambda {
         javaVersion JavaVersion.VERSION_1_7
     }
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
     dexOptions {
-        incremental true
         jumboMode true
         //jenkins上使用有问题
         //javaMaxHeapSize "4g"

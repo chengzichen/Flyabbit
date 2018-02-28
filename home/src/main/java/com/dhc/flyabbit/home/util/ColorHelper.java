@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.dhc.flyabbit.home.R;
-import com.dhc.library.imageloader.ILFactory;
+import com.dhc.lib.imageload.ImageLoaderManager;
 
 /**
  * @author 邓浩宸
@@ -18,7 +18,6 @@ public class ColorHelper {
     public String[] mImages = {
     };
 
-    int mTopImage = R.mipmap.ic_empty;
 
    public int[] mColors = {
 
@@ -43,7 +42,8 @@ public class ColorHelper {
         mTargetImage = targetImage;
         mOutgoingImage = outgoingImage;
         if (mImages.length != 0) {
-            ILFactory.getLoader().loadNet(mTargetImage, mImages[0]);
+            ImageLoaderManager.getInstance().showImage(ImageLoaderManager.getDefaultOptions
+                    (mTargetImage, mImages[0]));
         } else {
             mTargetImage.setBackgroundColor(mColors[0]);
         }
@@ -55,7 +55,10 @@ public class ColorHelper {
 
     public void setImages(String[] images) {
         mImages = images;
-        ILFactory.getLoader().loadNet(mTargetImage, mImages[mActualStart]);
+//        ImageLoaderManager.getInstance().showImage(ImageLoaderManager.getDefaultOptions
+//                (mTargetImage, mImages[mActualStart]));
+        ImageLoaderManager.getInstance().showImage(ImageLoaderManager.getDefaultOptions
+                (mTargetImage, mImages[mActualStart]));
     }
 
 
@@ -91,7 +94,8 @@ public class ColorHelper {
         // 目标图片
         //   mTargetImage.setImageResource(incomeId);
         if (mImages.length != 0) {
-            ILFactory.getLoader().loadNet(mTargetImage, mImages[endPosition]);
+            ImageLoaderManager.getInstance().showImage(ImageLoaderManager.getDefaultOptions
+                    (mTargetImage, mImages[endPosition]));
         } else {
             mTargetImage.setBackgroundColor(mColors[endPosition]);
         }
@@ -114,7 +118,8 @@ public class ColorHelper {
             mTargetImage.setImageDrawable(mOutgoingImage.getDrawable());
         } else {
             if (mImages.length != 0) {
-                ILFactory.getLoader().loadNet(mTargetImage, mImages[endPosition]);
+                ImageLoaderManager.getInstance().showImage(ImageLoaderManager.getDefaultOptions
+                        (mTargetImage, mImages[endPosition]));
             } else {
                 mTargetImage.setBackgroundColor(mColors[endPosition]);
             }

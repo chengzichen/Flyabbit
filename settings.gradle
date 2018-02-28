@@ -1,1 +1,7 @@
-include ':app', ':library', ':home', ':my', ':girls'
+include ':app', ':library', ':imageloader', ':uikit',':home', ':my', ':girls'
+
+
+project(':library').projectDir = new File('baselib\\library')
+//project(':businesslib').projectDir = new File('baselib/businesslib')
+project(':imageloader').projectDir = new File('baselib/imageloader')
+project(':uikit').projectDir = new File('baselib/uikit')

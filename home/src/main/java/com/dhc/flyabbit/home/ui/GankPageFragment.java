@@ -13,11 +13,11 @@ import com.dhc.flyabbit.home.modle.bean.GankItemBean;
 import com.dhc.flyabbit.home.presenter.GankTechPresenter;
 import com.dhc.flyabbit.home.presenter.contract.IGankTechContract;
 import com.dhc.flyabbit.home.ui.adapter.GankTechAdapter;
+import com.dhc.lib.widget.CustomLoadMoreView;
 import com.dhc.library.base.BaseActivity;
-import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.base.WebViewCommonFragment;
+import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.utils.ToastUtil;
-import com.dhc.library.widget.CustomLoadMoreView;
 
 import java.util.List;
 
@@ -79,7 +79,8 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 List<GankItemBean> gankItemBeen = adapter.getData();
                 ((BaseActivity) _mActivity).start(WebViewCommonFragment.newInstance(gankItemBeen.get(position).getDesc(),
-                        gankItemBeen.get(position).getUrl(), gankItemBeen.get(position).get_id(), mTag));
+                        gankItemBeen.get(position).getUrl(), gankItemBeen.get(position).get_id(),
+                        mTag,true));
             }
         });
         lv.setAdapter(mGankTechAdapter);

@@ -2,20 +2,20 @@ package com.dhc.flyabbit.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.dhc.flyabbit.R;
-import com.dhc.library.utils.delegate.OnShowHomeListener;
 import com.dhc.library.base.XDaggerActivity;
 import com.dhc.library.data.SPHelper;
 import com.dhc.library.data.net.Constants;
+import com.dhc.library.framework.OnShowHomeListener;
 import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.AppUtil;
 
-import me.yokeyword.fragmentation.SupportFragment;
-import me.yokeyword.fragmentation.helper.FragmentLifecycleCallbacks;
 
 /**
  * 创建者     邓浩宸
@@ -60,21 +60,19 @@ public class MainActivity extends XDaggerActivity implements OnShowHomeListener 
             loadRootFragment(R.id.fl_container, findFragment(SplashFrament.class));
             }
         }
-        // 可以监听该Activity下的所有Fragment的18个 生命周期方法
-        registerFragmentLifecycleCallbacks(new FragmentLifecycleCallbacks() {
-
+        getSupportFragmentManager().registerFragmentLifecycleCallbacks(new FragmentManager.FragmentLifecycleCallbacks() {
             @Override
-            public void onFragmentSupportVisible(SupportFragment fragment) {
-                Log.i("MainActivity", "onFragmentSupportVisible--->" + fragment.getClass().getSimpleName());
+            public void onFragmentCreated(FragmentManager fm, Fragment f, Bundle savedInstanceState) {
+                super.onFragmentCreated(fm, f, savedInstanceState);
+                Log.i("MainActivity", "onFragmentCreated--->" + f.getClass().getSimpleName());
             }
 
             @Override
-            public void onFragmentCreated(SupportFragment fragment, Bundle savedInstanceState) {
-                super.onFragmentCreated(fragment, savedInstanceState);
+            public void onFragmentStopped(FragmentManager fm, Fragment f) {
+                super.onFragmentStopped(fm, f);
+                Log.i("MainActivity", "onFragmentStopped--->" + f.getClass().getSimpleName());
             }
-            // 省略其余生命周期方法
-
-        });
+        }, true);
     }
 
 
@@ -92,6 +90,7 @@ public class MainActivity extends XDaggerActivity implements OnShowHomeListener 
 
     @Override
     public void showHome() {
-        replaceLoadRootFragment(R.id.fl_container, MainFragment.newInstance(),true);
+//        replaceLoadRootFragment(R.id.fl_container, MainFragment.newInstance(),true);
+        loadRootFragment(R.id.fl_container, MainFragment.newInstance());
     }
 }

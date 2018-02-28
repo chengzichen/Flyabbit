@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
 
 android {
 
@@ -42,14 +41,16 @@ android {
 
     }
 
+
     configurations.all {
-
         resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
-
+        resolutionStrategy.force rootProject.ext.dependencies["annotations"]
+        resolutionStrategy.force rootProject.ext.dependencies["support-v4"]
+        resolutionStrategy.force rootProject.ext.dependencies["appcompat-v7"]
     }
 
     lintOptions {
-
+        checkReleaseBuilds false
         abortOnError false
 
     }
@@ -70,13 +71,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
 
     }
-    retrolambda {
-
-        javaVersion JavaVersion.VERSION_1_7
-
-    }
     dexOptions {
-        incremental true
         jumboMode true
         //jenkins上使用有问题
         //javaMaxHeapSize "4g"
@@ -85,33 +80,33 @@ android {
 }
 
 dependencies {
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile rootProject.ext.dependencies["junit"]
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    testImplementation rootProject.ext.dependencies["junit"]
     provided rootProject.ext.dependencies["javax.annotation"]
-    debugCompile rootProject.ext.dependencies["canary-debug"]
-    testCompile rootProject.ext.dependencies["canary-test"]
-    releaseCompile rootProject.ext.dependencies["canary-release"]
+    debugImplementation rootProject.ext.dependencies["canary-debug"]
+    testImplementation rootProject.ext.dependencies["canary-test"]
+    releaseImplementation rootProject.ext.dependencies["canary-release"]
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
 
     if (isApp.toBoolean()) {
-        compile(rootProject.ext.dependencies["homelib"]){
+        api(rootProject.ext.dependencies["homelib"]){
             exclude module: 'library'
         }
-        compile (rootProject.ext.dependencies["mylib"]){
+        api (rootProject.ext.dependencies["mylib"]){
             exclude module: 'library'
         }
-        compile (rootProject.ext.dependencies["girlslib"]){
+        api (rootProject.ext.dependencies["girlslib"]){
             exclude module: 'library'
         }
-        compile project(':library')
+        api project(':library')
     } else {
-        compile project(':my')
-        compile project(':home')
-        compile project(':girls')
+        api project(':my')
+        api project(':home')
+        api project(':girls')
     }
 }

@@ -4,13 +4,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.dhc.flyabbit.gank.R;
-import com.dhc.library.utils.delegate.OnBackToFirstListener;
 import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.bean.ToolBarOptions;
-import com.flyco.tablayout.listener.CustomTabEntity;
-
-import java.util.ArrayList;
+import com.dhc.library.framework.OnBackToFirstListener;
 
 /**
  * 创建者：邓浩宸
@@ -20,7 +17,6 @@ import java.util.ArrayList;
 
 public class GankFragment extends XDaggerFragment {
 
-    private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
     protected OnBackToFirstListener _mBackToFirstListener;
 
 

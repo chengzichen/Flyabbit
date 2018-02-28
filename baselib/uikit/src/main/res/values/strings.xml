@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Library</string>
+
+    <string name="txt_loading">数据加载中...</string>
+    <string name="txt_no_data">真的是什么都没有</string>
+    <string name="txt_data_error_retry">获取数据失败，点击重试</string>
+    <string name="tx_loading">数据努力加载中</string>
+    <string name="txt_nonet_retry">网络连接不可用，点击重试</string>
+    <string name="crop">裁剪</string>
+
+    <string name="unknow_size">未知大小</string>
+
+    <!--接口错误码统一处理-->
+    <string name="retcode_default">无网络,网络出错</string>
+    <string name="retcode_20001">20001对应的ErrorMsg</string>
+    <string name="kairu_lib_net_error">网络异常,请重新加载</string>
+    <string name="kairu_lib_refresh">刷新</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="to_expand_hint">展开↓</string>
+    <string name="to_shrink_hint">收起↑</string>
+    <string name="tv_no_content">内容消失了</string>
+    <string name="auth_failure">登录过期,重新登录</string>
+    <string name="GO_LOGIN">进行登录</string>
+    <string name="loginout">退出登录</string>
+</resources>

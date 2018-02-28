@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colortext">#000000</color>
+    <color name="colorhint">#a9aaac</color>
+    <color name="colorPrimary">#d8432b</color>
+    <color name="colorPrimaryDark">#d8432b</color>
+    <color name="colorAccent">#FF5449</color>
+    <!--这些是系统使用的Color值-->
+
+    <color name="clr_dddfe0">#dddfe0</color>
+    <color name="clr_8a92a1">#8a92a1</color>
+    <color name="clr_999999">#999999</color>
+    <color name="clr_dfdfdf">#dfdfdf</color>
+    <color name="clr_c9c9c9">#c9c9c9</color>
+    <color name="clr_2196F3">#2196F3</color>
+    <color name="clr_ffffff">#FFFFFF</color>
+    <color name="clr_99ffffff">#99ffffff</color>
+    <color name="clr_d9d9d9">#d9d9d9</color>
+    <color name="clr_88000000">#88000000</color>
+    <color name="clr_eaeaea">#eaeaea</color>
+    <color name="clr_ff00D3A9">#ff00D3A9</color>
+    <color name="clr_232426">#232426</color>
+    <color name="clr_66ffffff">#66ffffff</color>
+    <color name="clr_00000000">#00000000</color>
+    <color name="clr_0888ff">#0888ff</color>
+    <color name="clr_2f2f2f">#2F2F2F</color>
+    <color name="clr_b9baC4">#B9BAC4</color>
+    <color name="clr_ff6633">#ff6633</color>
+    <color name="clr_ff00d2e0">#FF00D2E0</color>
+
+    <color name="clr_484b69">#484B69</color>
+    <color name="clr_af484b69">#AF484B69</color>
+    <color name="clr_a1484b69">#A1484B69</color>
+    <color name="clr_68484b69">#68484B69</color>
+
+    <color name="clr_ff6239">#FF6239</color>
+    <color name="clr_aaff6239">#aaFF6239</color>
+    <color name="clr_f1eff4">#F1EFF4</color>
+    <color name="clr_b9bac4">#B9BAC4</color>
+    <color name="clr_00001b">#00001B</color>
+    <color name="clr_494949">#494949</color>
+    <color name="clr_ff633b">#ff633b</color>
+    <color name="clr_a5a7ae">#A5A7AE</color>
+    <color name="clr_f7f6f9">#F7F6F9</color>
+    <color name="clr_3b3b3b">#3b3b3b</color>
+    <color name="clr_7a7a7a">#7A7A7A</color>
+    <color name="clr_00d2e0">#17D3E0</color>
+    <color name="clr_8800d2e0">#8800d2e0</color>
+    <color name="clr_6e6e6e">#6e6e6e</color>
+    <color name="clr_a1a1a1">#A1A1A1</color>
+    <color name="clr_dedff0">#DEDFF0</color>
+    <color name="clr_8d8d94">#8D8D94</color>
+    <color name="clr_fafafa">#FAFAFA</color>
+    <color name="clr_ffe0e0e0">#FFE0E0E0</color>
+    <color name="clr_fffbfbfb">#FFFBFBFB</color>
+    <color name="clr_ff484b69">#FF484B69</color>
+    <color name="clr_ffa1a1a1">#FFA1A1A1</color>
+    <color name="clr_ffb9bac4">#FFB9BAC4</color>
+    <color name="clr_a6a7af">#A6A7AF</color>
+    <color name="clr_e0e0e0">#e0e0e0</color>
+    <color name="clr_ebebeb">#EBEBEB</color>
+    <color name="clr_e1e1e1">#e1e1e1</color>
+
+    <color name="clr_e8005e">#E8005E</color>
+    <color name="clr_a8a8a8">#A8A8A8</color>
+    <color name="clr_ffefefef">#FFEFEFEF</color>
+    <color name="clr_efefef">#efefef</color>
+    <color name="clr_658598">#658598</color>
+    <color name="clr_00D2D6">#00D2D6</color>
+    <color name="clr_BCBDBD">#BCBDBD</color>
+    <color name="clr_767676">#767676</color>
+    <color name="clr_A3A2A2">#A3A2A2</color>
+
+    <color name="clr_ff757575">#ff757575</color>
+    <color name="clr_a4a4a4">#a4a4a4</color>
+    <color name="clr_898989">#898989</color>
+    <color name="clr_cc484b69">#CC484B69</color>
+
+    <color name="clr_7f7f7f">#7f7f7f</color>
+    <color name="clr_595959">#595959</color>
+    <color name="clr_484B69">#484B69</color>
+    <color name="clr_B9BAC4">#B9BAC4</color>
+    <color name="clr_99484B69">#99484B69</color>
+    <color name="clr_ff0099cc">#FF0099CC</color>
+    <color name="clr_757575">#757575</color>
+    <color name="clr_ff658598">#FF658598</color>
+    <color name="clr_f8d8d2">#f8d8d2</color>
+    <color name="clr_ffff6239">#FFFF6239</color>
+    <color name="clr_e62e2e2e">#E62E2E2E</color>
+    <color name="clr_33000000">#33000000</color>
+    <color name="clr_cccccc">#cccccc</color>
+    <color name="clr_a7a7ad">#A7A7AD</color>
+    <color name="clr_f5f5f7">#F5F5F7</color>
+    <color name="clr_FF00D2E0">#FF00D2E0</color>
+    <color name="clr_B3B3B3"> #B3B3B3</color>
+    <color name="clr_FF6F6F6F">#FF6F6F6F</color>
+    <color name="clr_FF9F9F9F">#FF9F9F9F</color>
+    <color name="clr_d3d3d3">#D3D3D3</color>
+    <color name="clr_61e3ef">#61E3EF</color>
+    <color name="clr_3c364f">#FF3C364F</color>
+    <color name="clr_fa6c51">#FA6C51</color>
+    <color name="clr_7b7a7a">#7B7A7A</color>
+    <color name="clr_e4484b69">#E4484B69</color>
+    <color name="clr_2C97DE">#2C97DE</color>
+    <color name="clr_66000000">#66000000</color>
+    <color name="clr_FF484B69">#FF484B69</color>
+    <color name="clr_FFFFFFFF">#FFFFFFFF</color>
+    <color name="clr_FFF7F6F9">#FFF7F6F9</color>
+    <color name="clr_F7F6F9">#F7F6F9</color>
+    <color name="clr_000000">#000000</color>
+    <color name="clr_f0f0f0">#f0f0f0</color>
+    <color name="clr_666666">#666666</color>
+    <color name="divider">#f0f0f0</color>
+
+</resources>

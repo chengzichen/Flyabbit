@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.dhc.library.utils.delegate.OnBackToFirstListener;
 import com.dhc.library.base.BaseActivity;
 import com.dhc.library.base.BaseFragment;
+import com.dhc.library.base.WebViewCommonFragment;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.bean.ToolBarOptions;
-import com.dhc.library.base.WebViewCommonFragment;
+import com.dhc.library.framework.OnBackToFirstListener;
 
 /**
  * 创建者：邓浩宸
@@ -66,10 +66,10 @@ public class MyFragment extends XDaggerFragment implements View.OnClickListener 
     public void onClick(View v) {
         if(v.getId()==R.id.tv_github){
             ((BaseActivity) _mActivity).start(WebViewCommonFragment.newInstance("Github",
-                   "https://github.com/chengzichen/Flyabbit", "", ""));
+                   "https://github.com/chengzichen/Flyabbit", "", "",true));
         }else if (v.getId()==R.id.tv_author){
             ((BaseActivity) _mActivity).start(WebViewCommonFragment.newInstance("个人博客",
-                    "http://blog.csdn.net/chengzichen_/article/details/77659318", "", ""));
+                    "http://blog.csdn.net/chengzichen_/article/details/77659318", "", "",true));
         }
     }
 

@@ -3,7 +3,6 @@ if (isApp.toBoolean()) {
 } else {
     apply plugin: 'com.android.library'
 }
-apply plugin: 'me.tatarka.retrolambda'
 //apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -58,9 +57,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    retrolambda {
-        javaVersion JavaVersion.VERSION_1_7
-    }
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
 }
@@ -74,7 +70,7 @@ dependencies {
 
     testCompile rootProject.ext.dependencies["junit"]
 
-    compile project(':library')
+    api project(':library')
 
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
