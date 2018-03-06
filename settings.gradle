@@ -1,7 +1,7 @@
-include ':app', ':library', ':imageloader', ':uikit',':home', ':my', ':girls'
+include ':app', ':library', ':imageloader', ':uikit', ':home', ':my', ':girls', ':activitygroupcompat'
 
 
-project(':library').projectDir = new File('baselib\\library')
-//project(':businesslib').projectDir = new File('baselib/businesslib')
+project(':library').projectDir = new File('baselib/library')
+project(':activitygroupcompat').projectDir = new File('baselib/activitygroupcompat')
 project(':imageloader').projectDir = new File('baselib/imageloader')
 project(':uikit').projectDir = new File('baselib/uikit')

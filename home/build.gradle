@@ -2,7 +2,24 @@ if (isApp.toBoolean()) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
+    apply plugin: 'com.taobao.atlas'
 }
+
+group = 'com.dhc.flyabbit'
+version = '1.0.0'
+
+atlas {
+    bundleConfig {
+        awbBundle true
+    }
+    buildTypes {
+        debug {
+            baseApFile project.rootProject.file('app/build/outputs/apk/app-debug.ap')
+        }
+    }
+}
+
+
 //apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -21,8 +38,8 @@ android {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
                 java {
                     exclude 'src/main/debug/**'
-                    exclude '**/debug/**.java'
-                    exclude 'src/main/**/res/layout/activity_debug.xml'
+//                    exclude '**/debug/**.java'
+//                    exclude 'src/main/**/res/layout/activity_debug.xml'
                 }
             }
         }
@@ -53,10 +70,10 @@ android {
         abortOnError false
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
 }
@@ -70,7 +87,9 @@ dependencies {
 
     testCompile rootProject.ext.dependencies["junit"]
 
-    api project(':library')
+    provided rootProject.ext.lib_atlas_core
+
+    compile project(':library')
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
 

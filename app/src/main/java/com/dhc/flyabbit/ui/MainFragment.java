@@ -1,20 +1,20 @@
 package com.dhc.flyabbit.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.dhc.flyabbit.R;
-import com.dhc.flyabbit.gank.ui.GankFragment;
-import com.dhc.flyabbit.home.ui.HomeFragment;
-import com.dhc.flyabbit.my.MyFragment;
 import com.dhc.lib.widget.bottombar.BottomBar;
 import com.dhc.lib.widget.bottombar.BottomBarTab;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.account.AccountManager;
 import com.dhc.library.framework.OnBackToFirstListener;
+import com.taobao.android.ActivityGroupDelegate;
 
-import me.yokeyword.fragmentation.SupportFragment;
 
 
 
@@ -25,7 +25,8 @@ import me.yokeyword.fragmentation.SupportFragment;
  */
 @Route(path = "/app/MainFragment")
 public class MainFragment extends XDaggerFragment implements OnBackToFirstListener {
-
+    private ActivityGroupDelegate mActivityDelegate;
+    private ViewGroup mActivityGroupContainer;
     private BottomBar mBottomBar;
     private String[] mTitles = {"干货", "妹子", "关于"};
     private int[] mIconUnselectIds = {
@@ -35,8 +36,9 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
     public static final int SECOND = 1;
     public static final int THIRD = 2;
     public int current = -1;
-    private SupportFragment[] mFragments = new SupportFragment[4];
-
+//    private SupportFragment[] mFragments = new SupportFragment[4];
+private String[] mTags={"home", "girls", "about"};
+private String[] mActs={"com.dhc.flyabbit.home.debug.HomeDebugActivity", "com.dhc.flyabbit.gank.debug.GirlsDebugActivity", "com.dhc.flyabbit.my.debug.MyDebugActivity"};
     public static MainFragment newInstance() {
         Bundle args = new Bundle();
         MainFragment fragment = new MainFragment();
@@ -44,8 +46,14 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
         return fragment;
     }
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        mActivityDelegate = new ActivityGroupDelegate(_mActivity,savedInstanceState);
+    }
 
     private void initView(View view) {
+        mActivityGroupContainer = (ViewGroup) $(R.id.fl_tab_container);
         mBottomBar = (BottomBar) view.findViewById(R.id.bottomBar);
         mBottomBar.addItem(new BottomBarTab(_mActivity, mIconUnselectIds[0], mTitles[0]))
                 .addItem(new BottomBarTab(_mActivity, mIconUnselectIds[1], mTitles[1]))
@@ -59,10 +67,13 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
                 if ((position != 0) && !isLogin) {
                     current = position;
                     // TODO: 2017/8/21  这里适用于条件触发式登录
-                    showHideFragment(mFragments[position], mFragments[prePosition]);
+//                    showHideFragment(mFragments[position], mFragments[prePosition]);
+                    switchToActivity(mTags[position],mActs[position]);
                     return false;
                 } else {
-                    showHideFragment(mFragments[position], mFragments[prePosition]);
+
+                    switchToActivity(mTags[position],mActs[position]);
+//                    showHideFragment(mFragments[position], mFragments[prePosition]);
                     return false;
                 }
             }
@@ -76,26 +87,30 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
             public void onTabReselected(int position) {
             }
         });
-
+        switchToActivity(mTags[0],mActs[0]);
     }
 
-
+    public void switchToActivity(String key,String activityName){
+        Intent intent = new Intent();
+        intent.setClassName(_mActivity.getBaseContext(),activityName);
+        mActivityDelegate.startChildActivity(mActivityGroupContainer,key,intent);
+    }
 
     @Override
     public void initInject(Bundle savedInstanceState) {
-        if (savedInstanceState == null) {
-            mFragments[FIRST] = HomeFragment.newInstance();
-            mFragments[SECOND] = GankFragment.newInstance();
-            mFragments[THIRD] = MyFragment.newInstance();
-            loadMultipleRootFragment(R.id.fl_tab_container, FIRST,
-                    mFragments[FIRST],
-                    mFragments[SECOND],
-                    mFragments[THIRD]);
-        } else {
-            mFragments[FIRST] = findChildFragment(HomeFragment.class);
-            mFragments[SECOND] = findChildFragment(GankFragment.class);
-            mFragments[THIRD] = findChildFragment(MyFragment.class);
-        }
+//        if (savedInstanceState == null) {
+//            mFragments[FIRST] = HomeFragment.newInstance();
+//            mFragments[SECOND] = GankFragment.newInstance();
+//            mFragments[THIRD] = MyFragment.newInstance();
+//            loadMultipleRootFragment(R.id.fl_tab_container, FIRST,
+//                    mFragments[FIRST],
+//                    mFragments[SECOND],
+//                    mFragments[THIRD]);
+//        } else {
+//            mFragments[FIRST] = findChildFragment(HomeFragment.class);
+//            mFragments[SECOND] = findChildFragment(GankFragment.class);
+//            mFragments[THIRD] = findChildFragment(MyFragment.class);
+//        }
     }
 
 

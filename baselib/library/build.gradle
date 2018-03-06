@@ -43,71 +43,75 @@ android {
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
+//    compileOptions {
+//        targetCompatibility 1.8
+//        sourceCompatibility 1.8
+//    }
 }
 
 dependencies {
-    api fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestApi('com.android.support.test.espresso:espresso-core:3.0.1', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
     //test
-    testApi rootProject.ext.dependencies["junit"]
-    api rootProject.ext.dependencies["fragmentation"]
+    testCompile rootProject.ext.dependencies["junit"]
+    compile rootProject.ext.dependencies["fragmentation"]
     //rx
-    api rootProject.ext.dependencies["rxjava"]
-    api(rootProject.ext.dependencies["rxandroid"]) {
+    compile rootProject.ext.dependencies["rxjava"]
+    compile(rootProject.ext.dependencies["rxandroid"]) {
         exclude module: 'rxjava'
     }
-    api(rootProject.ext.dependencies["rxlifecycle"]) {
+    compile(rootProject.ext.dependencies["rxlifecycle"]) {
         exclude module: 'rxjava'
     }
-    api(rootProject.ext.dependencies["rxlifecycle-android"]) {
+    compile(rootProject.ext.dependencies["rxlifecycle-android"]) {
         exclude module: 'rxjava'
     }
-    api(rootProject.ext.dependencies["rxlifecycle-components"]) {
+    compile(rootProject.ext.dependencies["rxlifecycle-components"]) {
         exclude module: 'rxjava'
     }
     //network
-    api rootProject.ext.dependencies["gson"]
-    api(rootProject.ext.dependencies["retrofit"]) {
+    compile rootProject.ext.dependencies["gson"]
+    compile(rootProject.ext.dependencies["retrofit"]) {
         exclude module: 'okhttp'
     }
-    api(rootProject.ext.dependencies["retrofit-converter-gson"]) {
+    compile(rootProject.ext.dependencies["retrofit-converter-gson"]) {
         exclude module: 'gson'
     }
-    api(rootProject.ext.dependencies["retrofit-adapter-rxjava"]) {
+    compile(rootProject.ext.dependencies["retrofit-adapter-rxjava"]) {
         exclude module: 'rxjava'
     }
 
-    api rootProject.ext.dependencies["okhttp3"]
-    api rootProject.ext.dependencies["okhttp3-logging-interceptor"]
-    api rootProject.ext.dependencies["glide-okhttp3-integration"]
+    compile rootProject.ext.dependencies["okhttp3"]
+    compile rootProject.ext.dependencies["okhttp3-logging-interceptor"]
+    compile rootProject.ext.dependencies["glide-okhttp3-integration"]
     //other
-    api rootProject.ext.dependencies["rxpermissions"]
-    api rootProject.ext.dependencies["Jolyglot-Gson"]
-    api rootProject.ext.dependencies["multidex"]
-    api rootProject.ext.dependencies["RxCache"]
+    compile rootProject.ext.dependencies["rxpermissions"]
+    compile rootProject.ext.dependencies["Jolyglot-Gson"]
+//    compile rootProject.ext.dependencies["multidex"]
+    compile rootProject.ext.dependencies["RxCache"]
     //    //db
     //    compile files('libs/ormlite-android-4.49.jar')
     //    compile files('libs/ormlite-core-4.49.jar')
     //canary
-    debugApi rootProject.ext.dependencies["blockcanary-debug"]
-    releaseApi rootProject.ext.dependencies["blockcanary-release"]
+    debugCompile rootProject.ext.dependencies["blockcanary-debug"]
+    releaseCompile rootProject.ext.dependencies["blockcanary-release"]
     //Cookie
-    api rootProject.ext.dependencies["PersistentCookieJar"]
+    compile rootProject.ext.dependencies["PersistentCookieJar"]
     //di
-    api rootProject.ext.dependencies["dagger"]
-    api rootProject.ext.dependencies["arouter-api"]
+    compile rootProject.ext.dependencies["dagger"]
+    compile rootProject.ext.dependencies["arouter-api"]
     //    compile rootProject.ext.dependencies["retrofit-converter-jackson"]
-    compileOnly rootProject.ext.dependencies["javax.annotation"]
+    provided rootProject.ext.dependencies["javax.annotation"]
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     //阿里的Arouter的apt注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
-    api project(':imageloader')
-    api project(':uikit')
+    compile project(':imageloader')
+    compile project(':uikit')
 }

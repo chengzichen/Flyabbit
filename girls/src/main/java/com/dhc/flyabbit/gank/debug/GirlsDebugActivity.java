@@ -2,6 +2,7 @@ package com.dhc.flyabbit.gank.debug;
 
 import android.os.Bundle;
 
+import com.dhc.flyabbit.gank.R;
 import com.dhc.flyabbit.gank.ui.GankFragment;
 import com.dhc.library.base.XDaggerActivity;
 

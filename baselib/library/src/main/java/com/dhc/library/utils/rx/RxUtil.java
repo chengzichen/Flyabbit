@@ -35,7 +35,7 @@ public class RxUtil {
      * @param <T>      返回数据data实际的 数据
      * @return   返回数据data实际的 数据
      */
-    public static <T extends ApiResponse> FlowableTransformer<T, T> rxSchedulerHelper(int count,long delay) {    //compose简化线程
+    public static <T extends ApiResponse> FlowableTransformer<T, T> rxSchedulerHelper(final int count, final long delay) {    //compose简化线程
         return new FlowableTransformer<T, T>() {
             @Override
             public Flowable<T> apply(Flowable<T> upstream) {

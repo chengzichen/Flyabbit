@@ -1,10 +1,10 @@
 package com.dhc.library.base;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.dhc.lib.imageload.ImageLoaderManager;
@@ -28,7 +28,7 @@ import me.yokeyword.fragmentation.helper.ExceptionHandler;
  * 创建时间   2017/3/23 18:03
  * 描述	      基类app
  */
-public class BaseApplication extends MultiDexApplication  implements AccountProvider {
+public class BaseApplication extends  Application implements AccountProvider {
 
     protected static BaseApplication instance;
 
@@ -51,22 +51,22 @@ public class BaseApplication extends MultiDexApplication  implements AccountProv
             ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
         }
         ARouter.init(instance); // 尽可能早，推荐在Application中初始化
-        Fragmentation.builder()
-                // 设置 栈视图 模式为 悬浮球模式   SHAKE: 摇一摇唤出   NONE：隐藏
-                .stackViewMode(Fragmentation.BUBBLE)
-                // ture时，遇到异常："Can not perform this action after onSaveInstanceState!"时，会抛出
-                // false时，不会抛出，会捕获，可以在handleException()里监听到
-                .debug(AppUtil.isDebug())
-                // 线上环境时，可能会遇到上述异常，此时debug=false，不会抛出该异常（避免crash），会捕获
-                // 建议在回调处上传至我们的Crash检测服务器
-                .handleException(new ExceptionHandler() {
-                    @Override
-                    public void onException(Exception e) {
-                        // 以Bugtags为例子: 手动把捕获到的 Exception 传到 Bugtags 后台。
-                        // Bugtags.sendException(e);
-                    }
-                })
-                .install();
+//        Fragmentation.builder()
+//                // 设置 栈视图 模式为 悬浮球模式   SHAKE: 摇一摇唤出   NONE：隐藏
+//                .stackViewMode(Fragmentation.BUBBLE)
+//                // ture时，遇到异常："Can not perform this action after onSaveInstanceState!"时，会抛出
+//                // false时，不会抛出，会捕获，可以在handleException()里监听到
+//                .debug(AppUtil.isDebug())
+//                // 线上环境时，可能会遇到上述异常，此时debug=false，不会抛出该异常（避免crash），会捕获
+//                // 建议在回调处上传至我们的Crash检测服务器
+//                .handleException(new ExceptionHandler() {
+//                    @Override
+//                    public void onException(Exception e) {
+//                        // 以Bugtags为例子: 手动把捕获到的 Exception 传到 Bugtags 后台。
+//                        // Bugtags.sendException(e);
+//                    }
+//                })
+//                .install();
 
         //添加一个intentsetvice服务来初始化一些服务
         InitializeService.start(this);

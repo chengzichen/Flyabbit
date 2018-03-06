@@ -25,7 +25,7 @@ build/intermediates/incremental/packageDebugResources/merged.dir/
 build/intermediates/incremental/packageDebugResources/stripped.dir/
 build/intermediates/incremental/processDebugAndroidTestResources/
 build/intermediates/incremental/processDebugResources/
-build/intermediates/jniLibs/
+build/intermediates/jniLibs
 build/intermediates/rs/
 build/intermediates/shaders/
 build/intermediates/tmp/

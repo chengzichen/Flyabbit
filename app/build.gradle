@@ -1,5 +1,10 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.taobao.atlas'
+apply plugin: 'com.taobao.atlas.dexpatch'
+apply from: 'dexPatchWraper.gradle'
 
+
+def apVersion = getEnvValue("apVersion", "");
 android {
 
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -64,13 +69,13 @@ android {
 //    }
 
 
-    compileOptions {
-
-        sourceCompatibility JavaVersion.VERSION_1_8
-
-        targetCompatibility JavaVersion.VERSION_1_8
-
-    }
+//    compileOptions {
+//
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//
+//        targetCompatibility JavaVersion.VERSION_1_8
+//
+//    }
     dexOptions {
         jumboMode true
         //jenkins上使用有问题
@@ -79,34 +84,94 @@ android {
     }
 }
 
+String getEnvValue(key, defValue) {
+    def val = System.getProperty(key);
+    if (null != val) {
+        return val;
+    }
+    val = System.getenv(key);
+    if (null != val) {
+        return val;
+    }
+    return defValue;
+}
+
+
+
+atlas {
+
+    atlasEnabled true
+    tBuildConfig {
+        autoStartBundles = ['com.dhc.flyabbit.gank'] //自启动bundle配置
+        autoStartBundles = ['com.dhc.flyabbit.home'] //自启动bundle配置
+        autoStartBundles = ['com.dhc.flyabbit.my'] //自启动bundle配置
+//        outOfApkBundles = ['remotebundle']
+//        preLaunch = 'com.taobao.demo.DemoPreLaunch'
+        classInject false
+//        dataBindingBundles = ['com.taobao.databindbundle']
+    }
+
+    manifestOptions {
+        addAtlasProxyComponents true
+    }
+
+
+    patchConfigs {
+        debug {
+            createTPatch true
+        }
+    }
+
+
+    buildTypes {
+        debug {
+            if (apVersion) {
+                baseApDependency "com.taobao.android.atlasdemo:AP-debug:${apVersion}@ap"
+                patchConfig patchConfigs.debug
+            }
+        }
+    }
+}
+
+
+
+
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    testImplementation rootProject.ext.dependencies["junit"]
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile rootProject.ext.dependencies["junit"]
     provided rootProject.ext.dependencies["javax.annotation"]
-    debugImplementation rootProject.ext.dependencies["canary-debug"]
-    testImplementation rootProject.ext.dependencies["canary-test"]
-    releaseImplementation rootProject.ext.dependencies["canary-release"]
+    debugCompile rootProject.ext.dependencies["canary-debug"]
+    testCompile rootProject.ext.dependencies["canary-test"]
+    releaseCompile rootProject.ext.dependencies["canary-release"]
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
 
-    if (isApp.toBoolean()) {
-        api(rootProject.ext.dependencies["homelib"]){
-            exclude module: 'library'
-        }
-        api (rootProject.ext.dependencies["mylib"]){
-            exclude module: 'library'
-        }
-        api (rootProject.ext.dependencies["girlslib"]){
-            exclude module: 'library'
-        }
-        api project(':library')
-    } else {
-        api project(':my')
-        api project(':home')
-        api project(':girls')
+
+    compile(rootProject.ext.lib_atlas_core) {
+        transitive = true
     }
+
+    compile rootProject.ext.lib_atlas_update
+    //atlas
+    if (isApp.toBoolean()) {
+        compile(rootProject.ext.dependencies["homelib"]) {
+            exclude module: 'library'
+        }
+        compile(rootProject.ext.dependencies["mylib"]) {
+            exclude module: 'library'
+        }
+        compile(rootProject.ext.dependencies["girlslib"]) {
+            exclude module: 'library'
+        }
+        compile project(':library')
+    } else {
+        bundleCompile project(':my')
+        bundleCompile project(':home')
+        bundleCompile project(':girls')
+        compile project(':library')
+//        providedCompile project(':girls')
+    }
+    compile project(':activitygroupcompat')
 }
