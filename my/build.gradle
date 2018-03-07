@@ -93,7 +93,7 @@ dependencies {
 
     testCompile rootProject.ext.dependencies["junit"]
 
-    compile project(':library')
+    providedCompile project(':library')
 
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]

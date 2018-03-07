@@ -86,7 +86,7 @@ dependencies {
 
     testCompile rootProject.ext.dependencies["junit"]
 
-    compile project(':library')
+    providedCompile project(':library')
 
     provided rootProject.ext.lib_atlas_core
     //dagger2的apt注解
