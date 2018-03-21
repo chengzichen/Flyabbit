@@ -105,6 +105,7 @@ atlas {
         autoStartBundles = ['com.dhc.flyabbit.gank'] //自启动bundle配置
         autoStartBundles = ['com.dhc.flyabbit.home'] //自启动bundle配置
         autoStartBundles = ['com.dhc.flyabbit.my'] //自启动bundle配置
+        outOfApkBundles = ['photoview']
 //        outOfApkBundles = ['remotebundle']
 //        preLaunch = 'com.taobao.demo.DemoPreLaunch'
         classInject false
@@ -170,7 +171,9 @@ dependencies {
         bundleCompile project(':my')
         bundleCompile project(':home')
         bundleCompile project(':girls')
+        bundleCompile project(':photoview')
         compile project(':library')
+
 //        providedCompile project(':girls')
     }
     compile project(':activitygroupcompat')

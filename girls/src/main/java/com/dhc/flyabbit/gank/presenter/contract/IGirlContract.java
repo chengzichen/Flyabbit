@@ -11,9 +11,9 @@ import java.util.List;
 import io.reactivex.Flowable;
 
 /**
- * 创建者：yqlee
- * 时间 ：2017-04-25 下午 5:40
- * 描述 ：爱公益契约类
+ * 创建者：邓浩宸
+ * 时间 ：2018/3/21 17:10
+ * 描述 ：
  */
 public interface IGirlContract {
 

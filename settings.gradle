@@ -1,4 +1,4 @@
-include ':app', ':library', ':imageloader', ':uikit', ':home', ':my', ':girls', ':activitygroupcompat'
+include ':app', ':library', ':imageloader', ':uikit', ':home', ':my', ':girls', ':activitygroupcompat', ':photoview'
 
 
 project(':library').projectDir = new File('baselib/library')

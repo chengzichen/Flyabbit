@@ -1,5 +1,6 @@
 package com.dhc.flyabbit.gank.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
@@ -46,7 +47,6 @@ public class GirlFragment extends XDaggerFragment<GirlPresenter> implements IGir
     @Override
     protected void initEventAndData(View view) {
         initView();
-
         mList = new ArrayList<>();
         mAdapter = new GirlAdapter(mList);
         mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(SPAN_COUNT, StaggeredGridLayoutManager.VERTICAL);
@@ -65,7 +65,11 @@ public class GirlFragment extends XDaggerFragment<GirlPresenter> implements IGir
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                //// TODO: 2017/8/28 查看图片
+                GankItemBean gankItemBean= (GankItemBean) adapter.getData().get(position);
+                Intent intent = new Intent();
+                intent.putExtra("url",gankItemBean.getUrl());
+                intent.setClassName(_mActivity, "com.dhc.filyabbit.ImgActivity");
+                startActivity(intent);
             }
         });
         mPresenter.getGirlData();
