@@ -74,7 +74,7 @@ public class ToolbarUtil {
             throw new RuntimeException(
                     " toolbar must  be in your layout and find it ");
         Toolbar.LayoutParams layoutParams;
-        for (OptionsButton button : mOptionsButtons) {
+        for (final OptionsButton button : mOptionsButtons) {
             if (button.iconId != 0 && button.rightString == null) {
                 layoutParams = new Toolbar.LayoutParams(Toolbar.LayoutParams.WRAP_CONTENT, Toolbar.LayoutParams.MATCH_PARENT, Gravity.RIGHT | Gravity.CENTER);
                 rightImageView = new ImageView(mActivity);

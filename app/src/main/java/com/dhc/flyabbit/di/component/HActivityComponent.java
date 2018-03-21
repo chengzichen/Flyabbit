@@ -1,5 +1,6 @@
 package com.dhc.flyabbit.di.component;
 
+import com.dhc.flyabbit.app.App;
 import com.dhc.library.di.ActivityScope;
 import com.dhc.library.di.component.AppComponent;
 import com.dhc.library.di.module.ActivityModule;
@@ -16,7 +17,7 @@ import dagger.Component;
 public interface HActivityComponent {
 
 
-//    void inject(WelcomeActivity WelcomeActivity);
+    void inject(App app);
 //
 
 //    void inject(HomeActivity homeActivity);

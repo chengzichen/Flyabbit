@@ -29,7 +29,7 @@ public class GirlAdapter extends BaseQuickAdapter<GankItemBean, BaseViewHolder> 
 
 
     @Override
-    protected void convert(BaseViewHolder helper, GankItemBean item) {
+    protected void convert(final BaseViewHolder helper, final GankItemBean item) {
         //存在记录的高度时先Layout再异步加载图片
         if (item.getHeight() > 0) {
             ViewGroup.LayoutParams layoutParams = helper.getView(R.id.iv_girl).getLayoutParams();

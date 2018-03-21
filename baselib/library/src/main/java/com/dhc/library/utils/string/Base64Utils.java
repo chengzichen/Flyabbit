@@ -11,6 +11,8 @@ import java.io.UnsupportedEncodingException;
 
 import io.reactivex.Flowable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subscribers.ResourceSubscriber;
 
@@ -197,13 +199,16 @@ public class Base64Utils
 
 
     public static void Base64ToBitmap(String url, ResourceSubscriber<Bitmap> resourceSubscriber) {
-        Flowable.just(url).map(s -> {
-            byte[] decode = Base64.decode(s.split(",")[1], Base64.DEFAULT);
-            Bitmap bitmap = BitmapFactory.decodeByteArray(decode, 0, decode.length);
-            return bitmap;
+        Flowable.just(url).map(new Function<String, Object>() {
+            @Override
+            public Object apply(String s) throws Exception {
+                byte[] decode = Base64.decode(s.split(",")[1], Base64.DEFAULT);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(decode, 0, decode.length);
+                return bitmap;
+            }
         }).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(resourceSubscriber);
+                .subscribe((Consumer<? super Object>) resourceSubscriber);
     }
 
 

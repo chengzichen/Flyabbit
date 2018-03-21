@@ -2,8 +2,23 @@ if (isApp.toBoolean()) {
     apply plugin: 'com.android.application'
 } else {
     apply plugin: 'com.android.library'
+    apply plugin: 'com.taobao.atlas'
 }
 //apply plugin: 'com.novoda.bintray-release'//添加
+group = 'com.dhc.flyabbit'
+version = '1.0.0'
+
+atlas {
+    bundleConfig {
+        awbBundle true
+    }
+    buildTypes {
+        debug {
+            baseApFile project.rootProject.file('app/build/outputs/apk/app-debug.ap')
+        }
+    }
+}
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -17,12 +32,13 @@ android {
         main {
             if (isApp.toBoolean()) {
                 manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            } else {
+            }
+            else {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
                 java {
                     exclude 'src/main/debug/**'
-                    exclude '**/debug/**.java'
-                    exclude 'src/main/**/res/layout/activity_debug.xml'
+//                    exclude '**/debug/**.java'
+//                    exclude 'src/main/**/res/layout/activity_debug.xml'
                 }
             }
         }
@@ -53,10 +69,10 @@ android {
         abortOnError false
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//        targetCompatibility JavaVersion.VERSION_1_8
+//    }
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
 }
@@ -70,13 +86,17 @@ dependencies {
 
     testCompile rootProject.ext.dependencies["junit"]
 
-    api project(':library')
+    providedCompile project(':library')
 
+    provided rootProject.ext.lib_atlas_core
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
 
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+
+    providedCompile project(':photoview')
+//    compile project(':photoview')
 }
 
 //这是上传jcenter使用,不用关心
