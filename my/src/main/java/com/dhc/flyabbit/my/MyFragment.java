@@ -2,15 +2,18 @@ package com.dhc.flyabbit.my;
 
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+import com.dhc.lib.widget.util.ToolbarUtil;
 import com.dhc.library.base.BaseActivity;
 import com.dhc.library.base.BaseFragment;
-import com.dhc.library.base.WebViewCommonFragment;
+import com.dhc.businesscomponent.base.WebViewCommonFragment;
 import com.dhc.library.base.XDaggerFragment;
-import com.dhc.library.data.bean.ToolBarOptions;
+import com.dhc.lib.widget.bean.ToolBarOptions;
 import com.dhc.library.framework.OnBackToFirstListener;
 
 /**
@@ -18,7 +21,7 @@ import com.dhc.library.framework.OnBackToFirstListener;
  * 时间 ：2017/6/30 0030 上午 10:23
  * 描述 ：TODO 请描述该类职责
  */
-
+@Route(path = "/my/MyFragment")
 public class MyFragment extends XDaggerFragment implements View.OnClickListener {
 
     protected OnBackToFirstListener _mBackToFirstListener;
@@ -48,7 +51,8 @@ public class MyFragment extends XDaggerFragment implements View.OnClickListener 
     private void initTitle() {
         ToolBarOptions options = new ToolBarOptions()
                 .isNeedNavigate(false).titleString("我的");
-        setToolBar(R.id.toolbar, options);
+        new ToolbarUtil().setToolBar(_mActivity, (Toolbar) $(R.id.toolbar),options,false);
+//        setToolBar(R.id.toolbar, options);
     }
     private void initView() {
         mIvLogo = $(R.id.iv_logo);

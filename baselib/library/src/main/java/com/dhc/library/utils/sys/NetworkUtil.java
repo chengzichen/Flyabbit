@@ -15,10 +15,10 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 
-import com.dhc.library.utils.logger.KLog;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 
 public class NetworkUtil {
@@ -350,7 +350,6 @@ public class NetworkUtil {
 		}
 
 		String proxyHost = android.net.Proxy.getDefaultHost();
-		KLog.e(TAG, "proxyHost:" + proxyHost);
 		return proxyHost;
 	}
 
@@ -364,7 +363,6 @@ public class NetworkUtil {
 		}
 
 		String proxyHost = android.net.Proxy.getDefaultHost();
-		KLog.e(TAG, "proxyHost:" + proxyHost);
 		return proxyHost;
 	}
 

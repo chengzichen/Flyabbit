@@ -5,6 +5,7 @@
 ## 简介
 
 - [前言](##前言)
+- [框架结构](##框架说明)
 - [分支说明](##分支说明)
 - [相关文章](##相关文章)
 - [关于个人](##关于个人)
@@ -25,6 +26,14 @@ Flyabbit是一个使用Retrofit+Rxjava2+dagger2+Mvp+Material Design 快速搭建
  
 
 ![Image text](https://github.com/chengzichen/Photo/raw/master/gif/show.gif)
+
+
+
+
+## 框架说明
+
+![](https://i.imgur.com/sEuZMdp.png)
+
 
 
 ## 分支说明

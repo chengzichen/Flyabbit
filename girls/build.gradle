@@ -1,8 +1,4 @@
-if (isApp.toBoolean()) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
+apply plugin: 'com.dd.comgradle'
 //apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -13,20 +9,20 @@ android {
             resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
         }
     }
-    sourceSets {
-        main {
-            if (isApp.toBoolean()) {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/release/AndroidManifest.xml'
-                java {
-                    exclude 'src/main/debug/**'
-                    exclude '**/debug/**.java'
-                    exclude 'src/main/**/res/layout/activity_debug.xml'
-                }
-            }
-        }
-    }
+//    sourceSets {
+//        main {
+//            if (isApp.toBoolean()) {
+//                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+//            } else {
+//                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+//                java {
+//                    exclude 'src/main/debug/**'
+//                    exclude '**/debug/**.java'
+//                    exclude 'src/main/**/res/layout/activity_debug.xml'
+//                }
+//            }
+//        }
+//    }
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -70,7 +66,7 @@ dependencies {
 
     testCompile rootProject.ext.dependencies["junit"]
 
-    api project(':library')
+    implementation project(':businessComponent')
 
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
@@ -78,7 +74,10 @@ dependencies {
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
 }
-
+combuild {
+    applicationName = 'com.dhc.flyabbit.gank.app.GirlsApp'
+    isRegisterCompoAuto = true
+}
 //这是上传jcenter使用,不用关心
 //publish {
 //    userOrg = 'chengzichen'//bintray.com用户名

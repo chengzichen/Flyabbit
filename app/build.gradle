@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.dd.comgradle'
 
 android {
 
@@ -92,21 +92,9 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
-
-    if (isApp.toBoolean()) {
-        api(rootProject.ext.dependencies["homelib"]){
-            exclude module: 'library'
-        }
-        api (rootProject.ext.dependencies["mylib"]){
-            exclude module: 'library'
-        }
-        api (rootProject.ext.dependencies["girlslib"]){
-            exclude module: 'library'
-        }
-        api project(':library')
-    } else {
-        api project(':my')
-        api project(':home')
-        api project(':girls')
-    }
+    implementation project(':businessComponent')
+}
+combuild {
+    applicationName = 'com.dhc.flyabbit.app.App'
+    isRegisterCompoAuto = true
 }

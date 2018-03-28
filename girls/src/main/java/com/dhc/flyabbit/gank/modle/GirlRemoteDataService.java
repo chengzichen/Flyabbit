@@ -1,9 +1,9 @@
 package com.dhc.flyabbit.gank.modle;
 
+import com.dhc.businesscomponent.data.net.GankApiResponse;
 import com.dhc.flyabbit.gank.modle.bean.GankItemBean;
 import com.dhc.flyabbit.gank.presenter.contract.IGirlContract;
 import com.dhc.library.data.HttpHelper;
-import com.dhc.library.data.net.GankApiResponse;
 import com.dhc.library.utils.rx.RxUtil;
 
 import java.util.List;

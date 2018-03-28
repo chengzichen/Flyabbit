@@ -4,6 +4,7 @@ package com.dhc.library.di.module;
 import android.support.annotation.NonNull;
 
 import com.dhc.library.base.BaseApplication;
+import com.dhc.library.data.DBHelper;
 import com.dhc.library.data.HttpHelper;
 import com.dhc.library.data.IDataHelper;
 import com.dhc.library.di.ContextLife;
@@ -50,11 +51,11 @@ public class AppModule {
         return httpHelper;
     }
 
-//    @Provides
-//    @Singleton
-//    DatabaseHelper provideDatabaseHelper() {
-//        return new DatabaseHelper(application);
-//    }
+    @Provides
+    @Singleton
+    DBHelper provideDatabaseHelper() {
+        return new DBHelper(application);
+    }
 
     @Provides @NonNull
     @Singleton

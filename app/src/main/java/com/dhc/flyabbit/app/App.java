@@ -7,9 +7,15 @@ import android.support.v7.app.AppCompatDelegate;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.dhc.businesscomponent.data.LoginInfoBean;
+import com.dhc.lib.imageload.ImageLoaderManager;
+import com.dhc.library.data.account.AccountProvider;
+import com.dhc.library.utils.AppUtil;
 import com.dhc.library.utils.ApplicationLike;
 import com.dhc.library.utils.AsLibUtil;
 import com.dhc.library.base.BaseApplication;
+import com.dhc.timberhelper.TimberInitHelper;
+import com.google.gson.GsonBuilder;
 import com.squareup.leakcanary.LeakCanary;
 
 /**
@@ -17,7 +23,7 @@ import com.squareup.leakcanary.LeakCanary;
  * 时间 ：2017/3/21 10:51
  * 描述 ：app 初始化
  */
-public class App extends BaseApplication {
+public class App extends BaseApplication  implements AccountProvider<LoginInfoBean> {
 
     @Autowired(name = "/home/application1")
     ApplicationLike mApplicationLikeMoudle1;
@@ -46,6 +52,8 @@ public class App extends BaseApplication {
         if (mApplicationLikeMoudle3!=null)
         AsLibUtil.addAsLIbChild(mApplicationLikeMoudle3);
         AsLibUtil.doCreateAsLibrary(this);
+        TimberInitHelper.init(AppUtil.isDebug(),this);
+        ImageLoaderManager.getInstance().init(this);
     }
 
 
@@ -58,6 +66,7 @@ public class App extends BaseApplication {
     public void onLowMemory() {
         super.onLowMemory();
         AsLibUtil.onLowMemoryAsLibrary(this);
+        ImageLoaderManager.getInstance().cleanMemory(this);
     }
 
     @Override
@@ -76,6 +85,11 @@ public class App extends BaseApplication {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         AsLibUtil. onConfigurationChanged(this, newConfig);
+    }
+
+    @Override
+    public LoginInfoBean provideAccount(String accountJson) {
+        return new GsonBuilder().create().fromJson(accountJson, LoginInfoBean.class);
     }
 
 }

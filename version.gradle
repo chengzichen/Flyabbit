@@ -14,6 +14,9 @@ ext {
             VJunit                 : '4.12',
             VRxlifecycle           : "2.0.1",
 
+            //db
+            VRoom                  : "1.1.0-alpha1",
+
             //RX
             VRxandroid             : "2.0.1",
             VRxjava                : "2.0.1",
@@ -31,11 +34,12 @@ ext {
             //canary.
             VBlockcanary           : "1.2.1",
             VLeakcanary            : "1.5",
-
+            //log
+            VLogger                : "2.2.0",
+            VTimber                : "4.6.1",
             //other
             VFlycoDialog_Lib       : "1.3.2@aar",
             VFragmentation         : "1.1.8",
-            VLogger                : "1.15",
             VEventbus              : "3.0.0",
             VAvi_loading           : "2.1.3",
             VJpush                 : "3.0.5",
@@ -50,6 +54,7 @@ ext {
             VArouterapi            : "1.2.1.1",
             //ui
             VBaseAdapterHelper     : "2.9.27",
+            VConstraintLayout     : "1.0.2",
             VUltraPtr              : "1.0.11",
             VFlycoTabLayout_Lib    : "2.1.2@aar",
             VBanner                : "1.4.10",
@@ -76,6 +81,7 @@ ext {
             //UI
             "junit"                        : "junit:junit:${android["VJunit"]}",
             "appcompat-v7"                 : "com.android.support:appcompat-v7:${android["VSupportSdk"]}",
+            "constraint-layout"                 : "com.android.support.constraint:constraint-layout:${android["VConstraintLayout"]}",
             "support-v4"                   : "com.android.support:support-v4:${android["VSupportSdk"]}",
             "design"                       : "com.android.support:design:${android["VSupportSdk"]}",
             "annotations"                  : "com.android.support:support-annotations:${android["VSupportSdk"]}",
@@ -128,9 +134,18 @@ ext {
             "canary-test"                  : "com.squareup.leakcanary:leakcanary-android-no-op:${android["VLeakcanary"]}",
             //Cookie
             "PersistentCookieJar"          : "com.github.franmontiel:PersistentCookieJar:v1.0.0",
+
+            //db
+            "room-runtime"                 : "android.arch.persistence.room:runtime:${android["VRoom"]}",
+            "room-compiler"                 : "android.arch.persistence.room:compiler:${android["VRoom"]}",
+            "room-rxjava2"                 : "android.arch.persistence.room:rxjava2:${android["VRoom"]}",
+            "room-testing"                 : "android.arch.persistence.room:testing:${android["VRoom"]}",
+
+            //log
+            "timber"                       : "com.jakewharton.timber:timber:${android["VTimber"]}",
+            "logger"                       : "com.orhanobut:logger:${android["VLogger"]}",
             //other
             "fragmentation"                : "me.yokeyword:fragmentation:${android["VFragmentation"]}",
-            "logger"                       : "com.orhanobut:logger:${android["VLogger"]}",
             "eventbus"                     : "org.greenrobot:eventbus:${android["VEventbus"]}",
             "avi-loading"                  : "com.wang.avi:library:${android["VAvi_loading"]}",
             "jpush"                        : "cn.jiguang.sdk:jpush:${android["VJpush"]}",

@@ -3,7 +3,10 @@ package com.dhc.flyabbit.gank.app;
 import android.app.Application;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.dhc.lib.imageload.ImageLoaderManager;
 import com.dhc.library.base.BaseChildApplication;
+import com.dhc.library.utils.AppUtil;
+import com.dhc.timberhelper.TimberInitHelper;
 
 
 /**
@@ -18,10 +21,16 @@ public class GirlsApp extends BaseChildApplication {
     //不要对一个 Activity Context 保持长生命周期的引用。尽量在一切可以使用应用 ApplicationContext 代替 Context 的地方进行替换。
 
     @Override
-    public void onCreateAsLibrary(Application application) {
+    public void onCreateAsLibrary(Application application) {//这个方法是不管是作为APP还是modle时都会调用,用来初始化
         super.onCreateAsLibrary(application);
     }
 
+    @Override
+    public void onCreate() {//该方法只要在单独运行时作为入口APP类时才会调用
+        super.onCreate();
+        TimberInitHelper.init(AppUtil.isDebug(), this);
+        ImageLoaderManager.getInstance().init(this);
+    }
 
 
 }

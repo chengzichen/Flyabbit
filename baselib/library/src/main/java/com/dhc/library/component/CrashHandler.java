@@ -3,13 +3,13 @@ package com.dhc.library.component;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.widget.Toast;
 
-import com.dhc.library.utils.ToastUtil;
-import com.dhc.library.utils.logger.KLog;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+
 
 /**
  * 创建者：邓浩宸
@@ -38,13 +38,9 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
-        System.out.println(ex.toString());
-        KLog.e( ex.toString());
-        KLog.e( collectCrashDeviceInfo());
-        KLog.e(getCrashInfo(ex));
         // 调用系统错误机制
         defaultHandler.uncaughtException(thread, ex);
-        ToastUtil.shortShow(context,"抱歉,程序发生异常即将退出");
+        Toast.makeText(context,"抱歉,程序发生异常即将退出",Toast.LENGTH_SHORT).show();
 //        App.getInstance().exitApp();
         android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(0);

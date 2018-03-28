@@ -8,7 +8,11 @@ package com.dhc.library.data.net;
  * @date 15/6/21
  * @version 1.0
  */
-public class ApiResponse {
+public interface ApiResponse<T> {
 
+    boolean isSuccess();
 
+    boolean checkReLogin();
+
+    T getData();
 }

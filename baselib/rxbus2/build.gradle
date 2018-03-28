@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+//apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'//添加
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+////这是上传jcenter使用,不用关心
+publish {
+    userOrg = 'chengzichen'//bintray.com用户名
+    groupId = 'com.dhc.rxbus'//jcenter上的路径
+    artifactId = 'rxbus2'//项目名称
+    publishVersion = '1.0.0'//版本号
+    desc = 'Oh hi, this is component , show android-rxbus2'//描述，不重要
+    website = 'https://github.com/chengzichen/Flyabbit'//网站，不重要
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation  rootProject.ext.dependencies["junit"]
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    compileOnly rootProject.ext.dependencies["rxjava"]
+    compileOnly(rootProject.ext.dependencies["rxandroid"]) {
+        exclude module: 'rxjava'
+    }
+}
+
+
+

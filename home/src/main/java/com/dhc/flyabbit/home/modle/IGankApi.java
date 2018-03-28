@@ -1,9 +1,9 @@
 package com.dhc.flyabbit.home.modle;
 
 
+import com.dhc.businesscomponent.data.net.GankApiResponse;
 import com.dhc.flyabbit.home.modle.bean.GankItemBean;
 import com.dhc.library.data.net.Constants;
-import com.dhc.library.data.net.GankApiResponse;
 
 import java.util.List;
 

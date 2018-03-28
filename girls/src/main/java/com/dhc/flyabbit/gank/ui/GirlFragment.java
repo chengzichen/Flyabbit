@@ -15,7 +15,7 @@ import com.dhc.flyabbit.gank.presenter.contract.IGirlContract;
 import com.dhc.flyabbit.gank.ui.adapter.GirlAdapter;
 import com.dhc.lib.widget.CustomLoadMoreView;
 import com.dhc.library.base.XDaggerFragment;
-import com.dhc.library.utils.ToastUtil;
+import com.dhc.lib.widget.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;

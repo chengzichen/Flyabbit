@@ -9,16 +9,13 @@ import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.dhc.library.R;
-import com.dhc.library.data.bean.ToolBarOptions;
 import com.dhc.library.framework.IDaggerListener;
-import com.dhc.library.utils.ToolbarUtil;
-import com.dhc.library.utils.logger.KLog;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.RxLifecycle;
@@ -35,8 +32,9 @@ import me.yokeyword.fragmentation.SupportActivity;
  */
 public abstract class BaseActivity extends SupportActivity implements LifecycleProvider<ActivityEvent> ,IDaggerListener {
     protected Context mContext;
-    private Toolbar toolbar;
-    private ToolbarUtil mToolbarUtil;
+//    private Toolbar toolbar;
+//    private ToolbarUtil mToolbarUtil;
+    private static final String TAG = BaseActivity.class.getSimpleName();
     private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();//重写RxLife控制生命周期
 
     protected <T extends View> T $(int resId) {
@@ -53,7 +51,7 @@ public abstract class BaseActivity extends SupportActivity implements LifecycleP
             setContentView(getLayout());
         }
         mContext = this;
-        KLog.t("ui").i("activity: " + getClass().getSimpleName() + " onCreate()");
+        Log.i(TAG,"activity: " + getClass().getSimpleName() + " onCreate()");
         initEventAndData(savedInstanceState);
     }
 
@@ -70,81 +68,46 @@ public abstract class BaseActivity extends SupportActivity implements LifecycleP
         });
     }
 
-    /**
-     * 设置标题栏
-     *
-     * @param toolBarId
-     * @param options
-     */
-    public void setToolBar(int toolBarId, ToolBarOptions options) {
-        setToolBar(toolBarId, options, false);
-    }
-
-    /**
-     * 设置标题栏
-     *
-     * @param toolBarId
-     * @param options
-     */
-    public void setToolBar(int toolBarId, ToolBarOptions options, boolean haveLine) {
-        toolbar = (Toolbar) findViewById(toolBarId);
-        if (options == null) {
-            throw new RuntimeException(
-                    " options is null ");
-        }
-        mToolbarUtil = new ToolbarUtil(this, toolbar, haveLine);
-        if (!TextUtils.isEmpty(options.titleString)) {
-            mToolbarUtil.setTitle(options.titleString);
-
-        } else if (options.titleId != 0) {
-            mToolbarUtil.setTitle(getText(options.titleId));
-        }
-        if (options.mOptionsButtons != null && options.mOptionsButtons.size() > 0) {
-            mToolbarUtil.addOptionButton(options.mOptionsButtons);
-        }
-
-        if (options.logoId != 0) {
-            toolbar.setLogo(options.logoId);
-        }
-        if (options.isNeedNavigate) {
-            toolbar.setNavigationIcon(options.navigateId);
-            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onBackPressedSupport();
-                }
-            });
-        }
-    }
-
-    public void setTitle(String title) {
-        if (mToolbarUtil != null)
-            mToolbarUtil.setTitle(title);
-    }
+//    /**
+//     * 设置标题栏
+//     *
+//     * @param toolBarId
+//     * @param options
+//     */
+//    public void setToolBar(int toolBarId, ToolBarOptions options) {
+//        setToolBar(toolBarId, options, false);
+//    }
 
 
-    /**
-     * 获取titile对象
-     *
-     * @return
-     */
-    public Toolbar getToolBar() {
-        return toolbar;
-    }
 
-    public int getToolBarHeight() {
-        if (toolbar != null) {
-            return toolbar.getHeight();
-        }
+//    public void setTitle(String title) {
+//        if (mToolbarUtil != null)
+//            mToolbarUtil.setTitle(title);
+//    }
 
-        return 0;
-    }
+
+//    /**
+//     * 获取titile对象
+//     *
+//     * @return
+//     */
+//    public Toolbar getToolBar() {
+//        return toolbar;
+//    }
+
+//    public int getToolBarHeight() {
+//        if (toolbar != null) {
+//            return toolbar.getHeight();
+//        }
+//
+//        return 0;
+//    }
 
     @Override
     protected void onDestroy() {
         lifecycleSubject.onNext(ActivityEvent.DESTROY);
         super.onDestroy();
-        KLog.t("ui").i("activity: " + getClass().getSimpleName() + " onDestroy()");
+        Log.i(TAG,"activity: " + getClass().getSimpleName() + " onDestroy()");
     }
 
     /**

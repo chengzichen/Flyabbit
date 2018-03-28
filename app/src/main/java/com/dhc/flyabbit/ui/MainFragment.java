@@ -2,18 +2,15 @@ package com.dhc.flyabbit.ui;
 
 import android.os.Bundle;
 import android.view.View;
-
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.dhc.flyabbit.R;
-import com.dhc.flyabbit.gank.ui.GankFragment;
-import com.dhc.flyabbit.home.ui.HomeFragment;
-import com.dhc.flyabbit.my.MyFragment;
 import com.dhc.lib.widget.bottombar.BottomBar;
 import com.dhc.lib.widget.bottombar.BottomBarTab;
+import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.account.AccountManager;
 import com.dhc.library.framework.OnBackToFirstListener;
-
 import me.yokeyword.fragmentation.SupportFragment;
 
 
@@ -82,20 +79,31 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
 
 
     @Override
-    public void initInject(Bundle savedInstanceState) {
+    public void initInject(Bundle savedInstanceState)  {
         if (savedInstanceState == null) {
-            mFragments[FIRST] = HomeFragment.newInstance();
-            mFragments[SECOND] = GankFragment.newInstance();
-            mFragments[THIRD] = MyFragment.newInstance();
-            loadMultipleRootFragment(R.id.fl_tab_container, FIRST,
-                    mFragments[FIRST],
-                    mFragments[SECOND],
-                    mFragments[THIRD]);
+            mFragments[FIRST] = (SupportFragment) ARouter.getInstance().build("/home/HomeFragment").navigation();
+            mFragments[SECOND] = (SupportFragment) ARouter.getInstance().build("/gank/GankFragment").navigation();
+            mFragments[THIRD] = (SupportFragment) ARouter.getInstance().build("/my/MyFragment")
+                    .navigation();
+            loadMultipleRootFragment(R.id.fl_tab_container, FIRST, mFragments[FIRST], mFragments[SECOND], mFragments[THIRD]);
         } else {
-            mFragments[FIRST] = findChildFragment(HomeFragment.class);
-            mFragments[SECOND] = findChildFragment(GankFragment.class);
-            mFragments[THIRD] = findChildFragment(MyFragment.class);
+            Class<BaseFragment> sClass = getClass("GankFragment");
+            Class<BaseFragment> tClass = getClass("MyFragment");
+            Class<BaseFragment> fClass=   getClass("HomeFragment");
+            mFragments[FIRST] = findChildFragment(fClass);
+            mFragments[SECOND] = findChildFragment(sClass);
+            mFragments[THIRD] = findChildFragment(tClass);
         }
+    }
+
+    private Class<BaseFragment> getClass(String homeFragment) {
+        Class<BaseFragment> fClass = null;
+        try {
+            fClass = (Class<BaseFragment>) Class.forName(homeFragment);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return fClass;
     }
 
 

@@ -2,16 +2,19 @@
 apply from: "version.gradle"
 buildscript {
     repositories {
+//        maven {
+//            url 'file:\\C:\\Android\\gradle\\m2repository'
+//        }
         google()
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
-//        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
-//        classpath 'com.novoda:bintray-release:0.3.4'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'
+        classpath 'com.dhc.component:component-plugin:1.0.0'
+//        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+        classpath 'com.novoda:bintray-release:0.8.1'
     }
 }
 
