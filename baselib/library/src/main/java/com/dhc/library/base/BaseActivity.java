@@ -32,8 +32,6 @@ import me.yokeyword.fragmentation.SupportActivity;
  */
 public abstract class BaseActivity extends SupportActivity implements LifecycleProvider<ActivityEvent> ,IDaggerListener {
     protected Context mContext;
-//    private Toolbar toolbar;
-//    private ToolbarUtil mToolbarUtil;
     private static final String TAG = BaseActivity.class.getSimpleName();
     private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();//重写RxLife控制生命周期
 
@@ -68,40 +66,6 @@ public abstract class BaseActivity extends SupportActivity implements LifecycleP
         });
     }
 
-//    /**
-//     * 设置标题栏
-//     *
-//     * @param toolBarId
-//     * @param options
-//     */
-//    public void setToolBar(int toolBarId, ToolBarOptions options) {
-//        setToolBar(toolBarId, options, false);
-//    }
-
-
-
-//    public void setTitle(String title) {
-//        if (mToolbarUtil != null)
-//            mToolbarUtil.setTitle(title);
-//    }
-
-
-//    /**
-//     * 获取titile对象
-//     *
-//     * @return
-//     */
-//    public Toolbar getToolBar() {
-//        return toolbar;
-//    }
-
-//    public int getToolBarHeight() {
-//        if (toolbar != null) {
-//            return toolbar.getHeight();
-//        }
-//
-//        return 0;
-//    }
 
     @Override
     protected void onDestroy() {

@@ -90,7 +90,7 @@
 
 	dependencies {
 
-	       api 'com.dhc.lib:mvp:1.0.1'
+	       api 'com.dhc.lib:mvp:1.0.2'
 	}
 
 

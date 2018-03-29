@@ -25,7 +25,7 @@ import me.yokeyword.fragmentation.helper.ExceptionHandler;
  * 创建时间   2017/3/23 18:03
  * 描述	      基类app
  */
-public class BaseApplication extends MultiDexApplication  {
+public class BaseApplication extends Application  {
 
     protected static BaseApplication instance;
 

@@ -40,9 +40,7 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
 //    private Toolbar toolbar;
     protected View mView;
     private boolean isInited = false;
-    //_mActivity在SupportFragment中已经在onAttach中绑定了activity可以直接使用
     protected Context mContext;
-//    private ToolbarUtil mToolbarUtil;
 
 
     /**
@@ -54,9 +52,6 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
         super.onAttach(context);
     }
 
-//    public ToolbarUtil getToolbarUtil() {
-//        return mToolbarUtil;
-//    }
 
 
     public final Handler getHandler() {
@@ -123,64 +118,6 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
             Log.i(TAG,this.getClass().getName()+"onLazyInitView");
         }
     }
-
-
-//    /**
-//     * 设置标题栏
-//     *
-//     * @param toolBarId
-//     * @param options
-//     */
-//    public void setToolBar(int toolBarId, ToolBarOptions options) {
-//        setToolBar(toolBarId, options, false);
-//    }
-
-//    /**
-//     * 设置标题栏
-//     *
-//     * @param toolBarId
-//     * @param options
-//     */
-//    public void setToolBar(int toolBarId, ToolBarOptions options, boolean haveLine) {
-//        toolbar = (Toolbar) mView.findViewById(toolBarId);
-//        if (options == null) {
-//            throw new RuntimeException(
-//                    " options is null ");
-//        }
-//        mToolbarUtil = new ToolbarUtil(_mActivity, toolbar, haveLine);
-//        if (!TextUtils.isEmpty(options.titleString)) {
-//            mToolbarUtil.setTitle(options.titleString);
-//
-//        } else if (options.titleId != 0) {
-//            mToolbarUtil.setTitle(getContext().getText(options.titleId));
-//        }
-//        if (options.mOptionsButtons != null && options.mOptionsButtons.size() > 0) {
-//            mToolbarUtil.addOptionButton(options.mOptionsButtons);
-//        }
-//
-//        if (options.logoId != 0) {
-//            toolbar.setLogo(options.logoId);
-//        }
-//        if (options.isNeedNavigate) {
-//            toolbar.setNavigationIcon(options.navigateId);
-//            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    doYouWantTodo();
-//                    pop();
-//                }
-//            });
-//        }
-//    }
-
-    protected void doYouWantTodo() {
-
-    }
-
-//    public void setTitle(String title) {
-//        if (mToolbarUtil != null)
-//            mToolbarUtil.setTitle(title);
-//    }
 
     public boolean useLazy() {
         return true;
@@ -250,23 +187,6 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
         }
     }
 
-//    /**
-//     * 获取titile对象
-//     *
-//     * @return
-//     */
-//    public Toolbar getToolBar() {
-//        return toolbar;
-//    }
-//
-//    public int getToolBarHeight() {
-//        if (toolbar != null) {
-//            return toolbar.getHeight();
-//        }
-//
-//        return 0;
-//    }
-
     /**
      * 当Fragment状态改变时调用
      *
@@ -275,11 +195,6 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        //        if (!isInited && !hidden) {
-        //            isInited = true;
-        //            if (mView != null)
-        //                initEventAndData(mView);
-        //        }
     }
 
 
