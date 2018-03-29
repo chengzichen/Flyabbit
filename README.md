@@ -47,41 +47,20 @@
 
 这里首先感谢 [@DDComponentForAndroid](https://github.com/luojilab/DDComponentForAndroid) 开源的插件,我只是对其进行了修改更适合自己的项目.用法基本没有改变
 
-
-buildscript {
-    repositories {
-
-        google()
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        ......
-        classpath 'com.dhc.component:component-plugin:1.0.0'
-		......
-    }
-}
-
-
 **Step 1. 在根目录的gradle文件中配置**
 
-
-	allprojects {
-			repositories {
-				...
-				 jcenter()
-			}
-		}
-
-
-**step2 添加依赖(By 3.0):**
-
-
-	dependencies {
-
-	       api 'com.dhc.lib:mvp:1.0.1'
-	}
-
+    buildscript {
+        repositories {
+            ....
+            jcenter()
+            ....
+        }
+        dependencies {
+            ......
+            classpath 'com.dhc.component:component-plugin:1.0.0'
+            ......
+        }
+    }
 
 
 - **MVP**与数据层
