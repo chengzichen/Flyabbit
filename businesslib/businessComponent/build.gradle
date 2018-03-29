@@ -1,3 +1,5 @@
+import com.sun.org.apache.xalan.internal.xsltc.cmdline.Compile
+
 apply plugin: 'com.android.library'
 
 android {
@@ -26,11 +28,11 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(':imageloader')
-    api project(':library')
-    api project(':uikit')
-    api project(':rxbus2')
-    api project(':timberhelper')
+    compile project(':imageloader')
+    compile project(':uikit')
+    compile 'com.dhc.lib:mvp:1.0.1'
+    compile 'com.dhc.rxbus:rxbus2:1.0.0'
+    compile 'com.dhc.timberhelper:timberhelper:1.0.0'
 }

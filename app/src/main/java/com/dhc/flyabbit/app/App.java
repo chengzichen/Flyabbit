@@ -17,12 +17,23 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.dhc.businesscomponent.Constants;
+import com.dhc.businesscomponent.data.LoginInfoBean;
+import com.dhc.flyabbit.presenter.DownLoadPresenter;
+import com.dhc.flyabbit.presenter.contract.IDownLoadContract;
+import com.dhc.lib.imageload.ImageLoaderManager;
+import com.dhc.library.base.BaseApplication;
+import com.dhc.library.data.IDataHelper;
+import com.dhc.library.data.account.AccountProvider;
+import com.dhc.library.utils.AppUtil;
 import com.dhc.library.utils.ApplicationLike;
 import com.dhc.library.utils.AsLibUtil;
+import com.dhc.timberhelper.TimberInitHelper;
 import com.flyco.animation.BounceEnter.BounceTopEnter;
 import com.flyco.animation.SlideExit.SlideBottomExit;
 import com.flyco.dialog.listener.OnBtnClickL;
 import com.flyco.dialog.widget.NormalDialog;
+import com.google.gson.GsonBuilder;
 import com.squareup.leakcanary.LeakCanary;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
@@ -37,7 +48,7 @@ import javax.inject.Inject;
  * 时间 ：2017/3/21 10:51
  * 描述 ：app 初始化
  */
-public class App extends BaseApplication implements IDownLoadContract.IView ,AccountProvider<LoginInfoBean>{
+public class App extends BaseApplication implements IDownLoadContract.IView ,AccountProvider<LoginInfoBean> {
 
     @Autowired(name = "/home/application1")
     ApplicationLike mApplicationLikeMoudle1;
@@ -67,9 +78,6 @@ public class App extends BaseApplication implements IDownLoadContract.IView ,Acc
         if (mApplicationLikeMoudle3!=null)
         AsLibUtil.addAsLIbChild(mApplicationLikeMoudle3);
         AsLibUtil.doCreateAsLibrary(this);
-        DaggerHActivityComponent.builder()
-                .appComponent(BaseApplication.getAppComponent())
-                .build().inject(this);
         if (downLoadPresenter != null)
             downLoadPresenter.attachView(this);
 //        https://bundle-1253245619.cos.ap-guangzhou.myqcloud.com/libcom_dhc_filyabbit.so

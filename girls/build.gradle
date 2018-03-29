@@ -36,8 +36,8 @@ android {
                 manifest.srcFile 'src/main/release/AndroidManifest.xml'
                 java {
                     exclude 'src/main/debug/**'
-                    exclude '**/debug/**.java'
-                    exclude 'src/main/**/res/layout/activity_debug.xml'
+//                    exclude '**/debug/**.java'
+//                    exclude 'src/main/**/res/layout/activity_debug.xml'
                 }
             }
         }
@@ -85,7 +85,7 @@ dependencies {
 
     testCompile rootProject.ext.dependencies["junit"]
 
-    implementation project(':businessComponent')
+    providedCompile project(':businessComponent')
 
     provided rootProject.ext.lib_atlas_core
     //dagger2的apt注解

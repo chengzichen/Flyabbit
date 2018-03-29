@@ -1,14 +1,12 @@
 package com.dhc.flyabbit.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.dhc.flyabbit.R;
-import com.dhc.flyabbit.gank.ui.GankFragment;
-import com.dhc.flyabbit.home.ui.HomeFragment;
-import com.dhc.flyabbit.my.MyFragment;
 import com.dhc.lib.widget.bottombar.BottomBar;
 import com.dhc.lib.widget.bottombar.BottomBarTab;
 import com.dhc.library.base.XDaggerFragment;
@@ -16,7 +14,7 @@ import com.dhc.library.data.account.AccountManager;
 import com.dhc.library.framework.OnBackToFirstListener;
 import com.taobao.android.ActivityGroupDelegate;
 
-
+import javax.annotation.Nullable;
 
 
 /**

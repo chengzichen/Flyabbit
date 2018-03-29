@@ -1,6 +1,7 @@
 package com.dhc.flyabbit.gank.ui;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -48,7 +49,7 @@ public class GankFragment extends XDaggerFragment {
         ToolBarOptions options = new ToolBarOptions()
                 .isNeedNavigate(false).titleString("干货集中营");
 //        setToolBar(R.id.toolbar, options);
-        new ToolbarUtil().setToolBar(_mActivity, $(R.id.toolbar),options,false);
+        new ToolbarUtil().setToolBar(_mActivity, (Toolbar) $(R.id.toolbar),options,false);
     }
 
 
