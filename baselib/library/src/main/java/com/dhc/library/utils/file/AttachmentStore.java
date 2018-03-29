@@ -3,8 +3,8 @@ package com.dhc.library.utils.file;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import android.util.Log;
 
-import com.dhc.library.utils.logger.KLog;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+
 
 /**
  * 用于把附件保存到文件系统中
@@ -181,7 +182,7 @@ public class AttachmentStore {
         	if(f!=null && f.exists()){
         		f.delete();
         	}
-        	KLog.e("file", "save is to " + filePath + " failed: " + e.getMessage());
+            Log.i("file", "save is to " + filePath + " failed: " + e.getMessage());
             return -1;
         } finally {
             try {

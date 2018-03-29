@@ -92,7 +92,7 @@ public enum AccountManager {
             String accountJson = authPreferences.getUserData();
             if (!TextUtils.isEmpty(accountJson)
                     && mContext instanceof AccountProvider) {
-                mCurrentAccount = ((AccountProvider) mContext).provideAccount(accountJson);
+                mCurrentAccount = (Account) ((AccountProvider) mContext).provideAccount(accountJson);
             }
         }
         return (T) mCurrentAccount;

@@ -3,15 +3,13 @@ package com.dhc.library.data;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.dhc.library.data.net.CallInterceptor;
 import com.dhc.library.data.net.CacheInterceptor;
-import com.dhc.library.data.net.Constants;
+import com.dhc.library.data.net.CallInterceptor;
 import com.dhc.library.data.net.StringConverterFactory;
 import com.dhc.library.data.net.TokenInterceptor;
 import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.AppUtil;
 import com.dhc.library.utils.file.FileUtil;
-import com.dhc.library.utils.logger.KLog;
 import com.franmontiel.persistentcookiejar.ClearableCookieJar;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
@@ -49,7 +47,7 @@ public class HttpHelper implements IDataHelper {
 
     private static Retrofit retrofit = null;
 
-    public static Context context;
+    public  Context context;
 
     private Gson gson;
 
@@ -97,26 +95,23 @@ public class HttpHelper implements IDataHelper {
 
     @Override
     public <S> S createApi(Class<S> serviceClass, OkHttpClient client) {
-        String baseURL = (String) SPHelper.get(AppContext.get(), "BaseUrl", "");
-        if (TextUtils.isEmpty(baseURL)) {
+        String baseURL = netConfig.baseURL;
+        if (netConfig.isUseMultiBaseURL) {
             try {
                 Field field1 = serviceClass.getField("baseURL");
                 baseURL = (String) field1.get(serviceClass);
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
+                 baseURL = netConfig.baseURL;
             } catch (IllegalAccessException e) {
                 e.getMessage();
                 e.printStackTrace();
-                System.out.println(" e.getMessage()"+ e.getMessage());
+                 baseURL = netConfig.baseURL;
             }
             if(TextUtils.isEmpty(baseURL))
-            baseURL= Constants.BASE_URL;
-        }else{
-            baseURL= "http://"+baseURL +"/";
+                throw  new RuntimeException("baseUrl is null .please init by NetModule or apiService field BaseUrl");
         }
-        System.out.println("baseURL"+baseURL);
         if (retrofit != null && retrofit.baseUrl().host() == baseURL) {
-            KLog.d(retrofit.baseUrl().host() + "    " + retrofit.baseUrl().toString() + "    " + baseURL);
             return retrofit.create(serviceClass);
         } else {
             return getRetrofit(baseURL).create(serviceClass);
@@ -163,8 +158,7 @@ public class HttpHelper implements IDataHelper {
 
 
     public OkHttpClient getOkHttpClient() {
-        ClearableCookieJar cookieJar =//对cooke自动管理管理
-                new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(context));
+        ClearableCookieJar cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(context));//对cooke自动管理管理
         File cacheFile = new File(FileUtil.getCacheDirectory(context), "ApiCookie");//缓存路径
         cacheFile = FileUtil.makeDirs(cacheFile);
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 40);//设置缓存大小为40M
@@ -172,7 +166,6 @@ public class HttpHelper implements IDataHelper {
         CacheInterceptor cacheInterceptor = new CacheInterceptor(context);
         //token管理
         TokenInterceptor tokenInterceptor = new TokenInterceptor();
-        // https://drakeet.me/retrofit-2-0-okhttp-3-0-config
         OkHttpClient.Builder builder =
                 new OkHttpClient.Builder()
                         .cache(cache)

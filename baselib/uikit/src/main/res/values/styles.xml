@@ -2,6 +2,27 @@
 <resources>
 
 
+    <!--windowBackground的背景颜色参照ui背景颜色-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:activityOpenEnterAnimation">@anim/step_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/no_anim</item>
+        <item name="android:activityCloseEnterAnimation">@anim/no_anim</item>
+        <item name="android:activityCloseExitAnimation">@anim/step_out_right</item>
+        <item name="android:windowBackground">@color/clr_f0f0f0</item>
+        <item name="android:colorBackground">@color/clr_f0f0f0</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="actionBarSize">37dp</item>
+        <item name="toolbarNavigationButtonStyle">@style/myToolbarNavigationButtonStyle</item>
+        <item name="toolbarStyle">@style/ClubToolbar</item>
+        <item name="android:splitMotionEvents">false</item>
+    </style>
+    <style name="ClubToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item><!-- 设置该属性解决空白部分-->
+    </style>
+
     <style name="Widget.MaterialProgressBar.ProgressBar.Horizontal" parent="android:Widget.ProgressBar.Horizontal">
         <!--
         Disabled for correct behavior on Android 4.x
@@ -93,10 +114,7 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="WindowAnimationFadeInOut">
-        <item name="@android:windowEnterAnimation">@anim/fade_in</item>
-        <item name="@android:windowExitAnimation">@anim/fade_out</item>
-    </style>
+
 
 
     <!-- loadingView start-->

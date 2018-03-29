@@ -4,9 +4,6 @@ import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-import com.dhc.library.utils.AppUtil;
-import com.dhc.library.utils.logger.KLog;
 
 
 /**
@@ -16,7 +13,7 @@ import com.dhc.library.utils.logger.KLog;
  */
 public class InitializeService extends IntentService {
 
-    private static final String ACTION_INIT_WHEN_APP_CREATE = "com.kairu.library.base.action.INIT";
+    private static final String ACTION_INIT_WHEN_APP_CREATE = "com.dhc.library.base.action.INIT";
 
     public InitializeService() {
         super("InitializeService");
@@ -39,26 +36,13 @@ public class InitializeService extends IntentService {
     }
 
     private void performInit() {
-
-
         //log日志
-        KLog.init("dhc").hideThreadInfo().methodCount(1);
-
-
-
-        if (AppUtil.isDebug()) {
-            ARouter.openLog();     // 打印日志
-            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-        }
-        ARouter.init(this.getApplication()); // 尽可能早，推荐在Application中初始化
-
-
-
-
-
+//        if (AppUtil.isDebug()) {
+//            ARouter.openLog();     // 打印日志
+//            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+//        }
+//        ARouter.init(this.getApplication()); // 尽可能早，推荐在Application中初始化
         //初始化过度绘制检测
         //BlockCanary.install(this, new AppBlockCanaryContext()).start();
-
-
     }
 }

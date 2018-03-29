@@ -17,10 +17,6 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.dhc.flyabbit.di.component.DaggerHActivityComponent;
-import com.dhc.flyabbit.presenter.DownLoadPresenter;
-import com.dhc.flyabbit.presenter.contract.IDownLoadContract;
-import com.dhc.library.base.BaseApplication;
 import com.dhc.library.utils.ApplicationLike;
 import com.dhc.library.utils.AsLibUtil;
 import com.flyco.animation.BounceEnter.BounceTopEnter;
@@ -41,7 +37,7 @@ import javax.inject.Inject;
  * 时间 ：2017/3/21 10:51
  * 描述 ：app 初始化
  */
-public class App extends BaseApplication implements IDownLoadContract.IView {
+public class App extends BaseApplication implements IDownLoadContract.IView ,AccountProvider<LoginInfoBean>{
 
     @Autowired(name = "/home/application1")
     ApplicationLike mApplicationLikeMoudle1;
@@ -142,6 +138,8 @@ public class App extends BaseApplication implements IDownLoadContract.IView {
                 return intent;
             }
         });
+        TimberInitHelper.init(AppUtil.isDebug(),this);
+        ImageLoaderManager.getInstance().init(this);
     }
 
 
@@ -149,11 +147,19 @@ public class App extends BaseApplication implements IDownLoadContract.IView {
         return (App) context.getApplicationContext();
     }
 
-
+    /**
+     * 必须重新设置BaseUrl
+     * @return
+     */
+    @Override
+    public  IDataHelper.NetConfig getNetConfig() {
+        return new IDataHelper.NetConfig().configBaseURL(Constants.GANK_URL);
+    }
     @Override
     public void onLowMemory() {
         super.onLowMemory();
         AsLibUtil.onLowMemoryAsLibrary(this);
+        ImageLoaderManager.getInstance().cleanMemory(this);
     }
 
     @Override
@@ -194,4 +200,9 @@ public class App extends BaseApplication implements IDownLoadContract.IView {
     public void showError(String code, String msg) {
 
     }
+    @Override
+    public LoginInfoBean provideAccount(String accountJson) {
+        return new GsonBuilder().create().fromJson(accountJson, LoginInfoBean.class);
+    }
+
 }

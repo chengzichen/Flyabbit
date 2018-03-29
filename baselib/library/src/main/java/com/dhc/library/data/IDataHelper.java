@@ -10,7 +10,7 @@ import okhttp3.ResponseBody;
 /**
  * 创建者     邓浩宸
  * 创建时间   2017/3/28 13:04
- * 描述	      ${TODO}
+ * 描述	     数据处理接口类
  */
 public interface IDataHelper {
 
@@ -35,17 +35,54 @@ public interface IDataHelper {
         public long readTimeoutMills;
         public boolean isHasLog;
         public boolean isUseRx = true;
+        public String baseURL = "";
+        public boolean isUseMultiBaseURL = true;
 
+        /**
+         * add okhttp Interceptors
+         * @param configInterceptors
+         * @return
+         */
         public NetConfig configInterceptors(Interceptor[] configInterceptors) {
             this.mInterceptors = configInterceptors;
             return this;
         }
 
-        public NetConfig configInterceptors(CookieJar mCookieJar) {
+        /**
+         *  can use multi baseurl {@link com.dhc.library.data.HttpHelper#createApi(java.lang.Class,okhttp3.OkHttpClient)}
+         * @param isUseMultiBaseURL
+         * @return
+         */
+        public NetConfig configisUseMultiBaseURL(boolean isUseMultiBaseURL) {
+            this.isUseMultiBaseURL = isUseMultiBaseURL;
+            return this;
+        }
+
+        /**
+         * root baseurl {@link com.dhc.library.data.HttpHelper#createApi(java.lang.Class,okhttp3.OkHttpClient)}
+         * @param baseURL
+         * @return
+         */
+        public NetConfig configBaseURL(String baseURL) {
+            this.baseURL = baseURL;
+            return this;
+        }
+
+        /**
+         * config cookieManager
+         * @param mCookieJar
+         * @return
+         */
+        public NetConfig configCookieJar(CookieJar mCookieJar) {
             this.mCookieJar = mCookieJar;
             return this;
         }
 
+        /**
+         * 
+         * @param call
+         * @return
+         */
         public NetConfig configCall(RequestCall call) {
             this.call = call;
             return this;

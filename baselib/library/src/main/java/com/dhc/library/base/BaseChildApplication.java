@@ -3,9 +3,10 @@ package com.dhc.library.base;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.util.Log;
 
 import com.dhc.library.utils.ApplicationLike;
-import com.dhc.library.utils.logger.KLog;
+
 
 
 /**
@@ -15,6 +16,8 @@ import com.dhc.library.utils.logger.KLog;
  */
 
 public class BaseChildApplication extends BaseApplication implements ApplicationLike {
+
+    private static final String TAG = BaseChildApplication.class.getSimpleName();
 
     @Override
     public void onCreate() {
@@ -48,27 +51,27 @@ public class BaseChildApplication extends BaseApplication implements Application
 
     @Override
     public void onTerminate(Application application) {
-        KLog.d(this.getClass().getName()+"onTerminate");
+        Log.i(TAG,this.getClass().getName()+"onTerminate");
     }
 
     @Override
     public void onCreateAsLibrary(Application application) {
-        KLog.d(this.getClass().getName()+"onCreateAsLibrary");
+        Log.i(TAG,this.getClass().getName()+"onCreateAsLibrary");
     }
 
     @Override
     public void onLowMemoryAsLibrary(Application application) {
-        KLog.d(this.getClass().getName()+"onLowMemoryAsLibrary");
+        Log.i(TAG,this.getClass().getName()+"onLowMemoryAsLibrary");
     }
 
     @Override
     public void onTrimMemoryAsLibrary(Application application, int level) {
-        KLog.d(this.getClass().getName()+"onTrimMemoryAsLibrary");
+        Log.i(TAG,this.getClass().getName()+"onTrimMemoryAsLibrary");
     }
 
     @Override
     public void onConfigurationChanged(Application application, Configuration configuration) {
-        KLog.d(this.getClass().getName()+"onConfigurationChanged");
+        Log.i(TAG,this.getClass().getName()+"onConfigurationChanged");
     }
 
     /**

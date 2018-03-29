@@ -9,12 +9,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.dhc.library.R;
 import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.file.AttachmentStore;
 import com.dhc.library.utils.file.FileUtil;
-import com.dhc.library.utils.logger.KLog;
 import com.dhc.library.utils.storage.StorageType;
 import com.dhc.library.utils.storage.StorageUtil;
 import com.dhc.library.utils.string.StringUtil;
@@ -25,6 +25,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 
 /**
  * 创建者：邓浩宸
@@ -44,14 +45,14 @@ public class ImageUtil {
 
     public final static float MAX_IMAGE_RATIO = 5f;
 
-    public static Bitmap getDefaultBitmapWhenGetFail() {
-        try {
-            return getBitmapImmutableCopy(AppContext.get().getResources(), R.mipmap.image_download_failed);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
+//    public static Bitmap getDefaultBitmapWhenGetFail() {
+//        try {
+//            return getBitmapImmutableCopy(AppContext.get().getResources(), R.mipmap.image_download_failed);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//    }
 
     public static final Bitmap getBitmapImmutableCopy(Resources res, int id) {
         return getBitmap(res.getDrawable(id)).copy(Config.RGB_565, false);
@@ -283,7 +284,7 @@ public class ImageUtil {
         String filePath = imageFile.getPath();
 
         if (!isInvalidPictureFile(mimeType)) {
-            KLog.i("ImageUtil", "is invalid picture file");
+            Log.i("ImageUtil", "is invalid picture file");
             return null;
         }
 

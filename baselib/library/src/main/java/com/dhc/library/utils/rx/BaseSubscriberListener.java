@@ -16,7 +16,6 @@ import java.net.UnknownHostException;
 
 import retrofit2.HttpException;
 
-import static com.dhc.library.data.net.Constants.GO_LOGIN;
 
 
 /**
@@ -58,7 +57,7 @@ public abstract class BaseSubscriberListener<T> extends SubscriberListener<T> {
                 } else if (e instanceof HttpException) {
                     HttpException httpException = (HttpException) e;
                     if (httpException.code() == UNAUTHORIZED) {//去认证
-                        checkReLogin("401", AppContext.get().getString(R.string.auth_failure));
+                        checkReLogin("401", "checkout");
                     }
                     error = new NetError(e, NetError.NetError);
                 } else {
@@ -75,6 +74,6 @@ public abstract class BaseSubscriberListener<T> extends SubscriberListener<T> {
     @Override
     public void checkReLogin(String errorCode, String errorMsg) {
         AccountManager.INSTANCE.logout();
-        RxBus.getDefault().post(new Events<String>(GO_LOGIN, AppContext.get().getString(R.string.GO_LOGIN)));
+//        RxBus.getDefault().post(new Events<String>(GO_LOGIN, AppContext.get().getString(R.string.GO_LOGIN)));
     }
 }

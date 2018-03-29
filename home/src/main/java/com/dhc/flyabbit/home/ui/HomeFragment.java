@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.dhc.flyabbit.home.R;
 import com.dhc.flyabbit.home.di.HomeDiHelper;
 import com.dhc.flyabbit.home.presenter.TopGirlPresenter;
@@ -34,7 +35,7 @@ import java.util.List;
  * 时间 ：2017/6/30 0030 上午 10:23
  * 描述 ：TODO 请描述该类职责
  */
-
+@Route(path = "/home/HomeFragment")
 public class HomeFragment extends XDaggerFragment<TopGirlPresenter> implements ITopGirlContract.IView {
     private TabLayout mToolbarTab;
     private ViewPager mMainVpContainer;

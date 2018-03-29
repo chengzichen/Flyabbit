@@ -7,6 +7,7 @@ import com.dhc.flyabbit.gank.di.component.GankFragmentComponent;
 import com.dhc.library.base.BaseApplication;
 import com.dhc.library.di.module.ActivityModule;
 import com.dhc.library.di.module.FragmentModule;
+import com.dhc.library.utils.AppContext;
 
 /**
  * 创建者     邓浩宸
@@ -17,7 +18,7 @@ public class GankDiHelper {
 
         public static GankActivityComponent getActivityComponent(ActivityModule activityModule) {
             return DaggerGankActivityComponent.builder()
-                    .appComponent(BaseApplication.getAppComponent())
+                    .appComponent(((BaseApplication)AppContext.get()).getAppComponent())
                     .activityModule(activityModule)
                     .build();
         }
@@ -25,7 +26,7 @@ public class GankDiHelper {
 
     public static GankFragmentComponent getFragmentComponent(FragmentModule fragmentModule){
             return DaggerGankFragmentComponent.builder()
-                    .appComponent(BaseApplication.getAppComponent())
+                    .appComponent(((BaseApplication)AppContext.get()).getAppComponent())
                     .fragmentModule(fragmentModule)
                     .build();
         }

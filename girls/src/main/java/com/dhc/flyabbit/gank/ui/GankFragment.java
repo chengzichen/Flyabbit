@@ -3,10 +3,12 @@ package com.dhc.flyabbit.gank.ui;
 import android.os.Bundle;
 import android.view.View;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.dhc.flyabbit.gank.R;
+import com.dhc.lib.widget.util.ToolbarUtil;
 import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
-import com.dhc.library.data.bean.ToolBarOptions;
+import com.dhc.lib.widget.bean.ToolBarOptions;
 import com.dhc.library.framework.OnBackToFirstListener;
 
 /**
@@ -14,7 +16,7 @@ import com.dhc.library.framework.OnBackToFirstListener;
  * 时间 ：2017/6/30 0030 上午 10:23
  * 描述 ：TODO 请描述该类职责
  */
-
+@Route(path = "/gank/GankFragment")
 public class GankFragment extends XDaggerFragment {
 
     protected OnBackToFirstListener _mBackToFirstListener;
@@ -45,7 +47,8 @@ public class GankFragment extends XDaggerFragment {
     private void initTitle() {
         ToolBarOptions options = new ToolBarOptions()
                 .isNeedNavigate(false).titleString("干货集中营");
-        setToolBar(R.id.toolbar, options);
+//        setToolBar(R.id.toolbar, options);
+        new ToolbarUtil().setToolBar(_mActivity, $(R.id.toolbar),options,false);
     }
 
 
