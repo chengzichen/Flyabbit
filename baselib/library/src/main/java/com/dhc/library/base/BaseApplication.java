@@ -7,13 +7,15 @@ import android.os.Bundle;
 import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.dhc.library.data.IDataHelper;
 import com.dhc.library.di.component.AppComponent;
 import com.dhc.library.di.component.DaggerAppComponent;
+import com.dhc.library.di.module.AppModule;
+import com.dhc.library.di.module.DataModule;
 import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.AppManager;
 import com.dhc.library.utils.AppUtil;
 import com.dhc.library.utils.sys.ScreenUtil;
-import com.dhc.library.di.module.AppModule;
 
 import me.yokeyword.fragmentation.Fragmentation;
 import me.yokeyword.fragmentation.helper.ExceptionHandler;
@@ -26,6 +28,7 @@ import me.yokeyword.fragmentation.helper.ExceptionHandler;
 public class BaseApplication extends MultiDexApplication  {
 
     protected static BaseApplication instance;
+
 
     @Override
     public void onCreate() {
@@ -57,12 +60,18 @@ public class BaseApplication extends MultiDexApplication  {
         registerActivityLifecycleCallbacks(new SwitchBackgroundCallbacks());
     }
 
-    public static AppComponent getAppComponent() {
+    public AppComponent getAppComponent() {
         return DaggerAppComponent.builder()
+                .dataModule(new DataModule(getNetConfig()))
                 .appModule(new AppModule(instance))
                 .build();
 
     }
+
+    public IDataHelper.NetConfig getNetConfig() {
+        return null;
+    }
+
 
     private class SwitchBackgroundCallbacks implements Application.ActivityLifecycleCallbacks {
 

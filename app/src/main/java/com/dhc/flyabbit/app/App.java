@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatDelegate;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.dhc.businesscomponent.Constants;
 import com.dhc.businesscomponent.data.LoginInfoBean;
 import com.dhc.lib.imageload.ImageLoaderManager;
+import com.dhc.library.data.IDataHelper;
 import com.dhc.library.data.account.AccountProvider;
 import com.dhc.library.utils.AppUtil;
 import com.dhc.library.utils.ApplicationLike;
@@ -61,7 +63,14 @@ public class App extends BaseApplication  implements AccountProvider<LoginInfoBe
         return (App) context.getApplicationContext();
     }
 
-
+    /**
+     * 必须重新设置BaseUrl
+     * @return
+     */
+    @Override
+    public  IDataHelper.NetConfig getNetConfig() {
+        return new IDataHelper.NetConfig().configBaseURL(Constants.GANK_URL);
+    }
     @Override
     public void onLowMemory() {
         super.onLowMemory();

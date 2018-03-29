@@ -1,9 +1,11 @@
-package com.dhc.library.data.net;
+package com.dhc.businesscomponent;
 
 import com.dhc.library.utils.rx.BaseSubscriberListener;
 
 /**
- * Created by codeest on 2016/8/3.
+ * 创建者：邓浩宸
+ * 时间 ：2018/3/29 11:44
+ * 描述 ：常量类
  */
 public class Constants {
 
@@ -18,7 +20,6 @@ public class Constants {
     //=====================网络请求====================================
 
     public final static String GANK_URL = "http://gank.io/api/";
-    public final static String BASE_URL = "http://api.98095.net/";
 
     /**
      * 用户未登陆

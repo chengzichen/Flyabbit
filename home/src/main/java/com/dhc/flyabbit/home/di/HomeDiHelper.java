@@ -8,6 +8,7 @@ import com.dhc.flyabbit.home.di.component.HomeFragmentComponent;
 import com.dhc.library.base.BaseApplication;
 import com.dhc.library.di.module.ActivityModule;
 import com.dhc.library.di.module.FragmentModule;
+import com.dhc.library.utils.AppContext;
 
 /**
  * 创建者     邓浩宸
@@ -18,7 +19,7 @@ public class HomeDiHelper {
 
         public static HomeActivityComponent getActivityComponent(ActivityModule activityModule) {
             return DaggerHomeActivityComponent.builder()
-                    .appComponent(BaseApplication.getAppComponent())
+                    .appComponent(((BaseApplication) AppContext.get()).getAppComponent())
                     .activityModule(activityModule)
                     .build();
         }
@@ -26,7 +27,7 @@ public class HomeDiHelper {
 
     public static HomeFragmentComponent getFragmentComponent(FragmentModule fragmentModule){
             return DaggerHomeFragmentComponent.builder()
-                    .appComponent(BaseApplication.getAppComponent())
+                    .appComponent(((BaseApplication)AppContext.get()).getAppComponent())
                     .fragmentModule(fragmentModule)
                     .build();
         }

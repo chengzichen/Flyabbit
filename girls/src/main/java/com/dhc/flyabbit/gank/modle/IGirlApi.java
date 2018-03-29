@@ -3,7 +3,7 @@ package com.dhc.flyabbit.gank.modle;
 
 import com.dhc.businesscomponent.data.net.GankApiResponse;
 import com.dhc.flyabbit.gank.modle.bean.GankItemBean;
-import com.dhc.library.data.net.Constants;
+import com.dhc.businesscomponent.Constants;
 
 import java.util.List;
 

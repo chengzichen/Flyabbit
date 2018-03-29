@@ -3,9 +3,8 @@ package com.dhc.library.data;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.dhc.library.data.net.CallInterceptor;
 import com.dhc.library.data.net.CacheInterceptor;
-import com.dhc.library.data.net.Constants;
+import com.dhc.library.data.net.CallInterceptor;
 import com.dhc.library.data.net.StringConverterFactory;
 import com.dhc.library.data.net.TokenInterceptor;
 import com.dhc.library.utils.AppContext;
@@ -96,21 +95,21 @@ public class HttpHelper implements IDataHelper {
 
     @Override
     public <S> S createApi(Class<S> serviceClass, OkHttpClient client) {
-        String baseURL = (String) SPHelper.get(AppContext.get(), "BaseUrl", "");
-        if (TextUtils.isEmpty(baseURL)) {
+        String baseURL = netConfig.baseURL;
+        if (netConfig.isUseMultiBaseURL) {
             try {
                 Field field1 = serviceClass.getField("baseURL");
                 baseURL = (String) field1.get(serviceClass);
             } catch (NoSuchFieldException e) {
                 e.printStackTrace();
+                 baseURL = netConfig.baseURL;
             } catch (IllegalAccessException e) {
                 e.getMessage();
                 e.printStackTrace();
+                 baseURL = netConfig.baseURL;
             }
             if(TextUtils.isEmpty(baseURL))
-            baseURL= Constants.BASE_URL;
-        }else{
-            baseURL= "http://"+baseURL +"/";
+                throw  new RuntimeException("baseUrl is null .please init by NetModule or apiService field BaseUrl");
         }
         if (retrofit != null && retrofit.baseUrl().host() == baseURL) {
             return retrofit.create(serviceClass);

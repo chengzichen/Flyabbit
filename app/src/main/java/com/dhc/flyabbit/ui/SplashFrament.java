@@ -13,7 +13,7 @@ import com.dhc.flyabbit.R;
 import com.dhc.flyabbit.ui.adapter.SplashAdapter;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.SPHelper;
-import com.dhc.library.data.net.Constants;
+import com.dhc.businesscomponent.Constants;
 import com.dhc.library.framework.OnShowHomeListener;
 import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.AppUtil;

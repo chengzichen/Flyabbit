@@ -7,6 +7,7 @@ import com.dhc.flyabbit.di.component.HFragmentComponent;
 import com.dhc.library.base.BaseApplication;
 import com.dhc.library.di.module.ActivityModule;
 import com.dhc.library.di.module.FragmentModule;
+import com.dhc.library.utils.AppContext;
 
 /**
  * 创建者     邓浩宸
@@ -17,7 +18,7 @@ public class HDiHelper {
 
         public static HActivityComponent getActivityComponent(ActivityModule activityModule) {
             return DaggerHActivityComponent.builder()
-                    .appComponent(BaseApplication.getAppComponent())
+                    .appComponent(((BaseApplication) AppContext.get()).getAppComponent())
                     .activityModule(activityModule)
                     .build();
         }
@@ -25,7 +26,7 @@ public class HDiHelper {
 
     public static HFragmentComponent getFragmentComponent(FragmentModule fragmentModule){
             return DaggerHFragmentComponent.builder()
-                    .appComponent(BaseApplication.getAppComponent())
+                    .appComponent(((BaseApplication)AppContext.get()).getAppComponent())
                     .fragmentModule(fragmentModule)
                     .build();
         }
