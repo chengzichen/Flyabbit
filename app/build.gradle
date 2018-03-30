@@ -32,6 +32,7 @@ android {
             }
 
         }
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -43,7 +44,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
         }
+        debug {
+            ndk {
+                abiFilters "x86","armeabi"
+            }
 
+        }
     }
 
 
@@ -69,13 +75,6 @@ android {
 //    }
 
 
-//    compileOptions {
-//
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//
-//        targetCompatibility JavaVersion.VERSION_1_8
-//
-//    }
     dexOptions {
         jumboMode true
         //jenkins上使用有问题
@@ -110,6 +109,7 @@ atlas {
 //        preLaunch = 'com.taobao.demo.DemoPreLaunch'
         classInject false
 //        dataBindingBundles = ['com.taobao.databindbundle']
+        autoPackageId
     }
 
     manifestOptions {
@@ -149,11 +149,10 @@ dependencies {
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     compile project(':businessComponent')
-
+    compile project(':activitygroupcompat')
     bundleCompile project(':my')
     bundleCompile project(':home')
     bundleCompile project(':girls')
     bundleCompile project(':photoview')
-    compile project(':activitygroupcompat')
 }
 

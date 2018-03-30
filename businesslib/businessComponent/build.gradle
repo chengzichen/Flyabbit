@@ -32,7 +32,7 @@ compile fileTree(dir: 'libs', include: ['*.jar'])
 
     compile project(':imageloader')
     compile project(':uikit')
-    compile 'com.dhc.lib:mvp:1.0.1'
+    compile 'com.dhc.lib:mvp:1.0.3'
     compile 'com.dhc.rxbus:rxbus2:1.0.0'
     compile 'com.dhc.timberhelper:timberhelper:1.0.0'
 }

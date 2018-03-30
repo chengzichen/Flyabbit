@@ -8,7 +8,7 @@ if (isApp.toBoolean()) {
 group = 'com.dhc.flyabbit'
 version = '1.0.0'
 
-apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'me.tatarka.retrolambda'
 
 atlas {
     bundleConfig {

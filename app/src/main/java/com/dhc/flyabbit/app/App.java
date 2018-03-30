@@ -7,6 +7,7 @@ import android.content.pm.PackageInfo;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatDelegate;
 import android.taobao.atlas.bundleInfo.AtlasBundleInfoManager;
 import android.taobao.atlas.framework.Atlas;
@@ -19,6 +20,7 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.dhc.businesscomponent.Constants;
 import com.dhc.businesscomponent.data.LoginInfoBean;
+import com.dhc.flyabbit.di.component.DaggerHActivityComponent;
 import com.dhc.flyabbit.presenter.DownLoadPresenter;
 import com.dhc.flyabbit.presenter.contract.IDownLoadContract;
 import com.dhc.lib.imageload.ImageLoaderManager;
@@ -62,6 +64,7 @@ public class App extends BaseApplication implements IDownLoadContract.IView ,Acc
 
     @Inject
     DownLoadPresenter downLoadPresenter;
+
     static {
         AppCompatDelegate.setDefaultNightMode(
                 AppCompatDelegate.MODE_NIGHT_NO);
@@ -78,6 +81,9 @@ public class App extends BaseApplication implements IDownLoadContract.IView ,Acc
         if (mApplicationLikeMoudle3!=null)
         AsLibUtil.addAsLIbChild(mApplicationLikeMoudle3);
         AsLibUtil.doCreateAsLibrary(this);
+        DaggerHActivityComponent.builder()
+                .appComponent(getAppComponent())
+                .build().inject(this);
         if (downLoadPresenter != null)
             downLoadPresenter.attachView(this);
 //        https://bundle-1253245619.cos.ap-guangzhou.myqcloud.com/libcom_dhc_filyabbit.so
@@ -212,5 +218,8 @@ public class App extends BaseApplication implements IDownLoadContract.IView ,Acc
     public LoginInfoBean provideAccount(String accountJson) {
         return new GsonBuilder().create().fromJson(accountJson, LoginInfoBean.class);
     }
-
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 }
