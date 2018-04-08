@@ -57,20 +57,7 @@ android {
     aaptOptions.cruncherEnabled = false
 
     aaptOptions.useNewCruncher = false
-    // why do not there
-//    dexOptions {
-//        jumboMode true
-//        javaMaxHeapSize '4g'
-//    }
 
-
-    compileOptions {
-
-        sourceCompatibility JavaVersion.VERSION_1_8
-
-        targetCompatibility JavaVersion.VERSION_1_8
-
-    }
     dexOptions {
         jumboMode true
         //jenkins上使用有问题

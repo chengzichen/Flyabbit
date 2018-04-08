@@ -5,6 +5,7 @@ import android.content.Context;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.load.engine.bitmap_recycle.LruBitmapPool;
+import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheWrapper;
 import com.bumptech.glide.load.engine.cache.LruResourceCache;
 import com.bumptech.glide.load.engine.cache.MemorySizeCalculator;
@@ -22,11 +23,14 @@ public class CustomCachingGlideModule implements GlideModule {
 
     public static final int IMAGE_DISK_CACHE_MAX_SIZE = 100 * 1024 * 1024;//图片缓存文件最大值为100Mb
     @Override
-    public void applyOptions(Context context, GlideBuilder builder) {
-        builder.setDiskCache(() -> {
-            File cacheFile = new File(FileUtil.getCacheDirectory(context), "Glide");//缓存路径
-            cacheFile=  FileUtil.makeDirs(cacheFile);
-            return DiskLruCacheWrapper.get(cacheFile, IMAGE_DISK_CACHE_MAX_SIZE);
+    public void applyOptions(final Context context, GlideBuilder builder) {
+        builder.setDiskCache(new DiskCache.Factory() {
+            @Override
+            public DiskCache build() {
+                File cacheFile = new File(FileUtil.getCacheDirectory(context), "Glide");//缓存路径
+                cacheFile = FileUtil.makeDirs(cacheFile);
+                return DiskLruCacheWrapper.get(cacheFile, IMAGE_DISK_CACHE_MAX_SIZE);
+            }
         });
         //设置图片格式,默认是RGB565格式,不支持透明
 //        builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888);

@@ -1,5 +1,5 @@
 apply plugin: 'com.dd.comgradle'
-apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'me.tatarka.retrolambda'
 //apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -50,9 +50,9 @@ android {
         abortOnError false
     }
 
-    retrolambda {
-        javaVersion JavaVersion.VERSION_1_7
-    }
+//    retrolambda {
+//        javaVersion JavaVersion.VERSION_1_7
+//    }
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
     dexOptions {
