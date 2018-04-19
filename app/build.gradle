@@ -72,9 +72,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     testImplementation rootProject.ext.dependencies["junit"]
     provided rootProject.ext.dependencies["javax.annotation"]
-    debugImplementation rootProject.ext.dependencies["canary-debug"]
-    testImplementation rootProject.ext.dependencies["canary-test"]
-    releaseImplementation rootProject.ext.dependencies["canary-release"]
+//    debugImplementation rootProject.ext.dependencies["canary-debug"]
+//    testImplementation rootProject.ext.dependencies["canary-test"]
+//    releaseImplementation rootProject.ext.dependencies["canary-release"]
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
     //阿里的Arouter的注解

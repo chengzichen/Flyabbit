@@ -1,6 +1,16 @@
 apply plugin: 'com.dd.comgradle'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 //apply plugin: 'me.tatarka.retrolambda'
 //apply plugin: 'com.novoda.bintray-release'//添加
+
+
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
@@ -24,14 +34,17 @@ android {
 //            }
 //        }
 //    }
+
+
+
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [moduleName: project.getName()]
-            }
-        }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [moduleName: project.getName()]
+//            }
+//        }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         //delete  fail im app
         if (isApp.toBoolean()) {
@@ -75,10 +88,10 @@ dependencies {
     implementation project(':businessComponent')
 
     //dagger2的apt注解
-    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+    kapt rootProject.ext.dependencies["dagger-compiler"]
 
     //阿里的Arouter的注解
-    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+    kapt rootProject.ext.dependencies["arouter-compiler"]
 }
 
 combuild {

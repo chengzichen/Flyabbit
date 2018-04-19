@@ -1,6 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "version.gradle"
 buildscript {
+    ext.kotlin_version = '1.2.31'
     repositories {
 //        maven {
 //            url 'file:\\C:\\Android\\gradle\\m2repository'
@@ -15,8 +16,12 @@ buildscript {
         classpath 'com.dhc.component:component-plugin:1.0.0'
 //        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
         classpath 'com.novoda:bintray-release:0.8.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
+
+
+
 
 allprojects {
     repositories {

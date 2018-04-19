@@ -19,7 +19,6 @@ import com.dhc.library.utils.ApplicationLike;
 import com.dhc.library.utils.AsLibUtil;
 import com.dhc.timberhelper.TimberInitHelper;
 import com.google.gson.GsonBuilder;
-import com.squareup.leakcanary.LeakCanary;
 
 /**
  * 创建者：邓浩宸
@@ -46,7 +45,7 @@ public class App extends BaseApplication  implements AccountProvider<LoginInfoBe
 
     public void onCreate() {
         super.onCreate();
-        LeakCanary.install(this);
+//        LeakCanary.install(this);
         ARouter.getInstance().inject(this);
         if (mApplicationLikeMoudle1!=null)
         AsLibUtil.addAsLIbChild(mApplicationLikeMoudle1);

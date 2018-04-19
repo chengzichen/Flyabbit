@@ -101,8 +101,8 @@ dependencies {
     api rootProject.ext.dependencies["RxCache"]
 
     //canary
-    debugApi rootProject.ext.dependencies["blockcanary-debug"]
-    releaseApi rootProject.ext.dependencies["blockcanary-release"]
+//    debugApi rootProject.ext.dependencies["blockcanary-debug"]
+//    releaseApi rootProject.ext.dependencies["blockcanary-release"]
     //Cookie
     api rootProject.ext.dependencies["PersistentCookieJar"]
     //di
