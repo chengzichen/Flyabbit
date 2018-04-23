@@ -333,8 +333,8 @@ BaseSubscriber
 
 
 ## 结构
-
-![](https://i.imgur.com/sEuZMdp.png)
+ 
+ <img src="https://i.imgur.com/sEuZMdp.png" width = "400" height = "400" alt="图片名称" align=center />
 
  
 ## 效果
@@ -363,5 +363,9 @@ BaseSubscriber
   CSDN : [http://blog.csdn.net/chengzichen_](http://blog.csdn.net/chengzichen_)
   
   个人博客 : [https://chengzichen.github.io/](https://chengzichen.github.io/)
-
-  联系本人 : q :963565480
+<div  align="center"> 
+  加入我们畅聊吧 
+</div>
+<div  align="center">   
+ <img src="https://i.imgur.com/J1LpBum.jpg" width = "200" height = "300" alt="图片名称" align=center />
+</div>
