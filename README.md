@@ -293,7 +293,7 @@ BaseSubscriber
 
 
 
-- 事件总线(**RxBus**) 
+### (四)事件总线(**RxBus**) 
 
 [ ![Download](https://api.bintray.com/packages/chengzichen/maven/rxbus2/images/download.svg) ](https://bintray.com/chengzichen/maven/rxbus2/_latestVersion)
 
