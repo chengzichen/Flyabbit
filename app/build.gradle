@@ -17,7 +17,7 @@ android {
         versionCode rootProject.ext.android.versionCode
 
         versionName APP_VERSION
-
+        multiDexEnabled true
         javaCompileOptions {
 
             annotationProcessorOptions {
