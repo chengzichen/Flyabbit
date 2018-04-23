@@ -80,6 +80,7 @@ dependencies {
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
     implementation project(':businessComponent')
+    api rootProject.ext.dependencies["multidex"]
 }
 combuild {
     applicationName = 'com.dhc.flyabbit.app.App'

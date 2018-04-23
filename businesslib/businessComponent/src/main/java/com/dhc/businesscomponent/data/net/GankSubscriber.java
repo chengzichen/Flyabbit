@@ -12,7 +12,7 @@ import com.dhc.library.data.net.SubscriberListener;
 /**
  * 创建者     邓浩宸
  * 创建时间   2017/8/26 16:26
- * 描述	      ${干货统一处理,自定义的Subscriber}
+ * 描述	      ${业务异常干货统一处理,自定义的Subscriber}
  */
 
 public class GankSubscriber<T extends ApiResponse> extends BaseSubscriber<T> {

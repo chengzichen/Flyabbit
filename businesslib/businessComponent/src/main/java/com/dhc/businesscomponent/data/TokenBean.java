@@ -4,9 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * 创建者     郑小财
- * 创建时间   2017/11/22 13:20
- * 描述	     解密得到的二维码数据对象
+ * 创建者：邓浩宸
+ * 时间 ：2018/4/23 11:25
+ * 描述 ：TODO 请描述该类职责
  */
 public class TokenBean implements Parcelable{
 

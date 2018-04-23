@@ -9,13 +9,13 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.dhc.businesscomponent.data.net.GankApiResponse;
 import com.dhc.businesscomponent.data.net.GankSubscriber;
+import com.dhc.businesscomponent.data.net.GankSubscriberListener;
 import com.dhc.flyabbit.home.modle.GankRemoteDataService;
 import com.dhc.flyabbit.home.modle.bean.GankItemBean;
 import com.dhc.flyabbit.home.presenter.contract.ITopGirlContract;
 import com.dhc.library.base.XPresenter;
 import com.dhc.library.data.net.NetError;
 import com.dhc.library.utils.AppContext;
-import com.dhc.library.utils.rx.BaseSubscriberListener;
 import com.dhc.library.utils.sys.ScreenUtil;
 
 import java.util.List;
@@ -45,7 +45,7 @@ public class TopGirlPresenter extends XPresenter<ITopGirlContract.IView> impleme
     public void getRandomGirl() {
         mZhiHuRemoteDataService.getRandomGirl()
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new BaseSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         Flowable.fromIterable(response).map(new Function<GankItemBean, String>() {

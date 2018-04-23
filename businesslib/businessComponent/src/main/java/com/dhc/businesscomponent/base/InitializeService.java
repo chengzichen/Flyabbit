@@ -1,4 +1,4 @@
-package com.dhc.library.base;
+package com.dhc.businesscomponent.base;
 
 import android.app.IntentService;
 import android.content.Context;
@@ -36,13 +36,6 @@ public class InitializeService extends IntentService {
     }
 
     private void performInit() {
-        //log日志
-//        if (AppUtil.isDebug()) {
-//            ARouter.openLog();     // 打印日志
-//            ARouter.openDebug();   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-//        }
-//        ARouter.init(this.getApplication()); // 尽可能早，推荐在Application中初始化
-        //初始化过度绘制检测
-        //BlockCanary.install(this, new AppBlockCanaryContext()).start();
+        // TODO: 2018/4/23
     }
 }

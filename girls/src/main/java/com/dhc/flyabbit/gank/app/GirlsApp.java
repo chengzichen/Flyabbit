@@ -5,6 +5,7 @@ import android.app.Application;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.dhc.lib.imageload.ImageLoaderManager;
 import com.dhc.library.base.BaseChildApplication;
+import com.dhc.businesscomponent.base.InitializeService;
 import com.dhc.library.utils.AppUtil;
 import com.dhc.timberhelper.TimberInitHelper;
 
@@ -30,6 +31,7 @@ public class GirlsApp extends BaseChildApplication {
         super.onCreate();
         TimberInitHelper.init(AppUtil.isDebug(), this);
         ImageLoaderManager.getInstance().init(this);
+        InitializeService.start(this);
     }
 
 

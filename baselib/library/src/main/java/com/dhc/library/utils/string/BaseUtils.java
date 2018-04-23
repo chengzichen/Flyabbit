@@ -1,4 +1,4 @@
-package com.dhc.library.utils;
+package com.dhc.library.utils.string;
 
 import android.graphics.Paint;
 import android.text.TextUtils;

@@ -1,9 +1,7 @@
 package com.dhc.library.utils.rx;
 
-import com.dhc.library.R;
 import com.dhc.library.data.net.NetError;
 import com.dhc.library.data.net.SubscriberListener;
-import com.dhc.library.utils.AppContext;
 import com.dhc.library.data.account.AccountManager;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
@@ -24,15 +22,6 @@ import retrofit2.HttpException;
  * 描述	      ${请求统一处理}
  */
 public abstract class BaseSubscriberListener<T> extends SubscriberListener<T> {
-    //对应HTTP的状态码
-    private static final int ERROR = 400;
-    private static final int UNAUTHORIZED = 401;//没有权限
-    private static final int FORBIDDEN = 403;//没有权限
-    private static final int NOT_FOUND = 404;//
-    private static final int INTERNAL_SERVER_ERROR = 500;//服务器错误
-    private static final int BAD_GATEWAY = 502;
-    private static final int SERVICE_UNAVAILABLE = 503;
-    private static final int GATEWAY_TIMEOUT = 504;
 
 
     public void onFail(NetError errorMsg) {
@@ -56,7 +45,7 @@ public abstract class BaseSubscriberListener<T> extends SubscriberListener<T> {
                     error = new NetError(e, NetError.SocketError);
                 } else if (e instanceof HttpException) {
                     HttpException httpException = (HttpException) e;
-                    if (httpException.code() == UNAUTHORIZED) {//去认证
+                    if (isCheckReLogin(httpException)) {//去认证
                         checkReLogin("401", "checkout");
                     }
                     error = new NetError(e, NetError.NetError);
@@ -68,12 +57,12 @@ public abstract class BaseSubscriberListener<T> extends SubscriberListener<T> {
             }
             onFail(error);
         }
-
     }
+
+
 
     @Override
     public void checkReLogin(String errorCode, String errorMsg) {
         AccountManager.INSTANCE.logout();
-//        RxBus.getDefault().post(new Events<String>(GO_LOGIN, AppContext.get().getString(R.string.GO_LOGIN)));
     }
 }

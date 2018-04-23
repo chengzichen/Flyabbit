@@ -4,7 +4,6 @@ package com.dhc.library.base;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.multidex.MultiDexApplication;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.dhc.library.data.IDataHelper;
@@ -54,9 +53,6 @@ public class BaseApplication extends Application  {
                         // Bugtags.sendException(e);
                     }
                 }).install();
-        //添加一个intentsetvice服务来初始化一些服务
-        InitializeService.start(this);
-
         registerActivityLifecycleCallbacks(new SwitchBackgroundCallbacks());
     }
 

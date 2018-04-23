@@ -10,7 +10,7 @@
             android:name="com.dhc.lib.imageload.glideloader.CustomCachingGlideModule"
             android:value="GlideModule"/>
 
-        <service android:name="com.dhc.library.base.InitializeService"/>
+        <service android:name="com.dhc.library.com.dhc.businesscomponent.base.InitializeService"/>
     </application>
 
 </manifest>

@@ -3,12 +3,12 @@ package com.dhc.flyabbit.gank.presenter;
 
 import com.dhc.businesscomponent.data.net.GankApiResponse;
 import com.dhc.businesscomponent.data.net.GankSubscriber;
+import com.dhc.businesscomponent.data.net.GankSubscriberListener;
 import com.dhc.flyabbit.gank.modle.GirlRemoteDataService;
 import com.dhc.flyabbit.gank.modle.bean.GankItemBean;
 import com.dhc.flyabbit.gank.presenter.contract.IGirlContract;
 import com.dhc.library.base.XPresenter;
 import com.dhc.library.data.net.NetError;
-import com.dhc.library.utils.rx.BaseSubscriberListener;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class GirlPresenter extends XPresenter<IGirlContract.IView> implements IG
         currentPage = 1;
         mGirlRemoteDataService.getGirlData(currentPage)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new BaseSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         getV().showContent(response);
@@ -53,7 +53,7 @@ public class GirlPresenter extends XPresenter<IGirlContract.IView> implements IG
     public void getMoreGirlData() {
         mGirlRemoteDataService.getGirlData(currentPage)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new BaseSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         getV().showMoreContent(response);

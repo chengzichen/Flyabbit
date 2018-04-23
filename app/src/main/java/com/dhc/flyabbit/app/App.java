@@ -12,6 +12,7 @@ import com.dhc.businesscomponent.Constants;
 import com.dhc.businesscomponent.data.LoginInfoBean;
 import com.dhc.lib.imageload.ImageLoaderManager;
 import com.dhc.library.base.BaseApplication;
+import com.dhc.businesscomponent.base.InitializeService;
 import com.dhc.library.data.IDataHelper;
 import com.dhc.library.data.account.AccountProvider;
 import com.dhc.library.utils.AppUtil;
@@ -56,6 +57,7 @@ public class App extends BaseApplication  implements AccountProvider<LoginInfoBe
         AsLibUtil.doCreateAsLibrary(this);
         TimberInitHelper.init(AppUtil.isDebug(),this);
         ImageLoaderManager.getInstance().init(this);
+        InitializeService.start(this);
     }
 
 

@@ -1,4 +1,4 @@
-package com.dhc.library.utils;
+package com.dhc.library.utils.string;
 
 import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
@@ -31,6 +31,8 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
+
+import com.dhc.library.utils.AppContext;
 
 import java.util.Map;
 import java.util.Set;

@@ -3,12 +3,12 @@ package com.dhc.flyabbit.home.presenter;
 
 import com.dhc.businesscomponent.data.net.GankApiResponse;
 import com.dhc.businesscomponent.data.net.GankSubscriber;
+import com.dhc.businesscomponent.data.net.GankSubscriberListener;
 import com.dhc.flyabbit.home.modle.GankTechRemoteDataService;
 import com.dhc.flyabbit.home.modle.bean.GankItemBean;
 import com.dhc.flyabbit.home.presenter.contract.IGankTechContract;
 import com.dhc.library.base.XPresenter;
 import com.dhc.library.data.net.NetError;
-import com.dhc.library.utils.rx.BaseSubscriberListener;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class GankTechPresenter extends XPresenter<IGankTechContract.IView> imple
         currentPage = 1;
         mGankTechRemoteDataService.getTechList(tag,currentPage)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new BaseSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         getV().showContent(response);
@@ -51,7 +51,7 @@ public class GankTechPresenter extends XPresenter<IGankTechContract.IView> imple
     public void getMoreTechList(String tag) {
         mGankTechRemoteDataService.getTechList(tag,currentPage)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new BaseSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         getV().showMoreContent(response);
