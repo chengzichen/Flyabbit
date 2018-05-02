@@ -54,50 +54,57 @@ dependencies {
     })
 
 
-    api(rootProject.ext.dependencies["appcompat-v7"]) {
+    api(rootProject.ext.dependencies["appcompat-v7"],{
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
-    }
-    api(rootProject.ext.dependencies["support-v4"]) {
+    })
+    api(rootProject.ext.dependencies["support-v4"],{
         exclude module: 'support-annotations'
-    }
+    })
 
     //test
     testApi rootProject.ext.dependencies["junit"]
-    api rootProject.ext.dependencies["fragmentation"]
+    api (rootProject.ext.dependencies["fragmentation"], {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     //rx
     api rootProject.ext.dependencies["rxjava"]
-    api(rootProject.ext.dependencies["rxandroid"]) {
+    api(rootProject.ext.dependencies["rxandroid"], {
         exclude module: 'rxjava'
-    }
-    api(rootProject.ext.dependencies["rxlifecycle"]) {
+    })
+    api(rootProject.ext.dependencies["rxlifecycle"], {
         exclude module: 'rxjava'
-    }
-    api(rootProject.ext.dependencies["rxlifecycle-android"]) {
+    })
+    api(rootProject.ext.dependencies["rxlifecycle-android"],{
         exclude module: 'rxjava'
-    }
-    api(rootProject.ext.dependencies["rxlifecycle-components"]) {
+    })
+    api(rootProject.ext.dependencies["rxlifecycle-components"],{
         exclude module: 'rxjava'
-    }
+    })
     //network
     api rootProject.ext.dependencies["gson"]
     api(rootProject.ext.dependencies["retrofit"]) {
         exclude module: 'okhttp'
     }
-    api(rootProject.ext.dependencies["retrofit-converter-gson"]) {
+    api(rootProject.ext.dependencies["retrofit-converter-gson"], {
         exclude module: 'gson'
-    }
-    api(rootProject.ext.dependencies["retrofit-adapter-rxjava"]) {
+    })
+    api(rootProject.ext.dependencies["retrofit-adapter-rxjava"], {
         exclude module: 'rxjava'
-    }
+    })
 
     api rootProject.ext.dependencies["okhttp3"]
     api rootProject.ext.dependencies["okhttp3-logging-interceptor"]
     api rootProject.ext.dependencies["glide-okhttp3-integration"]
     //other
-    api rootProject.ext.dependencies["rxpermissions"]
+    api (rootProject.ext.dependencies["rxpermissions"] ,{
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude module: 'rxjava'
+    })
     api rootProject.ext.dependencies["Jolyglot-Gson"]
-    api rootProject.ext.dependencies["RxCache"]
+    api(rootProject.ext.dependencies["RxCache"], {
+        exclude module: 'rxjava'
+    })
 
     //canary
 //    debugApi rootProject.ext.dependencies["blockcanary-debug"]
@@ -116,7 +123,9 @@ dependencies {
     //db
     api rootProject.ext.dependencies["room-runtime"]
     annotationProcessor rootProject.ext.dependencies["room-compiler"]
-    api rootProject.ext.dependencies["room-rxjava2"]
+    api(rootProject.ext.dependencies["room-rxjava2"], {
+        exclude module: 'rxjava'
+    })
     api rootProject.ext.dependencies["room-testing"]
 }
 

@@ -69,7 +69,9 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     testImplementation rootProject.ext.dependencies["junit"]
     provided rootProject.ext.dependencies["javax.annotation"]
 //    debugImplementation rootProject.ext.dependencies["canary-debug"]

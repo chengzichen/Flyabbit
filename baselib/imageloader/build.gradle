@@ -21,17 +21,19 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    provided 'com.android.support:support-annotations:27.0.2'
-    provided(rootProject.ext.dependencies["appcompat-v7"]) {
+    provided rootProject.ext.dependencies["annotations"]
+    provided(rootProject.ext.dependencies["appcompat-v7"], {
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
-    }
-    provided(rootProject.ext.dependencies["support-v4"]) {
+    })
+    provided(rootProject.ext.dependencies["support-v4"],{
         exclude module: 'support-annotations'
-    }
+    })
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     api rootProject.ext.dependencies["glide"]
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 //    implementation project(':uikit')
