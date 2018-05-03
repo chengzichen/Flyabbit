@@ -10,7 +10,7 @@ ext {
             versionCode            : 1,
             versionName            : '.1.0',
 
-            VSupportSdk            : '26.+',
+            VSupportSdk            : '27.1.0',
             VJunit                 : '4.12',
             VRxlifecycle           : "2.0.1",
 
