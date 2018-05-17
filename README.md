@@ -57,7 +57,7 @@
         }
         dependencies {
             ......
-            classpath 'com.dhc.component:component-plugin:1.0.0'
+            classpath 'com.dhc.component:component-plugin:1.0.1'
             ......
         }
     }
