@@ -46,7 +46,6 @@
 
 [Gif动态效果](https://github.com/chengzichen/Photo/raw/master/gif/show.gif)       [DemoAPK下载](https://github.com/chengzichen/Photo/blob/master/gif/app-debug.apk)
 
-
 ## 结构
  
  <img src="https://i.imgur.com/sEuZMdp.png" width = "400" height = "400" alt="图片名称" align=center />
