@@ -15,6 +15,10 @@
 
 ## 前言
 
+<div >   
+ <img src="http://i.imgur.com/4498nb3.jpg" width = "500" height = "250" alt="图片名称" align=center />
+</div>
+
 - 技术选型
 - 组件化设计
 - 本地Maven (nexus)简单使用
@@ -24,9 +28,7 @@
 - ReactNative-Android 的简单实践
 - 阿里Atlas(插件化)与该项目的简单实践
 
-<div >   
- <img src="http://i.imgur.com/4498nb3.jpg" width = "500" height = "250" alt="图片名称" align=center />
-</div>
+
 
 
 **集android技术于一体,你们想要的都在这里**
