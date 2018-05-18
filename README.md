@@ -6,19 +6,14 @@
 
 - [前言](##前言)
 - [分支说明](##分支说明)
-- [依赖说明](##依赖说明)
-- [结构](#结构)
 - [效果](#效果)
+- [结构](#结构)
+- [依赖说明](##依赖说明)
 - [相关文章](##相关文章)
 - [关于个人](##关于个人)
 
 
 ## 前言
-
-<div >   
- <img src="http://i.imgur.com/4498nb3.jpg" width = "500" height = "250" alt="图片名称" align=center />
-</div>
-
 
 - 技术选型
 - 组件化设计
@@ -29,10 +24,12 @@
 - ReactNative-Android 的简单实践
 - 阿里Atlas(插件化)与该项目的简单实践
 
+<div >   
+ <img src="http://i.imgur.com/4498nb3.jpg" width = "500" height = "250" alt="图片名称" align=center />
+</div>
+
 
 **集android技术于一体,你们想要的都在这里**
-
-
 
 ## 分支说明
 
@@ -41,9 +38,20 @@
    - feature-atlas : 以阿里Atlas插件化结合为主
 
 
+ 
+## 效果
+
+
+[Gif动态效果](https://github.com/chengzichen/Photo/raw/master/gif/show.gif)       [DemoAPK下载](https://github.com/chengzichen/Photo/blob/master/gif/app-debug.apk)
+
+
+## 结构
+ 
+ <img src="https://i.imgur.com/sEuZMdp.png" width = "400" height = "400" alt="图片名称" align=center />
+
 ## 依赖说明
 
-### **组件化脚本插件** 
+### [**组件化脚本插件**](https://github.com/chengzichen/Flyabbit/blob/master/%E7%BB%84%E4%BB%B6%E5%8C%96%E7%9A%84%E4%BD%BF%E7%94%A8.md) 
 
 [ ![Download](https://api.bintray.com/packages/chengzichen/maven/component-plugin/images/download.svg) ](https://bintray.com/chengzichen/maven/component-plugin/_latestVersion)
 [![License](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](https://github.com/luojilab/DDComponentForAndroid/blob/master/LICENSE) 
@@ -54,16 +62,13 @@
  [Gradle脚本的使用](https://github.com/chengzichen/Flyabbit/blob/master/%E7%BB%84%E4%BB%B6%E5%8C%96%E7%9A%84%E4%BD%BF%E7%94%A8.md) 
 
 
-
-
-
-### **FMVP**
+### [**FMVP**](https://github.com/chengzichen/Flyabbit/blob/master/Fmvp%E4%BB%8B%E7%BB%8D.md)
 
 
 
 [ ![Download](https://api.bintray.com/packages/chengzichen/maven/mvp/images/download.svg) ](https://bintray.com/chengzichen/maven/mvp/_latestVersion) 
 
-特点:   
+**特点**:   
 
 -  `degger2` ,`util`....每个Modle中提供了`XXDiHelper` 快速使用AOP依赖注入,一键注入你想要的
 -  `rxjava`,`retrofit`让网络请求线程切换赢在起跑线上
@@ -73,66 +78,33 @@
 - `room`,`MemoryCache`,`SPHelper`和` RxCache `提供了强大的网络请求和缓存功能
 - 使用`AccountManager`提供了登录用户资料的简单管理
 
+[FMVP使用](https://github.com/chengzichen/Flyabbit/blob/master/Fmvp%E4%BB%8B%E7%BB%8D.md)
 
 -----
 
 
-### (三) 日志管理(**Timber**)
+### [日志管理(**Timber**)](https://github.com/chengzichen/Flyabbit/blob/master/Timber.md)
  
  [ ![Download](https://api.bintray.com/packages/chengzichen/maven/timberhelper/images/download.svg) ](https://bintray.com/chengzichen/maven/timberhelper/_latestVersion)
 
- 特点: 整合了timber和logger日志框架,一行代码初始化,debug打印日志,release异步保存错误日志到指定的位置. 
+ **特点**: 整合了timber和logger日志框架,一行代码初始化,debug打印日志,release异步保存错误日志到指定的位置. 
 
+[Timber使用](https://github.com/chengzichen/Flyabbit/blob/master/Timber.md)
 
-
-### (四)事件总线(**RxBus**) 
+### [事件总线(**RxBus**)](https://github.com/chengzichen/Flyabbit/blob/master/RxBus.md) 
 
 [ ![Download](https://api.bintray.com/packages/chengzichen/maven/rxbus2/images/download.svg) ](https://bintray.com/chengzichen/maven/rxbus2/_latestVersion)
 
- 特点: 提供普通的消息通知,以及粘性消息通知,使用了Rxjava必备神器
+ **特点**: 提供普通的消息通知,以及粘性消息通知,使用了Rxjava必备神器
  
- 
+[Rxbus使用](https://github.com/chengzichen/Flyabbit/blob/master/RxBus.md)
 
-**Step 1. 在根目录的gradle文件中配置**
-
-
-	allprojects {
-			repositories {
-				...
-				 jcenter()
-			}
-		}
-
-
-**step2 添加依赖(By 3.0):**
-
-
-	dependencies {
-
-	       api 'com.dhc.rxbus:rxbus2:1.0.0'
-	}
-
-
-
-
-### 混淆
+## 混淆
 
 
 - android混淆说明
 	
 	混淆文件都在了`app/proguard-pro`目录下,第三方库的混淆都提供了,满足日常开发,除了第三方开源库之外,在`app/proguard-pro/proguard-self.pro`中还有项目特有的混淆方式.需要添加就在改文件中添加混淆
-	
-
-
-## 结构
- 
- <img src="https://i.imgur.com/sEuZMdp.png" width = "400" height = "400" alt="图片名称" align=center />
-
- 
-## 效果
-
-
-![Image text](https://github.com/chengzichen/Photo/raw/master/gif/show.gif)
 
 
 ## 相关文章
