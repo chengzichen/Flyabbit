@@ -1,6 +1,5 @@
 package com.dd.buildgradle
 
-import com.dd.buildgradle.exten.ComExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -10,8 +9,6 @@ class ComBuild implements Plugin<Project> {
     String compilemodule = "app"
 
     void apply(Project project) {
-        project.extensions.create('combuild', ComExtension)
-
         String taskNames = project.gradle.startParameter.taskNames.toString()
         System.out.println("taskNames is " + taskNames)
         String module = project.path.replace(":", "")
@@ -54,7 +51,6 @@ class ComBuild implements Plugin<Project> {
             System.out.println("apply plugin is " + 'com.android.application')
             if (assembleTask.isAssemble && module.equals(compilemodule)) {
                 compileComponents(assembleTask, project)
-//                project.android.registerTransform(new ComCodeTransform(project))
             }
         } else {
             project.apply plugin: 'com.android.library'
@@ -151,14 +147,14 @@ class ComBuild implements Plugin<Project> {
                  * compileComponent=com.luojilab.reader:readercomponent:1.0.0
                  * 注意，前提是已经将组件aar文件发布到maven上，并配置了相应的repositories
                  */
-                project.dependencies.add("compile", str)
+                project.dependencies.add("api", str)
                 System.out.println("add dependencies lib  : " + str)
             } else {
                 /**
                  * 示例语法:module
                  * compileComponent=readercomponent,sharecomponent
                  */
-                project.dependencies.add("compile", project.project(':' + str))
+                project.dependencies.add("api", project.project(':' + str))
                 System.out.println("add dependencies project : " + str)
             }
         }

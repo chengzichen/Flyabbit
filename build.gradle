@@ -13,7 +13,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
 //        classpath group: 'me.tatarka', name: 'gradle-retrolambda', version: '3.7.0'
-        classpath 'com.dhc.component:component-plugin:1.0.1'
+        classpath 'com.dhc.component:component-plugin:1.0.2'
 //        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
         classpath 'com.novoda:bintray-release:0.8.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"

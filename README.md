@@ -14,7 +14,11 @@
 
 
 ## 前言
-![](http://i.imgur.com/4498nb3.jpg)
+
+<div >   
+ <img src="http://i.imgur.com/4498nb3.jpg" width = "500" height = "250" alt="图片名称" align=center />
+</div>
+
 
 - 技术选型
 - 组件化设计
@@ -47,23 +51,9 @@
 
 这里首先感谢 [@DDComponentForAndroid](https://github.com/luojilab/DDComponentForAndroid) 开源的插件,我只是对其进行了修改更适合自己的项目.用法基本没有改变
 
-**Step 1. 在根目录的gradle文件中配置**
 
-    buildscript {
-        repositories {
-            ....
-            jcenter()
-            ....
-        }
-        dependencies {
-            ......
-            classpath 'com.dhc.component:component-plugin:1.0.1'
-            ......
-        }
-    }
-**Step 2. 使用方式参照**
+请参考这篇文章介绍:
 
-[DDComponentForAndroid](https://github.com/luojilab/DDComponentForAndroid)
 
 
 

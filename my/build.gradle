@@ -13,24 +13,10 @@ android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
 
-    if (isApp.toBoolean()) {
-        configurations.all {
-            resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
-        }
-    }
-
-
-
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        //delete  fail im app
-        if (isApp.toBoolean()) {
-            applicationId "com.dhc.flyabbit.my"
-            multiDexEnabled true
-        }
-
     }
     buildTypes {
         release {
@@ -71,9 +57,4 @@ dependencies {
 
     //阿里的Arouter的注解
     kapt rootProject.ext.dependencies["arouter-compiler"]
-}
-
-combuild {
-    applicationName = 'com.dhc.flyabbit.my.app.MyApp'
-    isRegisterCompoAuto = true
 }

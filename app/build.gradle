@@ -84,7 +84,3 @@ dependencies {
     implementation project(':businessComponent')
     api rootProject.ext.dependencies["multidex"]
 }
-combuild {
-    applicationName = 'com.dhc.flyabbit.app.App'
-    isRegisterCompoAuto = true
-}

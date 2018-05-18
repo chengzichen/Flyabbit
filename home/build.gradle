@@ -3,26 +3,6 @@ apply plugin: 'com.dd.comgradle'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
-
-    if (isApp.toBoolean()) {
-        configurations.all {
-            resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.1'
-        }
-    }
-//    sourceSets {
-//        main {
-//            if (isApp.toBoolean()) {
-//                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-//            } else {
-//                manifest.srcFile 'src/main/release/AndroidManifest.xml'
-//                java {
-//                    exclude 'src/main/debug/**'
-//                    exclude '**/debug/**.java'
-//                    exclude 'src/main/**/res/layout/activity_debug.xml'
-//                }
-//            }
-//        }
-//    }
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -32,12 +12,6 @@ android {
             }
         }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        //delete  fail im app
-        if (isApp.toBoolean()) {
-            applicationId "com.dhc.flyabbit.home"
-            multiDexEnabled true
-        }
-
     }
     buildTypes {
         release {
@@ -72,11 +46,6 @@ dependencies {
 
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
-}
-
-combuild {
-    applicationName = 'com.dhc.flyabbit.home.app.HomeApp'
-    isRegisterCompoAuto = true
 }
 
 //这是上传jcenter使用,不用关心

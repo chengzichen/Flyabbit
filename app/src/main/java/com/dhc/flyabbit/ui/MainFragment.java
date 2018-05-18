@@ -87,9 +87,9 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
                     .navigation();
             loadMultipleRootFragment(R.id.fl_tab_container, FIRST, mFragments[FIRST], mFragments[SECOND], mFragments[THIRD]);
         } else {
-            Class<BaseFragment> sClass = getClass("GankFragment");
-            Class<BaseFragment> tClass = getClass("MyFragment");
-            Class<BaseFragment> fClass=   getClass("HomeFragment");
+            Class<BaseFragment> fClass=   getClass("com.dhc.flyabbit.home.ui.HomeFragment");
+            Class<BaseFragment> sClass = getClass("com.dhc.flyabbit.gank.ui.GankFragment");
+            Class<BaseFragment> tClass = getClass("com.dhc.flyabbit.my.MyFragment");
             mFragments[FIRST] = findChildFragment(fClass);
             mFragments[SECOND] = findChildFragment(sClass);
             mFragments[THIRD] = findChildFragment(tClass);
