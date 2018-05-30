@@ -12,10 +12,10 @@ import com.dhc.lib.widget.util.ToolbarUtil
 import com.dhc.library.base.BaseActivity
 import com.dhc.library.base.BaseFragment
 import com.dhc.businesscomponent.base.WebViewCommonFragment
+import com.dhc.businesscomponent.framework.OnBackToFirstListener
 import com.dhc.library.base.XDaggerFragment
 import com.dhc.lib.widget.bean.ToolBarOptions
 import com.dhc.library.base.IBasePresenter
-import com.dhc.library.framework.OnBackToFirstListener
 
 /**
  * 创建者：邓浩宸

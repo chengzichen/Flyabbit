@@ -4,13 +4,14 @@ import android.os.Bundle;
 import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.dhc.businesscomponent.framework.OnBackToFirstListener;
 import com.dhc.flyabbit.R;
 import com.dhc.lib.widget.bottombar.BottomBar;
 import com.dhc.lib.widget.bottombar.BottomBarTab;
 import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.library.data.account.AccountManager;
-import com.dhc.library.framework.OnBackToFirstListener;
+
 import me.yokeyword.fragmentation.SupportFragment;
 
 

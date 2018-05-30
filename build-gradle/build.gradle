@@ -17,7 +17,7 @@ publish {
     userOrg = 'chengzichen'//bintray.com用户名
     groupId = 'com.dhc.component'//jcenter上的路径
     artifactId = 'component-plugin'//项目名称
-    publishVersion = '1.0.2'//版本号
+    publishVersion = '1.0.5'//版本号
     desc = 'Oh hi, this is component , show android-component-plugin'//描述，不重要
     website = 'https://github.com/chengzichen/Flyabbit'//网站，不重要
 }

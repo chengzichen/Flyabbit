@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.dhc.businesscomponent.framework.OnBackToFirstListener;
 import com.dhc.flyabbit.gank.R;
 import com.dhc.lib.widget.util.ToolbarUtil;
 import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.lib.widget.bean.ToolBarOptions;
-import com.dhc.library.framework.OnBackToFirstListener;
 
 /**
  * 创建者：邓浩宸

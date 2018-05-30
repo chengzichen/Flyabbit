@@ -17,5 +17,4 @@ import dagger.Component;
 public interface HFragmentComponent {
 
 
-//    void inject(DailyFragment dailyFragment);
 }

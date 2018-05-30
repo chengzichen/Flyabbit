@@ -4,13 +4,11 @@
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:supportsRtl="true">
         <meta-data
             android:name="com.dhc.lib.imageload.glideloader.CustomCachingGlideModule"
             android:value="GlideModule"/>
 
-        <service android:name="com.dhc.library.com.dhc.businesscomponent.base.InitializeService"/>
     </application>
 
 </manifest>
