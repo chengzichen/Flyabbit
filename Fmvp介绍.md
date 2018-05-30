@@ -123,7 +123,7 @@
 
 	dependencies {
 
-	       api 'com.dhc.lib:mvp:1.0.4'
+	       api 'com.dhc.lib:mvp:1.0.5'
 	}
 
 #### **step3 项目中使用**
