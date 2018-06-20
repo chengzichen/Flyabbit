@@ -6,6 +6,7 @@
 
 - [前言](##前言)
 - [分支说明](##分支说明)
+- [快速实现](##快速实现)
 - [效果](#效果)
 - [结构](#结构)
 - [依赖说明](##依赖说明)
@@ -41,6 +42,11 @@
 
 
  
+## 快速实现([AndroidStudio插件](https://juejin.im/post/5b163118f265da6e1349072a))
+
+File->Setting->Plugins->按下图搜索[componentPlugin](https://github.com/chengzichen/component)(或者[下载](https://github.com/chengzichen/component/blob/master/component.jar))
+,安装完后重启Android Studio
+
 ## 效果
 
 
@@ -117,7 +123,11 @@
 第二篇-Retrofit源码解析
 
   - [[从零开始系列]AndroidApp研发之路-<楼外篇>Retrofit的刨根问底篇](http://blog.csdn.net/chengzichen_/article/details/77840996)
-  
+
+第三篇-Android组件化和快速实现MVP
+
+  - [ComponentPlugin专注于:Android组件化和快速实现MVP(干货)](https://juejin.im/post/5b163118f265da6e1349072a)
+
   更新中....
   
 ## 关于个人
