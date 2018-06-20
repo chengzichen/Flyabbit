@@ -44,8 +44,7 @@
  
 ## 快速实现([AndroidStudio插件](https://juejin.im/post/5b163118f265da6e1349072a))
 
-File->Setting->Plugins->按下图搜索[componentPlugin](https://github.com/chengzichen/component)(或者[下载](https://github.com/chengzichen/component/blob/master/component.jar))
-,安装完后重启Android Studio
+[ComponentPlugin专注于:Android组件化和快速实现MVP(干货)](https://juejin.im/post/5b163118f265da6e1349072a)
 
 ## 效果
 
