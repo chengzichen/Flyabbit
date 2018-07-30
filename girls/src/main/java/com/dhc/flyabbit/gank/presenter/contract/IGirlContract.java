@@ -2,9 +2,9 @@ package com.dhc.flyabbit.gank.presenter.contract;
 
 import com.dhc.businesscomponent.data.net.GankApiResponse;
 import com.dhc.flyabbit.gank.modle.bean.GankItemBean;
-import com.dhc.library.base.IBaseModle;
-import com.dhc.library.base.IBasePresenter;
-import com.dhc.library.base.IBaseView;
+import com.dhc.library.framework.IBaseModle;
+import com.dhc.library.framework.IBasePresenter;
+import com.dhc.library.framework.IBaseView;
 
 import java.util.List;
 

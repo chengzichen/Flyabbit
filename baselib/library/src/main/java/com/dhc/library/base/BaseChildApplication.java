@@ -10,11 +10,10 @@ import com.dhc.library.utils.ApplicationLike;
 
 
 /**
- * 创建者：邓浩宸
- * 时间 ：2017/3/23 18:04
- * 描述 ：该Application只能放在子moudle中使用,用于moudle隔离
+ * @creator: denghc(desoce)
+ * @updateTime: 2018/7/30 12:01
+ * @description: This Application can only be used in the child moudle for moudle isolation
  */
-
 public class BaseChildApplication extends BaseApplication implements ApplicationLike {
 
     private static final String TAG = BaseChildApplication.class.getSimpleName();
@@ -74,9 +73,7 @@ public class BaseChildApplication extends BaseApplication implements Application
         Log.i(TAG,this.getClass().getName()+"onConfigurationChanged");
     }
 
-    /**
-     * arouter定义的启动之前的初始化(可以忽略)
-     */
+
     @Override
     public void init(Context context) {
 

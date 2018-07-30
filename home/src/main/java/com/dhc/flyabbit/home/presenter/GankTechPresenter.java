@@ -9,6 +9,7 @@ import com.dhc.flyabbit.home.modle.bean.GankItemBean;
 import com.dhc.flyabbit.home.presenter.contract.IGankTechContract;
 import com.dhc.library.base.XPresenter;
 import com.dhc.library.data.net.NetError;
+import com.hk.protocolbuffer.Result;
 
 import java.util.List;
 
@@ -50,6 +51,24 @@ public class GankTechPresenter extends XPresenter<IGankTechContract.IView> imple
     @Override
     public void getMoreTechList(String tag) {
         mGankTechRemoteDataService.getTechList(tag,currentPage)
+                .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
+                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
+                    @Override
+                    public void onSuccess(List<GankItemBean> response) {
+                        getV().showMoreContent(response);
+                        ++currentPage;
+                    }
+                    @Override
+                    public void onFail(NetError errorMsg) {
+                        super.onFail(errorMsg);
+                        getV().showError("0","加载更多数据失败ヽ(≧Д≦)ノ");
+                    }
+                }));
+    }
+
+    @Override
+    public void psotTest(String url, Result.AppResult appResult) {
+        mGankTechRemoteDataService.psotTest(url,appResult)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
                 .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override

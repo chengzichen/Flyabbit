@@ -8,7 +8,7 @@ import android.os.Bundle;
  * 描述	      ${TODO}
  */
 
-public interface IDaggerListener {
+public interface ISupportDagger {
 
    void initInject(Bundle savedInstanceState);
 }

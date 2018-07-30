@@ -83,6 +83,7 @@ dependencies {
     })
     //network
     api rootProject.ext.dependencies["gson"]
+    api rootProject.ext.dependencies["protobuf-lite"]
     api(rootProject.ext.dependencies["retrofit"]) {
         exclude module: 'okhttp'
     }
@@ -92,6 +93,10 @@ dependencies {
     api(rootProject.ext.dependencies["retrofit-adapter-rxjava"], {
         exclude module: 'rxjava'
     })
+    api(rootProject.ext.dependencies["retrofit-converter-protobuf"], {
+        exclude group: 'com.google.protobuf'
+    }
+    )
 
     api rootProject.ext.dependencies["okhttp3"]
     api rootProject.ext.dependencies["okhttp3-logging-interceptor"]
@@ -114,7 +119,6 @@ dependencies {
     //di
     api rootProject.ext.dependencies["dagger"]
     api rootProject.ext.dependencies["arouter-api"]
-    //    compile rootProject.ext.dependencies["retrofit-converter-jackson"]
     compileOnly rootProject.ext.dependencies["javax.annotation"]
     //dagger2的apt注解
     annotationProcessor rootProject.ext.dependencies["dagger-compiler"]

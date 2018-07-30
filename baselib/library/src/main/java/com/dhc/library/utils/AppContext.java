@@ -2,10 +2,12 @@ package com.dhc.library.utils;
 
 import android.content.Context;
 
-/**
- * Created by Nirui on 17/2/21.
- */
 
+/**
+ * @creator:denghc(desoce)
+ * @updateTime:2018/7/30 13:52
+ * @description: save AppContext
+ */
 public class AppContext {
   public static Context mAppContext;
 

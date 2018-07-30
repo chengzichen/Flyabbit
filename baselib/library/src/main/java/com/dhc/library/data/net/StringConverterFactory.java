@@ -11,13 +11,9 @@ import retrofit2.Converter;
 import retrofit2.Retrofit;
 
 /**
- * 创建者     邓浩宸
- * 创建时间   2016/9/12 17:16
- * 描述	      ${请求网络返回String的Goson处理工厂}
- * <p/>
- * 更新者     $Author$
- * 更新时间   $Date$
- * 更新描述   ${TODO}
+ * @creator:denghc(desoce)
+ * @updateTime:2018/7/30 13:50
+ * @description:  请求网络返回String的Goson处理工厂
  */
 public class StringConverterFactory extends Converter.Factory {
 

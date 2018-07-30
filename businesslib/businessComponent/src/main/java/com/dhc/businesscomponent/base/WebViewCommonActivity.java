@@ -37,12 +37,12 @@ public class WebViewCommonActivity extends XDaggerActivity {
     }
 
     @Override
-    protected int getLayout() {
+    public int getLayoutId() {
         return R.layout.activity_web_view_common;
     }
 
     @Override
-    protected void initEventAndData(Bundle savedInstanceState) {
+    public void initEventAndData(Bundle savedInstanceState) {
         ToolBarOptions options = new ToolBarOptions();
         options.titleString = getIntent().getStringExtra(TITLE_INTENT);
         options.isNeedNavigate = true;

@@ -1,70 +1,63 @@
 package com.dhc.library.base;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.dhc.library.R;
-import com.dhc.library.framework.IDaggerListener;
+import com.dhc.library.framework.ISupportBaseActivity;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.RxLifecycle;
 import com.trello.rxlifecycle2.android.ActivityEvent;
 import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
+
 import io.reactivex.Observable;
 import io.reactivex.subjects.BehaviorSubject;
 import me.yokeyword.fragmentation.SupportActivity;
 
 /**
- * 创建者：邓浩宸
- * 时间 ：2016/11/15 16:08
- * 描述 ：无MVP的activity基类
+ * @creator:denghc(desoce)
+ * @updateTime:2018/7/30 11:59
+ * @description: BaseActivity by no mvp
  */
-public abstract class BaseActivity extends SupportActivity implements LifecycleProvider<ActivityEvent> ,IDaggerListener {
-    protected Context mContext;
+public abstract class BaseActivity extends SupportActivity implements LifecycleProvider<ActivityEvent>,ISupportBaseActivity {
+
     private static final String TAG = BaseActivity.class.getSimpleName();
-    private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();//重写RxLife控制生命周期
 
-    protected <T extends View> T $(int resId) {
-        return (T) super.findViewById(resId);
-    }
-
+    /**
+     * Rewrite RxLife to control the life cycle
+     */
+    private final BehaviorSubject<ActivityEvent> lifecycleSubject = BehaviorSubject.create();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        initInject(savedInstanceState);
         super.onCreate(savedInstanceState);
         lifecycleSubject.onNext(ActivityEvent.CREATE);
-        if (getLayout() > 0) {
-            setContentView(getLayout());
+        if (getLayoutId() > 0) {
+            setContentView(getLayoutId());
         }
-        mContext = this;
         Log.i(TAG,"activity: " + getClass().getSimpleName() + " onCreate()");
         initEventAndData(savedInstanceState);
     }
 
-    protected void setToolBar(Toolbar toolbar, String title) {
-        toolbar.setTitle(title);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressedSupport();
-            }
-        });
+    /**
+     * replace  findViewById
+     *
+     * @param resId   layout resId
+     * @param <T>   View
+     * @return    View
+     */
+    @Override
+    public  <T extends View> T $(int resId) {
+        return (T) super.findViewById(resId);
     }
+
 
 
     @Override
@@ -75,17 +68,19 @@ public abstract class BaseActivity extends SupportActivity implements LifecycleP
     }
 
     /**
-     * 重新加载本页面
+     * Reload this Activity  (NoAnim)
      */
+    @Override
     public final void reload() {
         reload(false);
     }
 
     /**
-     * 重新加载
+     * Reload this Activity
      *
-     * @param isNeedAnim  是否是需要动画
+     * @param isNeedAnim    IsNeed animation for reload
      */
+    @Override
     public final void reload(boolean isNeedAnim) {
         if (isNeedAnim) {
             getWindow().setWindowAnimations(R.style.WindowAnimationFadeInOut);
@@ -99,45 +94,18 @@ public abstract class BaseActivity extends SupportActivity implements LifecycleP
             startActivity(intent);
         }
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        if (-1 != getMenuId())
-            getMenuInflater().inflate(getMenuId(), menu);
-        return true;
-    }
-
-    public int getMenuId() {
-        return -1;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
 
     /**
-     * 该方法回调时机为,Activity回退栈内Fragment的数量 小于等于1 时,默认finish Activity
-     * 请尽量复写该方法,避免复写onBackPress(),以保证SupportFragment内的onBackPressedSupport()回退事件正常执行
+     * Please try to override this method to avoid copying onBackPress(),
+     * To ensure that the onBackPressedSupport() rewind event in the SupportFragment is executed normally
      */
     @Override
     public void onBackPressedSupport() {
         super.onBackPressedSupport();
     }
 
-    protected boolean isCompatible(int apiLevel) {
-        return Build.VERSION.SDK_INT >= apiLevel;
-    }
 
-    protected abstract int getLayout();
-
-    protected abstract void initEventAndData(Bundle savedInstanceState);
-
-
-
-    /**------------------------             Rxlife用于管理Rxjava的生命周期的                ------------------------*/
-    /**
-     * ------------------------             start               ------------------------
-     */
+    /**------------------------             Rxlife start               ------------------------*/
 
     @Override
     @NonNull
@@ -189,7 +157,5 @@ public abstract class BaseActivity extends SupportActivity implements LifecycleP
         super.onStop();
     }
 
-
-    /**------------------------             Rxlife用于管理Rxjava的生命周期的                ------------------------*/
-    /**------------------------                            end              ------------------------*/
+    /**------------------------             Rxlife    end          ------------------------*/
 }

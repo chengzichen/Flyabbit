@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 
 import com.dhc.library.base.BaseBean;
-import com.dhc.library.data.account.Account;
+import com.dhc.businesscomponent.data.account.Account;
 import com.google.gson.GsonBuilder;
 
 import java.util.List;

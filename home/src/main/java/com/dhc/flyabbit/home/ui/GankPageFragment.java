@@ -18,6 +18,7 @@ import com.dhc.library.base.BaseActivity;
 import com.dhc.businesscomponent.base.WebViewCommonFragment;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.lib.widget.util.ToastUtil;
+import com.hk.protocolbuffer.Result;
 
 import java.util.List;
 
@@ -48,18 +49,19 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
     }
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.fragment_page;
     }
 
     @Override
-    protected void initEventAndData(View view) {
-        lv = (RecyclerView) view.findViewById(R.id.rv_daily_list);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
+    public void initEventAndData( Bundle savedInstanceState) {
+        lv = (RecyclerView) mRootView.findViewById(R.id.rv_daily_list);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) mRootView.findViewById(R.id.swipe_refresh);
         // 创建一个线性布局管理器
 
         mPresenter.getTechList(mTag);
-
+//        mPresenter. psotTest("", Result.AppResult.newBuilder().setCode(1).setData
+//                ("232132123121213123").setMessage("21213212").build());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
 
         // 设置布局管理器
@@ -69,22 +71,22 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
         mGankTechAdapter.setOnLoadMoreListener(this, lv);
         mGankTechAdapter.setLoadMoreView(new CustomLoadMoreView());
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                mPresenter.getTechList(mTag);
-            }
-        });
+        @Override
+        public void onRefresh() {
+            mPresenter.getTechList(mTag);
+        }
+    });
         mGankTechAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                List<GankItemBean> gankItemBeen = adapter.getData();
-                ((BaseActivity) _mActivity).start(WebViewCommonFragment.newInstance(gankItemBeen.get(position).getDesc(),
-                        gankItemBeen.get(position).getUrl(), gankItemBeen.get(position).get_id(),
-                        mTag,true));
-            }
-        });
+        @Override
+        public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+            List<GankItemBean> gankItemBeen = adapter.getData();
+            ((BaseActivity) _mActivity).start(WebViewCommonFragment.newInstance(gankItemBeen.get(position).getDesc(),
+                    gankItemBeen.get(position).getUrl(), gankItemBeen.get(position).get_id(),
+                    mTag,true));
+        }
+    });
         lv.setAdapter(mGankTechAdapter);
-    }
+}
 
     @Override
     public void initInject(Bundle savedInstanceState) {

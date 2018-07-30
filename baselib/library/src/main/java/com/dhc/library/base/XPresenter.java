@@ -1,9 +1,12 @@
 package com.dhc.library.base;
 
+import com.dhc.library.framework.IBasePresenter;
+import com.dhc.library.framework.IBaseView;
+
 /**
- * 创建者：邓浩宸
- * 时间 ：2016/11/15 16:08
- * 描述 ：用于绑定view和解绑view
+ * @creator：denghc(desoce)
+ * @updateTime：2018/7/30 13:31
+ * @description： Used to attachView and detachView
  */
 public class XPresenter<V extends IBaseView> implements IBasePresenter<V> {
 
@@ -19,9 +22,14 @@ public class XPresenter<V extends IBaseView> implements IBasePresenter<V> {
         this.mView = null;
     }
 
+    /**
+     *  getViewModel ViewModel  is Activity or Fragment
+     *
+     * @return  IBaseView
+     */
     protected V getV() {
         if (mView == null) {
-            throw new IllegalStateException("v can not be null");
+            throw new IllegalStateException("view can not be null");
         }
         return mView;
     }

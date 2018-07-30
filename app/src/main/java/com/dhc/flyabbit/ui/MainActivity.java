@@ -29,7 +29,7 @@ public class MainActivity extends XDaggerActivity implements OnShowHomeListener 
     private ViewGroup mContentView;
 
     @Override
-    protected int getLayout()
+    public int getLayoutId()
     {
         return R.layout.activity_main;
     }
@@ -41,14 +41,14 @@ public class MainActivity extends XDaggerActivity implements OnShowHomeListener 
     }
 
     @Override
-    protected void initEventAndData(Bundle savedInstanceState) {
+    public void initEventAndData(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             //加载主界面的Fragment
             if (SPHelper.get(AppContext.get(), Constants.VERSION, "", SPHelper.VERSION_FILE_NAME).equals(AppUtil.getVersionName(AppContext.get()))){
 
             loadRootFragment(R.id.fl_container,  MainFragment.newInstance());
             }else{
-            loadRootFragment(R.id.fl_container,  new SplashFrament());
+            loadRootFragment(R.id.fl_container,  MainFragment.newInstance());
             }
 //            loadMultipleRootFragment(R.id.fl_container,1, MainFragment.newInstance(),new SplashFrament());
         } else {
@@ -57,7 +57,7 @@ public class MainActivity extends XDaggerActivity implements OnShowHomeListener 
             loadRootFragment(R.id.fl_container, findFragment(MainFragment.class));
             }else{
 
-            loadRootFragment(R.id.fl_container, findFragment(SplashFrament.class));
+            loadRootFragment(R.id.fl_container, findFragment(MainFragment.class));
             }
         }
         getSupportFragmentManager().registerFragmentLifecycleCallbacks(new FragmentManager.FragmentLifecycleCallbacks() {

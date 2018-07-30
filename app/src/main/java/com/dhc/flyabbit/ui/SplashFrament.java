@@ -39,9 +39,10 @@ public class SplashFrament extends XDaggerFragment implements View.OnClickListen
     }
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.fragment_splash;
     }
+
 
     public void showGuid() {
         viewPager = $(R.id.viewPager);
@@ -121,7 +122,7 @@ public class SplashFrament extends XDaggerFragment implements View.OnClickListen
     }
 
     @Override
-    protected void initEventAndData(View view) {
+    public void initEventAndData(Bundle savedInstanceState) {
         initView();
         if (!SPHelper.get(AppContext.get(), Constants.VERSION, "", SPHelper.VERSION_FILE_NAME).equals(AppUtil.getVersionName(AppContext.get()))) {
             mIsShowGuid = true;

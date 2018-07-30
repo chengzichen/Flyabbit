@@ -5,34 +5,34 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.dhc.library.di.module.ActivityModule;
+import com.dhc.library.framework.IBasePresenter;
+import com.dhc.library.framework.IBaseView;
+import com.dhc.library.framework.ISupportDagger;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import javax.inject.Inject;
 
 
 /**
- * 创建者：邓浩宸
- * 时间 ：2016/11/15 16:06
- * 描述 ：MVP activity基类
+ * @creator：denghc(desoce)
+ * @updateTime：2018/7/30 13:20
+ * @description： XDaggerActivity is  MVP by Dagger2
+ *
+ *
  */
-public abstract class XDaggerActivity<T extends IBasePresenter> extends BaseActivity implements IBaseView  {
+public abstract class XDaggerActivity<T extends IBasePresenter> extends BaseActivity implements IBaseView, ISupportDagger {
+
     @Inject
     protected T mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
+        initInject(savedInstanceState);
         if (mPresenter != null)
             mPresenter.attachView(this);
         super.onCreate(savedInstanceState);
 
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
 
 
     @Override

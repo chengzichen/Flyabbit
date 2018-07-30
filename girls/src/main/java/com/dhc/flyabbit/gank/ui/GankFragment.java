@@ -29,12 +29,12 @@ public class GankFragment extends XDaggerFragment {
 
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.fragment_gank_main_view;
     }
 
     @Override
-    protected void initEventAndData(View view) {
+    public void initEventAndData(Bundle savedInstanceState) {
         BaseFragment baseFragment = (BaseFragment) getParentFragment();
         if (baseFragment instanceof OnBackToFirstListener) {
             _mBackToFirstListener = (OnBackToFirstListener) baseFragment;

@@ -18,7 +18,7 @@ import com.dhc.businesscomponent.R;
 import com.dhc.lib.widget.BaseContentLayout;
 import com.dhc.lib.widget.ProgressWebView;
 import com.dhc.lib.widget.util.ToolbarUtil;
-import com.dhc.library.base.IBasePresenter;
+import com.dhc.library.framework.IBasePresenter;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.lib.widget.bean.ToolBarOptions;
 
@@ -58,7 +58,7 @@ public class WebViewCommonFragment<T extends IBasePresenter> extends XDaggerFrag
     }
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.fragment_web_view_common;
     }
 
@@ -72,7 +72,7 @@ public class WebViewCommonFragment<T extends IBasePresenter> extends XDaggerFrag
     protected boolean loadFirstBoolean = true;
 
     @Override
-    protected void initEventAndData(View view) {
+    public void initEventAndData( Bundle savedInstanceState) {
         initView();
         initTitle();
         initWebView();
@@ -151,7 +151,21 @@ public class WebViewCommonFragment<T extends IBasePresenter> extends XDaggerFrag
 
     private void initTitle() {
         if (mTitle != null && !TextUtils.isEmpty(mTitle)) {
-            initTiltle();
+            ToolBarOptions options = new ToolBarOptions();
+            options.titleString = mTitle;
+            options.isNeedNavigate = true;
+            ToolbarUtil toolbarUtil=    new ToolbarUtil();
+            toolbarUtil.setToolBar(_mActivity, (Toolbar) $(R.id.toolbar),options,false);
+            toolbarUtil.getToolbar().setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mProgressWebView.canGoBack()) {
+                        mProgressWebView.goBack();
+                        return;
+                    }
+                    pop();
+                }
+            });
             $(R.id.toolbar).setVisibility(View.VISIBLE);
         } else {
             $(R.id.toolbar).setVisibility(View.GONE);
@@ -170,24 +184,6 @@ public class WebViewCommonFragment<T extends IBasePresenter> extends XDaggerFrag
                 mProgressWebView.loadUrl(mUrl);
             }
         }
-    }
-
-    private void initTiltle() {
-        ToolBarOptions options = new ToolBarOptions();
-        options.titleString = mTitle;
-        options.isNeedNavigate = true;
-        ToolbarUtil toolbarUtil=    new ToolbarUtil();
-        toolbarUtil.setToolBar(_mActivity, (Toolbar) $(R.id.toolbar),options,false);
-        toolbarUtil.getToolbar().setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mProgressWebView.canGoBack()) {
-                    mProgressWebView.goBack();
-                    return;
-                }
-                pop();
-            }
-        });
     }
 
     @Override

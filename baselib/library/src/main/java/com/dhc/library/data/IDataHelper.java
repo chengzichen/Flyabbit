@@ -6,6 +6,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import retrofit2.Converter;
 
 /**
  * 创建者     邓浩宸
@@ -26,8 +27,9 @@ public interface IDataHelper {
         void configHttps(OkHttpClient.Builder builder);
 
     }
-    public static class NetConfig {
+    public  class NetConfig {
         public Interceptor[] mInterceptors;
+        public Converter.Factory[] factories;
         public CookieJar mCookieJar;
         public RequestCall call;
         public HttpsCall mHttpsCall;
@@ -45,6 +47,15 @@ public interface IDataHelper {
          */
         public NetConfig configInterceptors(Interceptor[] configInterceptors) {
             this.mInterceptors = configInterceptors;
+            return this;
+        }
+        /**
+         * add okhttp Converter.Factory
+         * @param factories
+         * @return
+         */
+        public NetConfig configConverterFactory(Converter.Factory[] factories) {
+            this.factories = factories;
             return this;
         }
 

@@ -1,4 +1,4 @@
-package com.dhc.library.base;
+package com.dhc.library.framework;
 
 import android.content.Context;
 
@@ -11,8 +11,17 @@ import com.trello.rxlifecycle2.LifecycleTransformer;
  */
 public interface IBaseView  {
 
+    /**
+     * Retrofit bind View Lifecycle
+     * @param <T>   Response data
+     * @return  Response data
+     */
     <T> LifecycleTransformer<T> bindLifecycle() ;
 
+    /**
+     * get  View context
+     * @return
+     */
     Context getAContext() ;
 
 }

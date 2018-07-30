@@ -39,12 +39,12 @@ public class GirlFragment extends XDaggerFragment<GirlPresenter> implements IGir
 
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.fragment_girl;
     }
 
     @Override
-    protected void initEventAndData(View view) {
+    public void initEventAndData(Bundle savedInstanceState) {
         initView();
 
         mList = new ArrayList<>();

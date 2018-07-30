@@ -2,7 +2,6 @@ package com.dhc.library.utils.rx;
 
 import com.dhc.library.data.net.NetError;
 import com.dhc.library.data.net.SubscriberListener;
-import com.dhc.library.data.account.AccountManager;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 
@@ -61,8 +60,5 @@ public abstract class BaseSubscriberListener<T> extends SubscriberListener<T> {
 
 
 
-    @Override
-    public void checkReLogin(String errorCode, String errorMsg) {
-        AccountManager.INSTANCE.logout();
-    }
+
 }

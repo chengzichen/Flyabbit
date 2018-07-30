@@ -7,15 +7,13 @@ import android.os.Handler;
 import android.support.annotation.CheckResult;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
-import com.dhc.library.framework.IDaggerListener;
+import com.dhc.library.framework.ISupportBaseFragment;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.RxLifecycle;
@@ -30,21 +28,23 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 
 /**
- * 创建者：邓浩宸
- * 时间 ：2016/11/15 16:08
- * 描述 ：无MVP的Fragment基类
+ * @creator:denghc(desoce)
+ * @updateTime:2018/7/30 12:02
+ * @description: BaseFragment by no mvp
  */
-public abstract class BaseFragment extends SupportFragment implements LifecycleProvider<FragmentEvent>, IDaggerListener {
+public abstract class BaseFragment extends SupportFragment implements LifecycleProvider<FragmentEvent> ,ISupportBaseFragment {
+
     private static final Handler handler = new Handler();
+
     private static final String TAG = BaseFragment.class.getSimpleName();
-//    private Toolbar toolbar;
-    protected View mView;
-    private boolean isInited = false;
+
+    protected View mRootView;
+
     protected Context mContext;
 
 
     /**
-     * activity与frament绑定时调用
+     * The activity is onAttach to the Fragment
      */
     @Override
     public void onAttach(Context context) {
@@ -53,20 +53,25 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
     }
 
 
-
+    /**
+     * get Handler for thread scheduling
+     *
+     * @return
+     */
     public final Handler getHandler() {
         return handler;
     }
 
     /**
-     * 替代findviewbyid
+     * replace  findViewById
      *
-     * @param resId
-     * @param <T>
-     * @return
+     * @param resId   layout resId
+     * @param <T>   View
+     * @return    View
      */
-    protected <T extends View> T $(int resId) {
-        return (T) mView.findViewById(resId);
+    @Override
+    public  <T extends View> T $(int resId) {
+        return (T) mRootView.findViewById(resId);
     }
 
 
@@ -77,13 +82,12 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
         lifecycleSubject.onNext(FragmentEvent.CREATE_VIEW);
         int layoutId = getLayoutId();
         if (layoutId > 0)
-            mView = inflater.inflate(layoutId, null);
-        initInject(savedInstanceState);
-        return mView;
+            mRootView = inflater.inflate(layoutId, null);
+        return mRootView;
     }
 
     /**
-     * 默认为横向切换动画
+     * The default is landscape animation
      *
      * @return
      */
@@ -92,18 +96,13 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
         return new DefaultHorizontalAnimator();
     }
 
-    /**
-     * viem 创建的回调
-     *
-     * @param view
-     * @param savedInstanceState
-     */
+
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         if (!useLazy()) {
-            isInited = true;
-            initEventAndData(view);
+            initEventAndData(savedInstanceState);
         }
         Log.i(TAG,this.getClass().getName()+"onViewCreated");
     }
@@ -113,27 +112,29 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         if (useLazy()) {
-            isInited = true;
-            initEventAndData(mView);
+            initEventAndData(savedInstanceState);
             Log.i(TAG,this.getClass().getName()+"onLazyInitView");
         }
     }
 
+    /**
+     * useLazy
+     * @return
+     */
     public boolean useLazy() {
         return true;
     }
 
     /**
-     * 延时弹出键盘
+     * Delayed popup keyboard
      *
-     * @param focus 键盘的焦点项
+     * @param focus Keyboard focus view
      */
     protected void showKeyboardDelayed(View focus) {
         final View viewToFocus = focus;
         if (focus != null) {
             focus.requestFocus();
         }
-
         getHandler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -144,6 +145,10 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
         }, 300);
     }
 
+    /**
+     * Pop up or close the keyboard
+      * @param isShow  Pop up or close
+     */
     protected void showKeyboard(boolean isShow) {
         Activity activity = getActivity();
         if (activity == null) {
@@ -171,24 +176,22 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
     }
 
     /**
-     * 判断软键盘是否弹出
+     * Check if the soft keyboard pops up
      */
-    public boolean isSHowKeyboard() {
+    public boolean isShowKeyboard() {
         if (_mActivity == null || getView() == null)
             return false;
         InputMethodManager imm = (InputMethodManager) _mActivity.getSystemService(mContext.INPUT_METHOD_SERVICE);
         if (imm.hideSoftInputFromWindow(getView().getWindowToken(), 0)) {
             imm.showSoftInput(getView(), 0);
             return true;
-            //软键盘已弹出
         } else {
             return false;
-            //软键盘未弹出
         }
     }
 
     /**
-     * 当Fragment状态改变时调用
+     * When the Fragment state changes
      *
      * @param hidden
      */
@@ -198,10 +201,6 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
     }
 
 
-    protected abstract int getLayoutId();
-
-    protected abstract void initEventAndData(View view);
-
     @Override
     public boolean onBackPressedSupport() {
         return super.onBackPressedSupport();
@@ -210,19 +209,16 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
     @Override
     public void onSupportVisible() {
         super.onSupportVisible();
-        // todo,当该Fragment对用户可见时
+        // todo,When the Fragment is visible to the use
     }
 
     @Override
     public void onSupportInvisible() {
         super.onSupportInvisible();
-        // todo,当该Fragment对用户不可见时
+        // todo,When the Fragment is invisible to the use
     }
 
-    /**------------------------             Rxlife用于管理Rxjava的生命周期的                ------------------------*/
-    /**
-     * ------------------------                            end              ------------------------
-     */
+    /**------------------------             Rxlife   start            ------------------------*/
 
     private final BehaviorSubject<FragmentEvent> lifecycleSubject = BehaviorSubject.create();
 
@@ -288,7 +284,7 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
     public void onDestroyView() {
         lifecycleSubject.onNext(FragmentEvent.DESTROY_VIEW);
         super.onDestroyView();
-        mView = null;
+        mRootView = null;
         mContext = null;
         Log.i(TAG,this.getClass().getName()+"onDestroyView");
 
@@ -305,8 +301,6 @@ public abstract class BaseFragment extends SupportFragment implements LifecycleP
         lifecycleSubject.onNext(FragmentEvent.DETACH);
         super.onDetach();
     }
-    /**------------------------             Rxlife用于管理Rxjava的生命周期的                ------------------------*/
-    /**------------------------                            end              ------------------------*/
-
+    /**------------------------             Rxlife  end               ------------------------*/
 
 }

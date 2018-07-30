@@ -10,7 +10,7 @@ import com.dhc.lib.widget.bottombar.BottomBar;
 import com.dhc.lib.widget.bottombar.BottomBarTab;
 import com.dhc.library.base.BaseFragment;
 import com.dhc.library.base.XDaggerFragment;
-import com.dhc.library.data.account.AccountManager;
+import com.dhc.businesscomponent.data.account.AccountManager;
 
 import me.yokeyword.fragmentation.SupportFragment;
 
@@ -109,13 +109,13 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
 
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.fragment_main;
     }
 
     @Override
-    protected void initEventAndData(View view) {
-        initView(view);
+    public void initEventAndData(Bundle savedInstanceState) {
+        initView(mRootView);
     }
 
     @Override

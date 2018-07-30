@@ -43,7 +43,7 @@ public class GirlPresenter extends XPresenter<IGirlContract.IView> implements IG
                     @Override
                     public void onFail(NetError errorMsg) {
                         super.onFail(errorMsg);
-                        getV().showError("0",errorMsg.getMessage());
+//                        getV().showError("0",errorMsg.getMessage());
                     }
 
                 }));

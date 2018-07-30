@@ -1,8 +1,6 @@
 package com.dhc.flyabbit.app;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.support.annotation.NonNull;
 import android.support.multidex.MultiDex;
 import android.support.v7.app.AppCompatDelegate;
 
@@ -10,16 +8,22 @@ import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.dhc.businesscomponent.Constants;
 import com.dhc.businesscomponent.data.LoginInfoBean;
+import com.dhc.businesscomponent.data.account.AccountProvider;
 import com.dhc.lib.imageload.ImageLoaderManager;
 import com.dhc.library.base.BaseApplication;
 import com.dhc.businesscomponent.base.InitializeService;
 import com.dhc.library.data.IDataHelper;
-import com.dhc.library.data.account.AccountProvider;
+import com.dhc.businesscomponent.data.net.TokenInterceptor;
+import com.dhc.library.framework.XAppDelegate;
 import com.dhc.library.utils.AppUtil;
 import com.dhc.library.utils.ApplicationLike;
 import com.dhc.library.utils.AsLibUtil;
 import com.dhc.timberhelper.TimberInitHelper;
 import com.google.gson.GsonBuilder;
+
+import okhttp3.Interceptor;
+import retrofit2.Converter;
+import retrofit2.converter.protobuf.ProtoConverterFactory;
 
 /**
  * 创建者：邓浩宸
@@ -34,10 +38,6 @@ public class App extends BaseApplication  implements AccountProvider<LoginInfoBe
     ApplicationLike mApplicationLikeMoudle2;
     @Autowired(name = "/girls/application3")
     ApplicationLike mApplicationLikeMoudle3;
-    public static synchronized BaseApplication getInstance() {
-        return instance;
-    }
-
 
     static {
         AppCompatDelegate.setDefaultNightMode(
@@ -61,41 +61,21 @@ public class App extends BaseApplication  implements AccountProvider<LoginInfoBe
     }
 
 
-    @NonNull public static App app(@NonNull Context context) {
-        return (App) context.getApplicationContext();
-    }
-
     /**
      * 必须重新设置BaseUrl
      * @return
      */
     @Override
     public  IDataHelper.NetConfig getNetConfig() {
-        return new IDataHelper.NetConfig().configBaseURL(Constants.GANK_URL);
+        return new IDataHelper.NetConfig().configBaseURL(Constants.GANK_URL)
+                .configInterceptors(new Interceptor[]{new TokenInterceptor()})//配置Token
+                .configConverterFactory(new Converter.Factory[]{ProtoConverterFactory.create()});
+                //配置Proto格式工厂
     }
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        AsLibUtil.onLowMemoryAsLibrary(this);
         ImageLoaderManager.getInstance().cleanMemory(this);
-    }
-
-    @Override
-    public void onTrimMemory(int level) {
-        super.onTrimMemory(level);
-        AsLibUtil. onTrimMemoryAsLibrary(this, level);
-    }
-
-    @Override
-    public void onTerminate() {
-        super.onTerminate();
-        AsLibUtil. onTerminate(this);
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        AsLibUtil. onConfigurationChanged(this, newConfig);
     }
 
     @Override

@@ -3,7 +3,9 @@ package com.dhc.library.data.net;
 import retrofit2.HttpException;
 
 /**
- * Created by dhc on 16/3/10.
+ * @creator:denghc(desoce)
+ * @updateTime:2018/7/30 13:50
+ * @description:
  */
 public abstract class SubscriberListener<T> {
     /**

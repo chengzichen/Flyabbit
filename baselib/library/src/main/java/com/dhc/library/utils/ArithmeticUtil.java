@@ -1,19 +1,6 @@
 package com.dhc.library.utils;
 
-/**
- * 创建者      Deemons
- * 创建时间     2016/6/13 0:18
- * 包名       com.duocai100.duocai.utils
- * 描述       ${TODO}
- * <p/>
- * 更新者      Deemons
- * 更新时间     2016/6/13
- * 更新描述
- */
-/*
- * Created by w4lle 2016 .
- * Copyright (c) 2016 Boohee, Inc. All rights reserved.
- */
+
 
 
 import java.math.BigDecimal;
@@ -21,7 +8,9 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 
 /**
- * 浮点数精确计算工具类
+ * @creator denghc(desoce)
+ * @updateTime 2018/7/30 13:55
+ * @description 数字工具类
  */
 public class ArithmeticUtil {
 

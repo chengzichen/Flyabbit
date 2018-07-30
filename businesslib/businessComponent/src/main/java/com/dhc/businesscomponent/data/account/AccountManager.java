@@ -1,4 +1,4 @@
-package com.dhc.library.data.account;
+package com.dhc.businesscomponent.data.account;
 
 import android.content.Context;
 import android.text.TextUtils;

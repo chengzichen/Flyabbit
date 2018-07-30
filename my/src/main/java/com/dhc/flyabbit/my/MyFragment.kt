@@ -15,7 +15,7 @@ import com.dhc.businesscomponent.base.WebViewCommonFragment
 import com.dhc.businesscomponent.framework.OnBackToFirstListener
 import com.dhc.library.base.XDaggerFragment
 import com.dhc.lib.widget.bean.ToolBarOptions
-import com.dhc.library.base.IBasePresenter
+import com.dhc.library.framework.IBasePresenter
 
 /**
  * 创建者：邓浩宸
@@ -34,7 +34,7 @@ class MyFragment : XDaggerFragment<IBasePresenter<*>>(), View.OnClickListener {
         return R.layout.fragment_my_main
     }
 
-    override fun initEventAndData(view: View) {
+    override fun initEventAndData(savedInstanceState: Bundle?) {
         val baseFragment = parentFragment as BaseFragment?
         if (baseFragment is OnBackToFirstListener) {
             _mBackToFirstListener = baseFragment

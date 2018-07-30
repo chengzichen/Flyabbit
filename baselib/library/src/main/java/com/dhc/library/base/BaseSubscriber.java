@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.dhc.library.data.net.ApiResponse;
 import com.dhc.library.data.net.NetError;
-import com.dhc.library.data.net.ProgressCancelListener;
+import com.dhc.library.framework.ProgressCancelListener;
 import com.dhc.library.data.net.SubscriberListener;
 
 import io.reactivex.subscribers.ResourceSubscriber;

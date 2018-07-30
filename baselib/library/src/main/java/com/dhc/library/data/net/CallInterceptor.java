@@ -10,9 +10,9 @@ import okhttp3.Response;
 
 
 /**
- * 创建者：邓浩宸
- * 时间 ：2017/4/26 15:46
- * 描述 ：做请求前和请求后的操作
+ * @creator：denghc(desoce)
+ * @updateTime：2018/7/30 13:49
+ * @description： Do before and after requests
  */
 public class CallInterceptor implements Interceptor {
 

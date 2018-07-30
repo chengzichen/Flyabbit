@@ -1,8 +1,8 @@
-package com.dhc.library.data.net;
+package com.dhc.businesscomponent.data.net;
 
 import android.text.TextUtils;
 
-import com.dhc.library.data.account.AccountManager;
+import com.dhc.businesscomponent.data.account.AccountManager;
 
 import java.io.IOException;
 

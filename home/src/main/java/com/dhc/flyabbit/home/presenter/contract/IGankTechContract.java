@@ -2,9 +2,10 @@ package com.dhc.flyabbit.home.presenter.contract;
 
 import com.dhc.businesscomponent.data.net.GankApiResponse;
 import com.dhc.flyabbit.home.modle.bean.GankItemBean;
-import com.dhc.library.base.IBaseModle;
-import com.dhc.library.base.IBasePresenter;
-import com.dhc.library.base.IBaseView;
+import com.dhc.library.framework.IBaseModle;
+import com.dhc.library.framework.IBasePresenter;
+import com.dhc.library.framework.IBaseView;
+import com.hk.protocolbuffer.Result;
 
 import java.util.List;
 
@@ -32,11 +33,16 @@ public interface IGankTechContract {
 
         void getMoreTechList(String tag);
 
+        void  psotTest(String  url, Result.AppResult
+                appResult);
     }
 
     interface IModle extends IBaseModle {
 
         Flowable<GankApiResponse<List<GankItemBean>>> getTechList(String tech, int page);
+
+        Flowable<GankApiResponse<List<GankItemBean>>> psotTest(String  url, Result.AppResult
+                appResult);
 
     }
 

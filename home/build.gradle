@@ -1,4 +1,5 @@
 apply plugin: 'com.dhc.comgradle'
+apply plugin: 'com.google.protobuf'
 //apply plugin: 'com.novoda.bintray-release'//添加
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -11,6 +12,7 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -19,6 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     lintOptions {
         abortOnError false
     }
@@ -29,6 +32,18 @@ android {
     }
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
+    //config protobuf plugin   @Link{home/src/main/proto}
+    sourceSets {
+        main {
+            proto {
+                srcDir 'src/main/proto'
+                include '**/*.proto'
+            }
+            java {
+                srcDir 'src/main/java'
+            }
+        }
+    }
 }
 
 dependencies {
@@ -46,6 +61,35 @@ dependencies {
 
     //阿里的Arouter的注解
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+
+    annotationProcessor "com.google.dagger:dagger-compiler:2.13"
+    annotationProcessor "com.alibaba:arouter-compiler:1.1.2.1"
+}
+
+//config protobuf plugin   @Link{home/src/main/proto}
+protobuf {
+    protoc {
+        // You still need protoc like in the non-Android case
+        artifact = 'com.google.protobuf:protoc:3.5.1'
+    }
+    plugins {
+        javalite {
+            // The codegen for lite comes as a separate artifact
+            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                // In most cases you don't need the full Java output
+                // if you use the lite output.
+                remove java
+            }
+            task.plugins {
+                javalite { }
+            }
+        }
+    }
 }
 
 //这是上传jcenter使用,不用关心

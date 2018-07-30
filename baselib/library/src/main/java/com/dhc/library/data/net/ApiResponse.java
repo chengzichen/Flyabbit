@@ -2,17 +2,30 @@
 package com.dhc.library.data.net;
 
 /**
- * Api响应结果的封装类.
- *
- * @author 邓浩宸
- * @date 15/6/21
- * @version 1.0
+ * @creator:denghc(desoce)
+ * @updateTime:2018/7/30 13:42
+ * @description: A wrapper class that responds to the results.
  */
 public interface ApiResponse<T> {
 
+    /**
+     *  isSuccess and   Data of type
+     *
+     * @return
+     */
     boolean isSuccess();
 
+    /**
+     *  is authentication failure
+     *
+     * @return
+     */
     boolean checkReLogin();
 
+    /**
+     *  Data
+     *
+     * @return
+     */
     T getData();
 }

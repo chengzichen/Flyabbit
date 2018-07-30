@@ -13,8 +13,9 @@ import android.text.TextUtils;
 import java.io.File;
 
 /**
- * app相关辅助类
- * 邓浩宸
+ * @creator：denghc(desoce)
+ * @updateTime：2018/7/30 13:52
+ * @description： app相关辅助类
  */
 public class AppUtil {
     private AppUtil() { 

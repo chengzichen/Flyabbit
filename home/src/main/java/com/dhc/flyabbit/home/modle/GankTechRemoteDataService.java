@@ -5,6 +5,7 @@ import com.dhc.flyabbit.home.modle.bean.GankItemBean;
 import com.dhc.flyabbit.home.presenter.contract.IGankTechContract;
 import com.dhc.library.data.HttpHelper;
 import com.dhc.library.utils.rx.RxUtil;
+import com.hk.protocolbuffer.Result;
 
 import java.util.List;
 
@@ -31,6 +32,12 @@ public class GankTechRemoteDataService implements IGankTechContract.IModle {
     @Override
     public Flowable<GankApiResponse<List<GankItemBean>>> getTechList(String techTag, int page) {
         return mHttpHelper.createApi(IGankApi.class).getTechList(techTag,NUM_OF_PAGE,page)
+                .compose(RxUtil.<GankApiResponse<List<GankItemBean>>>rxSchedulerHelper());
+    }
+
+    @Override
+    public Flowable<GankApiResponse<List<GankItemBean>>> psotTest(String url, Result.AppResult appResult) {
+        return  mHttpHelper.createApi(IGankApi.class).psotTest("http://192.168.0.79:8082/x_springboot/app/register2",appResult)
                 .compose(RxUtil.<GankApiResponse<List<GankItemBean>>>rxSchedulerHelper());
     }
 

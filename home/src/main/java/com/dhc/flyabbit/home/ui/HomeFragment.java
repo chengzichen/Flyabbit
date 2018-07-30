@@ -64,12 +64,12 @@ public class HomeFragment extends XDaggerFragment<TopGirlPresenter> implements I
     };
 
     @Override
-    protected int getLayoutId() {
+    public int getLayoutId() {
         return R.layout.fragment_home_main;
     }
 
     @Override
-    protected void initEventAndData(View view) {
+    public void initEventAndData(Bundle bundle) {
         initView();
         initData();
         initListener();

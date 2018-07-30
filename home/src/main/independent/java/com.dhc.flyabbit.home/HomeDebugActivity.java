@@ -14,13 +14,14 @@ import com.dhc.library.base.XDaggerActivity;
 public class HomeDebugActivity extends XDaggerActivity {
 
 
+
     @Override
-    protected int getLayout() {
+    public int getLayoutId() {
         return R.layout.activity_debug;
     }
 
     @Override
-    protected void initEventAndData(Bundle savedInstanceState) {
+    public void initEventAndData(Bundle savedInstanceState) {
         loadRootFragment(R.id.content, HomeFragment.newInstance());
     }
 

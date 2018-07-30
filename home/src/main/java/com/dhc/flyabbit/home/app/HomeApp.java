@@ -4,13 +4,19 @@ package com.dhc.flyabbit.home.app;
 import android.app.Application;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.dhc.businesscomponent.Constants;
 import com.dhc.lib.imageload.ImageLoaderManager;
 import com.dhc.library.base.BaseChildApplication;
 import com.dhc.businesscomponent.base.InitializeService;
+import com.dhc.library.data.IDataHelper;
+import com.dhc.businesscomponent.data.net.TokenInterceptor;
 import com.dhc.library.utils.AppUtil;
 import com.dhc.library.utils.ApplicationLike;
 import com.dhc.timberhelper.TimberInitHelper;
 
+import okhttp3.Interceptor;
+import retrofit2.Converter;
+import retrofit2.converter.protobuf.ProtoConverterFactory;
 import timber.log.Timber;
 
 
@@ -36,5 +42,16 @@ public class HomeApp extends BaseChildApplication implements ApplicationLike {
         ImageLoaderManager.getInstance().init(this);
         InitializeService.start(this);
         Timber.d("HomeApp onCreate");
+    }
+    /**
+     * 必须重新设置BaseUrl
+     * @return
+     */
+    @Override
+    public  IDataHelper.NetConfig getNetConfig() {
+        return new IDataHelper.NetConfig().configBaseURL(Constants.GANK_URL)
+                .configInterceptors(new Interceptor[]{new TokenInterceptor()})//配置Token
+                .configConverterFactory(new Converter.Factory[]{ProtoConverterFactory.create()});
+        //配置Proto格式工厂
     }
 }

@@ -16,12 +16,12 @@ public class GirlsDebugActivity extends XDaggerActivity {
 
 
     @Override
-    protected int getLayout() {
+    public int getLayoutId() {
         return R.layout.activity_debug;
     }
 
     @Override
-    protected void initEventAndData(Bundle savedInstanceState) {
+    public void initEventAndData(Bundle savedInstanceState) {
         loadRootFragment(R.id.content, GankFragment.newInstance());
     }
 

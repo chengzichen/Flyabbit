@@ -1,9 +1,9 @@
 package com.dhc.library.data.net;
 
 /**
- * 创建者：邓浩宸
- * 时间 ：2017/9/28 10:23
- * 描述 ：网络异常
+ * @creator:denghc(desoce)
+ * @updateTime:2018/7/30 13:50
+ * @description:  network anomaly
  */
 public class NetError extends Exception {
     private Throwable exception;

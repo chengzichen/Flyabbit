@@ -6,8 +6,6 @@ import android.text.TextUtils;
 import com.dhc.library.data.net.CacheInterceptor;
 import com.dhc.library.data.net.CallInterceptor;
 import com.dhc.library.data.net.StringConverterFactory;
-import com.dhc.library.data.net.TokenInterceptor;
-import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.AppUtil;
 import com.dhc.library.utils.file.FileUtil;
 import com.franmontiel.persistentcookiejar.ClearableCookieJar;
@@ -28,6 +26,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.protobuf.ProtoConverterFactory;
 
 
 /**
@@ -104,14 +103,13 @@ public class HttpHelper implements IDataHelper {
                 e.printStackTrace();
                  baseURL = netConfig.baseURL;
             } catch (IllegalAccessException e) {
-                e.getMessage();
                 e.printStackTrace();
                  baseURL = netConfig.baseURL;
             }
             if(TextUtils.isEmpty(baseURL))
                 throw  new RuntimeException("baseUrl is null .please init by NetModule or apiService field BaseUrl");
         }
-        if (retrofit != null && retrofit.baseUrl().host() == baseURL) {
+        if (retrofit != null && retrofit.baseUrl().host().equals(baseURL)) {
             return retrofit.create(serviceClass);
         } else {
             return getRetrofit(baseURL).create(serviceClass);
@@ -146,8 +144,14 @@ public class HttpHelper implements IDataHelper {
 
         Retrofit.Builder builder = new Retrofit.Builder();
         builder.baseUrl(host);//baseurl路径
-        builder.client(okHttpClient)//添加客户端
-                .addConverterFactory(new StringConverterFactory())//添加Gson格式化工厂
+        builder.client(okHttpClient);//添加客户端
+        if (netConfig.factories != null) {
+            for (int i = 0; i < netConfig.factories.length; i++) {
+                builder.addConverterFactory(netConfig.factories[i]);
+            }
+        }
+        builder.addConverterFactory(new StringConverterFactory())//添加Gson格式化工厂
+                .addConverterFactory (ProtoConverterFactory.create())//添加Proto格式化工厂
                 .addConverterFactory(GsonConverterFactory.create(gson));//添加Gson格式化工厂
         if (netConfig.isUseRx) {
             builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());//call 适配器
@@ -159,18 +163,16 @@ public class HttpHelper implements IDataHelper {
 
     public OkHttpClient getOkHttpClient() {
         ClearableCookieJar cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(context));//对cooke自动管理管理
-        File cacheFile = new File(FileUtil.getCacheDirectory(context), "ApiCookie");//缓存路径
+        File cacheFile = new File(FileUtil.getCacheDirectory(context), "Cache");//缓存路径
         cacheFile = FileUtil.makeDirs(cacheFile);
         Cache cache = new Cache(cacheFile, 1024 * 1024 * 40);//设置缓存大小为40M
         //缓存
         CacheInterceptor cacheInterceptor = new CacheInterceptor(context);
-        //token管理
-        TokenInterceptor tokenInterceptor = new TokenInterceptor();
+
         OkHttpClient.Builder builder =
                 new OkHttpClient.Builder()
                         .cache(cache)
                         .addInterceptor(cacheInterceptor)
-                        .addInterceptor(tokenInterceptor)
                         .addNetworkInterceptor(cacheInterceptor)
                         //                        .retryOnConnectionFailure(true)
                         .connectTimeout(netConfig.connectTimeoutMills != 0 ? netConfig.connectTimeoutMills : 15, TimeUnit.SECONDS)
@@ -193,7 +195,6 @@ public class HttpHelper implements IDataHelper {
             for (int i = 0; i < netConfig.mInterceptors.length; i++) {
                 builder.addInterceptor(netConfig.mInterceptors[i]);
             }
-
         }
         //当前okHttpClient
         okHttpClient = builder.build();

@@ -1,6 +1,7 @@
 package com.dhc.businesscomponent.data.net;
 
 import com.dhc.businesscomponent.R;
+import com.dhc.businesscomponent.data.account.AccountManager;
 import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.rx.BaseSubscriberListener;
 import com.dhc.rxbus2.Events;
@@ -29,7 +30,7 @@ public abstract class GankSubscriberListener<T>  extends BaseSubscriberListener<
 
     @Override
     public void checkReLogin(String errorCode, String errorMsg) {
-        super.checkReLogin(errorCode, errorMsg);
+        AccountManager.INSTANCE.logout();
         RxBus.getDefault().post(new Events<String>(GO_LOGIN, AppContext.get().getString(R.string.GO_LOGIN)));
     }
 

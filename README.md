@@ -1,9 +1,7 @@
 ## 前言
-- 技术选型
-- 组件化设计
+- 快速实现MVP组件化
 - ReactNative-Android 的简单实践
 - 阿里Atlas(插件化)与该项目的简单实践
-- 快速实现MVP组件化
 
 **集android技术于一体,你们想要的都在这里**
 
@@ -14,19 +12,17 @@
    - feature-atlas : 以阿里Atlas插件化结合为主
 
 
- 
-## 快速实现([AndroidStudio插件](https://juejin.im/post/5b163118f265da6e1349072a))
+ ## 效果
+
+
+[Gif动态效果](https://github.com/chengzichen/Photo/raw/master/gif/show.gif)   [*DemoAPK下载*](https://github.com/chengzichen/Photo/blob/master/gif/app-release.apk)   [架构图](https://i.imgur.com/sEuZMdp.png)
+
+
+## AndroidStudio插件
 
 [AndroidStudio插件快速实现组件化和MVP](https://juejin.im/post/5b163118f265da6e1349072a)
 
-## 效果
 
-
-[Gif动态效果](https://github.com/chengzichen/Photo/raw/master/gif/show.gif)       [DemoAPK下载](https://github.com/chengzichen/Photo/blob/master/gif/app-debug.apk)
-
-## 结构
- 
- <img src="https://i.imgur.com/sEuZMdp.png" width = "400" height = "400" alt="图片名称" align=center />
 
 ## 依赖说明
 
