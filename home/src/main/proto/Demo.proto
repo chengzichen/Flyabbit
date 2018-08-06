@@ -1,0 +1,34 @@
+syntax = "proto2";
+package protocobuff_Demo;
+// 关注1：包名
+
+option java_package = "com.hk.protocolbuffer";
+option java_outer_classname = "Demo";
+// 关注2：option选项
+
+// 关注3：消息模型
+// 下面详细说明
+// 生成 Person 消息对象（包含多个字段，下面详细说明）
+message Person {
+  required string name = 1;
+  required int32 id = 2;
+  optional string email = 3;
+
+  enum PhoneType {
+    MOBILE = 0;
+    HOME = 1;
+    WORK = 2;
+  }
+
+  message PhoneNumber {
+
+    required string number = 1;
+    optional PhoneType type = 2 [default = HOME];
+  }
+
+  repeated PhoneNumber phone = 4;
+}
+
+message AddressBook {
+  repeated Person person = 1;
+}

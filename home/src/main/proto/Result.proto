@@ -1,0 +1,16 @@
+package com.hk.protocolbuffer;
+// 关注1：包名
+option java_package = "com.hk.protocolbuffer";
+option java_outer_classname = "Result";
+// 关注2：option选项
+
+// 关注3：消息模型
+message AppResult {
+  optional string message = 1;
+  required string data = 2;
+  optional string version = 3;
+  optional string mobile = 5;
+  optional int32  code= 6[default = 500];
+  optional string email = 7;
+
+}

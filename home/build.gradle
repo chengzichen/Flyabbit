@@ -44,60 +44,66 @@ android {
             }
         }
     }
-}
 
-dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    dependencies {
+        compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    testCompile rootProject.ext.dependencies["junit"]
+        androidTestCompile('com.android.support.test.espresso:espresso-core:3.0.1', {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
 
-    implementation project(':businessComponent')
-    //dagger2的apt注解
-    annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
+        testCompile rootProject.ext.dependencies["junit"]
 
-    //阿里的Arouter的注解
-    annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+        implementation project(':businessComponent')
+        //dagger2的apt注解
+        annotationProcessor rootProject.ext.dependencies["dagger-compiler"]
 
-    annotationProcessor "com.google.dagger:dagger-compiler:2.13"
-    annotationProcessor "com.alibaba:arouter-compiler:1.1.2.1"
-}
+        //阿里的Arouter的注解
+        annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+
+        annotationProcessor "com.google.dagger:dagger-compiler:2.13"
+        annotationProcessor "com.alibaba:arouter-compiler:1.1.2.1"
+    }
 
 //config protobuf plugin   @Link{home/src/main/proto}
-protobuf {
-    protoc {
-        // You still need protoc like in the non-Android case
-        artifact = 'com.google.protobuf:protoc:3.5.1'
-    }
-    plugins {
-        javalite {
-            // The codegen for lite comes as a separate artifact
-            artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
+    protobuf {
+        protoc {
+            // You still need protoc like in the non-Android case
+            artifact = 'com.google.protobuf:protoc:3.0.0'
         }
-    }
-    generateProtoTasks {
-        all().each { task ->
-            task.builtins {
-                // In most cases you don't need the full Java output
-                // if you use the lite output.
-                remove java
-            }
-            task.plugins {
-                javalite { }
+        plugins {
+            javalite {
+                // The codegen for lite comes as a separate artifact
+                artifact = 'com.google.protobuf:protoc-gen-javalite:3.0.0'
             }
         }
-    }
-}
+        generateProtoTasks {
+            all().each { task ->
+                task.builtins {
+                    // In most cases you don't need the full Java output
+                    // if you use the lite output.
+                    remove java
+                }
+                task.plugins {
+                    javalite {}
+                }
+                // If true, will generate a descriptor_set.desc file under
+                // $generatedFilesBaseDir/$sourceSet. Default is false.
+                // See --descriptor_set_out in protoc documentation about what it is.
+                task.generateDescriptorSet = true
 
-//这是上传jcenter使用,不用关心
-//publish {
-//    userOrg = 'chengzichen'//bintray.com用户名
-//    groupId = 'com.dhc.flyabbit.home'//jcenter上的路径
-//    artifactId = 'homelib'//项目名称
-//    publishVersion = '1.0.0'//版本号
-//    desc = 'Oh hi, this is flyabbit , show home lib'//描述，不重要
-//    website = 'https://github.com/chengzichen/Flyabbit'//网站，不重要
-//}
+                // If true, the descriptor set will contain line number information
+                // and comments. Default is false.
+                task.descriptorSetOptions.includeSourceInfo = true
+
+                // If true, the descriptor set will contain all transitive imports and
+                // is therefore self-contained. Default is false.
+                task.descriptorSetOptions.includeImports = true
+            }
+        }
+        generatedFilesBaseDir = "$projectDir/src/generated"
+    }
+
+
+}

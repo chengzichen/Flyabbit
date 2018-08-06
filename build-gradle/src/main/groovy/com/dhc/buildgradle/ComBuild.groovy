@@ -62,8 +62,8 @@ class ComBuild implements Plugin<Project> {
                         manifest.srcFile 'src/main/AndroidManifest.xml'
                         java {
                             exclude 'src/main/independent/**'
-                            exclude '**/debug/**.java'
-                            exclude 'src/main/independent/**/res/layout/activity_debug.xml'
+                            exclude '**/independent/**.java'
+                            exclude 'src/main/independent/**/res/layout/activity_independent.xml'
                         }
                     }
                 }
