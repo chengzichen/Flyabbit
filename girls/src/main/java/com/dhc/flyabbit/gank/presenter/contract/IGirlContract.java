@@ -2,7 +2,7 @@ package com.dhc.flyabbit.gank.presenter.contract;
 
 import com.dhc.businesscomponent.data.net.GankApiResponse;
 import com.dhc.flyabbit.gank.modle.bean.GankItemBean;
-import com.dhc.library.framework.IBaseModle;
+import com.dhc.library.framework.IBaseModel;
 import com.dhc.library.framework.IBasePresenter;
 import com.dhc.library.framework.IBaseView;
 
@@ -34,7 +34,7 @@ public interface IGirlContract {
 
     }
 
-    interface IModle extends IBaseModle {
+    interface IModle extends IBaseModel {
 
         Flowable<GankApiResponse<List<GankItemBean>>> getGirlData(int page);
 

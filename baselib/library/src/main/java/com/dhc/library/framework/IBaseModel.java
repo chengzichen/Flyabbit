@@ -6,5 +6,5 @@ package com.dhc.library.framework;
  * 描述	      ${Modle请求数据的基类}
  */
 
-public interface IBaseModle {
+public interface IBaseModel {
 }

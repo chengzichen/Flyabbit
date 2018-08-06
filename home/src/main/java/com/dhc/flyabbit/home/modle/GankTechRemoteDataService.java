@@ -19,7 +19,7 @@ import io.reactivex.Flowable;
  * 描述	  TODO
  */
 
-public class GankTechRemoteDataService implements IGankTechContract.IModle {
+public class GankTechRemoteDataService implements IGankTechContract.IModel {
 
     private HttpHelper mHttpHelper;
     public static final int NUM_OF_PAGE = 20;
