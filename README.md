@@ -11,6 +11,23 @@
    - feature-rn : rn特色分支 :主要以更新rn与Android结合实践优化为主
    - feature-atlas : 以阿里Atlas插件化结合为主
 
+## 最新版本
+
+模块|FMVP|RxBus|FSelector|Timber
+---|---|---|---|---
+最新版本|[![Download](https://api.bintray.com/packages/chengzichen/maven/mvp/images/download.svg) ](https://bintray.com/chengzichen/maven/mvp/_latestVersion) |[ ![Download](https://api.bintray.com/packages/chengzichen/maven/rxbus2/images/download.svg) ](https://bintray.com/chengzichen/maven/rxbus2/_latestVersion)|[![](https://www.jitpack.io/v/chengzichen/FSelector.svg)](https://www.jitpack.io/#chengzichen/FSelector)|[ ![Download](https://api.bintray.com/packages/chengzichen/maven/timberhelper/images/download.svg) ](https://bintray.com/chengzichen/maven/timberhelper/_latestVersion)
+
+模块|组件化脚本插件
+---|---
+最新版本|[ ![Download](https://api.bintray.com/packages/chengzichen/maven/component-plugin/images/download.svg) ](https://bintray.com/chengzichen/maven/component-plugin/_latestVersion)
+
+
+模块|IDE插件
+---|---
+最新版本|[ ![Download](https://api.bintray.com/packages/chengzichen/maven/component-plugin/images/download.svg) ](https://bintray.com/chengzichen/maven/component-plugin/_latestVersion)
+
+![](https://img.shields.io/github/release/chengzichen/component.svg)
+
 
  ## 效果
 
@@ -20,7 +37,7 @@
 
 ## AndroidStudio插件
 
-[AndroidStudio插件快速实现组件化和MVP](https://juejin.im/post/5b163118f265da6e1349072a)
+[AndroidStudio插件快速实现组件化和MVP](https://juejin.im/post/5b163118f265dahttps://juejin.im/post/5b163118f265da6e1349072a6e1349072a)
 
 
 
