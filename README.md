@@ -24,9 +24,9 @@
 
 模块|IDE插件
 ---|---
-最新版本|[ ![Download](https://api.bintray.com/packages/chengzichen/maven/component-plugin/images/download.svg) ](https://bintray.com/chengzichen/maven/component-plugin/_latestVersion)
+最新版本|![](https://img.shields.io/github/release/chengzichen/component.svg)
 
-![](https://img.shields.io/github/release/chengzichen/component.svg)
+
 
 
  ## 效果
