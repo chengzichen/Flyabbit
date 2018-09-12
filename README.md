@@ -13,83 +13,59 @@
 
 ## 最新版本
 
-模块|FMVP|RxBus|FSelector|Timber
----|---|---|---|---
-最新版本|[![Download](https://api.bintray.com/packages/chengzichen/maven/mvp/images/download.svg) ](https://bintray.com/chengzichen/maven/mvp/_latestVersion) |[ ![Download](https://api.bintray.com/packages/chengzichen/maven/rxbus2/images/download.svg) ](https://bintray.com/chengzichen/maven/rxbus2/_latestVersion)|[![](https://www.jitpack.io/v/chengzichen/FSelector.svg)](https://www.jitpack.io/#chengzichen/FSelector)|[ ![Download](https://api.bintray.com/packages/chengzichen/maven/timberhelper/images/download.svg) ](https://bintray.com/chengzichen/maven/timberhelper/_latestVersion)
 
-模块|组件化脚本插件
----|---
-最新版本|[ ![Download](https://api.bintray.com/packages/chengzichen/maven/component-plugin/images/download.svg) ](https://bintray.com/chengzichen/maven/component-plugin/_latestVersion)
-
-
-模块|IDE插件
----|---
-最新版本|![](https://img.shields.io/github/release/chengzichen/component.svg)
+| 项目名 | 文档说明 |源码 | Demo |最新版本|
+| :------| ------: | :------: | :------: | :------: |
+| AndroidStudio插件 | [IDE 插件文档](https://juejin.im/post/5b163118f265dahttps://juejin.im/post/5b163118f265da6e1349072a6e1349072a) | [源码](https://github.com/chengzichen/component) | 无 |![](https://img.shields.io/github/release/chengzichen/component.svg)|
+| 组件化脚本 | [**组件化脚本文档**](https://github.com/chengzichen/Flyabbit/blob/master/%E7%BB%84%E4%BB%B6%E5%8C%96%E7%9A%84%E4%BD%BF%E7%94%A8.md) | [源码](https://github.com/chengzichen/Flyabbit/tree/master/build-gradle) |无 | [ ![Download](https://api.bintray.com/packages/chengzichen/maven/component-plugin/images/download.svg) ](https://bintray.com/chengzichen/maven/component-plugin/_latestVersion)|
+| FMVP | [**FMVP文档**](https://github.com/chengzichen/Flyabbit/blob/master/Fmvp%E4%BB%8B%E7%BB%8D.md) | [源码](https://github.com/chengzichen/FMVP) |[demo](https://github.com/chengzichen/FMVP) |[![Download](https://api.bintray.com/packages/chengzichen/maven/mvp/images/download.svg) ](https://bintray.com/chengzichen/maven/mvp/_latestVersion)|
+| FSelector | [**FSelector文档**](https://github.com/chengzichen/FSelector) | [源码](https://github.com/chengzichen/FSelector) |[demo](https://github.com/chengzichen/FSelector) |[![](https://www.jitpack.io/v/chengzichen/FSelector.svg)](https://www.jitpack.io/#chengzichen/FSelector)|
+| RxBus |[总线(**RxBus**)文档](https://github.com/chengzichen/Flyabbit/blob/master/RxBus.md)| [源码](https://github.com/chengzichen/Flyabbit/tree/master/baselib/rxbus2) |暂无 |[ ![Download](https://api.bintray.com/packages/chengzichen/maven/rxbus2/images/download.svg) ](https://bintray.com/chengzichen/maven/rxbus2/_latestVersion)|
+| Timberhelper |[好用的日志管理文档](https://github.com/chengzichen/Flyabbit/blob/master/Timber.md)| [源码](https://github.com/chengzichen/Flyabbit/tree/master/baselib/timberhelper) |暂无 |[ ![Download](https://api.bintray.com/packages/chengzichen/maven/timberhelper/images/download.svg) ](https://bintray.com/chengzichen/maven/timberhelper/_latestVersion)|
 
 
-
-
- ## 效果
+## 效果
 
 
 [Gif动态效果](https://github.com/chengzichen/Photo/raw/master/gif/show.gif)   [*DemoAPK下载*](https://github.com/chengzichen/Photo/blob/master/gif/app-release.apk)   [架构图](https://i.imgur.com/sEuZMdp.png)
 
+## 简介
+-  [AndroidStudio插件](https://juejin.im/post/5b163118f265dahttps://juejin.im/post/5b163118f265da6e1349072a6e1349072a))
 
-## AndroidStudio插件
+	- 使用简单,能够灵活配置任意的组件使用组件化
+	- 一键使用MVP,提供了选择最新或者适合自己的mvpsdk依赖版本(Dagger2 以及ARouter)
 
-[AndroidStudio插件快速实现组件化和MVP](https://juejin.im/post/5b163118f265dahttps://juejin.im/post/5b163118f265da6e1349072a6e1349072a)
+-----
+- [**组件化脚本插件**](https://github.com/chengzichen/Flyabbit/blob/master/%E7%BB%84%E4%BB%B6%E5%8C%96%E7%9A%84%E4%BD%BF%E7%94%A8.md) 
 
-
-
-## 依赖说明
-
-### [**组件化脚本插件**](https://github.com/chengzichen/Flyabbit/blob/master/%E7%BB%84%E4%BB%B6%E5%8C%96%E7%9A%84%E4%BD%BF%E7%94%A8.md) 
-
-[ ![Download](https://api.bintray.com/packages/chengzichen/maven/component-plugin/images/download.svg) ](https://bintray.com/chengzichen/maven/component-plugin/_latestVersion)
-[![License](https://img.shields.io/badge/License-Apache%202.0-orange.svg)](https://github.com/luojilab/DDComponentForAndroid/blob/master/LICENSE) 
-
-
-感谢 [@DDComponentForAndroid](https://github.com/luojilab/DDComponentForAndroid) ,我只是对其进行了修改更适合自己的项目.用法基本没有改变
-
- [Gradle脚本的使用](https://github.com/chengzichen/Flyabbit/blob/master/%E7%BB%84%E4%BB%B6%E5%8C%96%E7%9A%84%E4%BD%BF%E7%94%A8.md) 
+ 	- 优化组件化gradle脚本,让配置脚本更轻盈
 
 -----
 
-### [**FMVP**](https://github.com/chengzichen/Flyabbit/blob/master/Fmvp%E4%BB%8B%E7%BB%8D.md)
+- [**FMVP**](https://github.com/chengzichen/Flyabbit/blob/master/Fmvp%E4%BB%8B%E7%BB%8D.md)
 
+	-  `degger2` ,`util`....每个Modle中提供了`XXDiHelper` 快速使用AOP依赖注入,一键注入你想要的
+	-  `rxjava`,`retrofit`让网络请求线程切换赢在起跑线上
+	-  使用`ARouter`路由解耦跳转更加灵活
+	- ` MVP`更加简单实用,网络,缓存,数据库开箱即用
+	-  `base`中封装了懒加载的`BaseFragment`,`BaseActivity`,满足你日常开发的各种动作和姿势
+	- `room`,`MemoryCache`,`SPHelper`和` RxCache `提供了强大的网络请求和缓存功能
 
-
-[ ![Download](https://api.bintray.com/packages/chengzichen/maven/mvp/images/download.svg) ](https://bintray.com/chengzichen/maven/mvp/_latestVersion) 
-
-**特点**:   
-
--  `degger2` ,`util`....每个Modle中提供了`XXDiHelper` 快速使用AOP依赖注入,一键注入你想要的
--  `rxjava`,`retrofit`让网络请求线程切换赢在起跑线上
--  使用`ARouter`路由解耦跳转更加灵活
-- ` MVP`更加简单实用,网络,缓存,数据库开箱即用
--  `base`中封装了懒加载的`BaseFragment`,`BaseActivity`,满足你日常开发的各种动作和姿势
-- `room`,`MemoryCache`,`SPHelper`和` RxCache `提供了强大的网络请求和缓存功能
-- 使用`AccountManager`提供了登录用户资料的简单管理
 
 
 -----
 
+-  [日志管理(**Timber**)](https://github.com/chengzichen/Flyabbit/blob/master/Timber.md)
 
-### [日志管理(**Timber**)](https://github.com/chengzichen/Flyabbit/blob/master/Timber.md)
- 
- [ ![Download](https://api.bintray.com/packages/chengzichen/maven/timberhelper/images/download.svg) ](https://bintray.com/chengzichen/maven/timberhelper/_latestVersion)
-
- **特点**: 整合了timber和logger日志框架,一行代码初始化,debug打印日志,release异步保存错误日志到指定的位置. 
+	- 整合了timber和logger日志框架,一行代码初始化,debug打印日志,release异步保存错误日志到指定的位置. 
 
 -----
-### [事件总线(**RxBus**)](https://github.com/chengzichen/Flyabbit/blob/master/RxBus.md) 
 
-[ ![Download](https://api.bintray.com/packages/chengzichen/maven/rxbus2/images/download.svg) ](https://bintray.com/chengzichen/maven/rxbus2/_latestVersion)
-
- **特点**: 提供普通的消息通知,以及粘性消息通知,使用了Rxjava必备神器
+-  [事件总线(**RxBus**)](https://github.com/chengzichen/Flyabbit/blob/master/RxBus.md) 
+	- 提供普通的消息通知,以及粘性消息通知,使用了Rxjava必备神器
  
 -----
-### 混淆
+## 混淆
 
 - android混淆说明
 	
