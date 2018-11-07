@@ -55,7 +55,7 @@ ext {
             VArouterapi            : "1.2.1.1",
             //ui
             VBaseAdapterHelper     : "2.9.27",
-            VConstraintLayout     : "1.0.2",
+            VConstraintLayout     : "2.0.0-alpha2",
             VUltraPtr              : "1.0.11",
             VFlycoTabLayout_Lib    : "2.1.2@aar",
             VBanner                : "1.4.10",
