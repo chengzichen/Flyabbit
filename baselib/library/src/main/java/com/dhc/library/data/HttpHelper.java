@@ -179,11 +179,6 @@ public class HttpHelper implements IDataHelper {
                         .writeTimeout(15, TimeUnit.SECONDS)//写超时超时
                         .readTimeout(netConfig.readTimeoutMills != 0 ? netConfig.readTimeoutMills : 15, TimeUnit.SECONDS)//读超时
                         .cookieJar(netConfig.mCookieJar != null ? netConfig.mCookieJar : cookieJar);
-        if (AppUtil.isDebug()) {//如果当前是debug模式就开启日志过滤器
-            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-            builder.addInterceptor(loggingInterceptor);
-        }
         //设置https相关
         if (netConfig.mHttpsCall != null) {
             netConfig.mHttpsCall.configHttps(builder);
@@ -195,6 +190,11 @@ public class HttpHelper implements IDataHelper {
             for (int i = 0; i < netConfig.mInterceptors.length; i++) {
                 builder.addInterceptor(netConfig.mInterceptors[i]);
             }
+        }
+        if (AppUtil.isDebug()) {//如果当前是debug模式就开启日志过滤器
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            builder.addInterceptor(loggingInterceptor);
         }
         //当前okHttpClient
         okHttpClient = builder.build();
