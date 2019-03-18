@@ -7,18 +7,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.loadmore.SimpleLoadMoreView;
 import com.dhc.flyabbit.home.R;
 import com.dhc.flyabbit.home.di.HomeDiHelper;
 import com.dhc.flyabbit.home.modle.bean.GankItemBean;
 import com.dhc.flyabbit.home.presenter.GankTechPresenter;
 import com.dhc.flyabbit.home.presenter.contract.IGankTechContract;
 import com.dhc.flyabbit.home.ui.adapter.GankTechAdapter;
-import com.dhc.lib.widget.CustomLoadMoreView;
 import com.dhc.library.base.BaseActivity;
 import com.dhc.businesscomponent.base.WebViewCommonFragment;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.lib.widget.util.ToastUtil;
-import com.hk.protocolbuffer.Result;
 
 import java.util.List;
 
@@ -69,7 +68,7 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
 
         mGankTechAdapter = new GankTechAdapter(null, mTag);
         mGankTechAdapter.setOnLoadMoreListener(this, lv);
-        mGankTechAdapter.setLoadMoreView(new CustomLoadMoreView());
+        mGankTechAdapter.setLoadMoreView(new SimpleLoadMoreView());
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
         @Override
         public void onRefresh() {

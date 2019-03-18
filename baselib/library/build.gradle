@@ -54,11 +54,11 @@ dependencies {
     })
 
 
-    api(rootProject.ext.dependencies["appcompat-v7"],{
+    provided(rootProject.ext.dependencies["appcompat-v7"],{
         exclude module: 'support-annotations'
         exclude module: 'support-v4'
     })
-    api(rootProject.ext.dependencies["support-v4"],{
+    provided(rootProject.ext.dependencies["support-v4"],{
         exclude module: 'support-annotations'
     })
 
@@ -138,7 +138,8 @@ publish {
     userOrg = 'chengzichen'//bintray.com用户名
     groupId = 'com.dhc.lib'//jcenter上的路径
     artifactId = 'mvp'//项目名称
-    publishVersion = '1.0.6'//版本号
+    publishVersion = '1.0.8'//版本号
     desc = 'Oh hi, this is component for degger2 .rxjava, room , mvp...., show android-mvp'//描述，不重要
     website = 'https://github.com/chengzichen/Flyabbit'//网站，不重要
 }
+

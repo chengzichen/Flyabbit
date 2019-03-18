@@ -85,7 +85,7 @@ dependencies {
 //    api rootProject.ext.dependencies["PickerView"]
     api rootProject.ext.dependencies["switchbutton"]
     api rootProject.ext.dependencies["countdownview"]
-    api rootProject.ext.dependencies["MagicIndicator"]
+//    api rootProject.ext.dependencies["MagicIndicator"]
     api rootProject.ext.dependencies["FlycoDialog_Lib"]
     api rootProject.ext.dependencies["glide-transformations"]
     api rootProject.ext.dependencies["zxing-android-embedded"]
