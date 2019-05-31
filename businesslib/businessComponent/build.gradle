@@ -23,7 +23,13 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(':imageloader')
-    api project(':library')
+//    api project(':library')
+    api "com.dhc.lib:mvp:$component_version"
+    api rootProject.ext.dependencies["protobuf-lite"]
+    api(rootProject.ext.dependencies["retrofit-converter-protobuf"], {
+        exclude group: 'com.google.protobuf'
+    }
+    )
     api project(':uikit')
     api project(':rxbus2')
     api project(':timberhelper')

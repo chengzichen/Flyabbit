@@ -18,10 +18,6 @@ import com.dhc.library.data.net.SubscriberListener;
 public class GankSubscriber<T extends ApiResponse> extends BaseSubscriber<T> {
     private static final String TAG =GankSubscriber.class.getSimpleName() ;
 
-    public GankSubscriber(SubscriberListener mSubscriberOnNextListener, Context aContext) {
-        super(mSubscriberOnNextListener, aContext);
-    }
-
     public GankSubscriber(SubscriberListener mSubscriberOnNextListener) {
         super(mSubscriberOnNextListener);
     }

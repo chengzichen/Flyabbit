@@ -1,7 +1,7 @@
-include ':app', ':library', ':imageloader', ':uikit', ':home', ':my', ':girls', ':build-gradle', ':rxbus2', ':timberhelper', ':businessComponent'
+include ':app', ':imageloader', ':uikit', ':home', ':my', ':girls', ':build-gradle', ':rxbus2', ':timberhelper', ':businessComponent'
 
 
-project(':library').projectDir = new File('baselib/library')
+//project(':library').projectDir = new File('baselib/library')
 project(':businessComponent').projectDir = new File('businesslib/businessComponent')
 project(':rxbus2').projectDir = new File('baselib/rxbus2')
 project(':timberhelper').projectDir = new File('baselib/timberhelper')
