@@ -7,6 +7,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.loadmore.SimpleLoadMoreView;
 import com.dhc.flyabbit.gank.R;
 import com.dhc.flyabbit.gank.di.GankDiHelper;
 import com.dhc.flyabbit.gank.modle.bean.GankItemBean;
@@ -54,7 +55,7 @@ public class GirlFragment extends XDaggerFragment<GirlPresenter> implements IGir
         rvGirlContent.setLayoutManager(mStaggeredGridLayoutManager);
         rvGirlContent.setAdapter(mAdapter);
         mAdapter.setOnLoadMoreListener(this, rvGirlContent);
-        mAdapter.setLoadMoreView(new CustomLoadMoreView());
+        mAdapter.setLoadMoreView(new SimpleLoadMoreView());
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
