@@ -7,7 +7,7 @@
               android:background="@color/clr_00000000"
               android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
         android:id="@+id/cv_tech_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,6 +81,6 @@
             </RelativeLayout>
         </LinearLayout>
 
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

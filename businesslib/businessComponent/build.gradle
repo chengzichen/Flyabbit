@@ -2,14 +2,13 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -18,14 +17,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    configurations.all {
+        resolutionStrategy.force rootProject.ext.dependencies["glide"]
+        resolutionStrategy.force rootProject.ext.dependencies["glide-okhttp3-integration"]
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api project(':imageloader')
-//    api project(':library')
     api "com.dhc.lib:mvp:$component_version"
     api rootProject.ext.dependencies["protobuf-lite"]
+
+    api rootProject.ext.dependencies["imageloader-adapter-glide"]
+
+    api rootProject.ext.dependencies["imageloader"]
+    api rootProject.ext.dependencies["glide-okhttp3-integration"]
+    api rootProject.ext.dependencies["glide"]
     api(rootProject.ext.dependencies["retrofit-converter-protobuf"], {
         exclude group: 'com.google.protobuf'
     }
@@ -33,4 +40,11 @@ dependencies {
     api project(':uikit')
     api project(':rxbus2')
     api project(':timberhelper')
+}
+repositories {
+    maven {
+        url 'https://jitpack.io'
+    }
+    jcenter()
+    mavenCentral()
 }

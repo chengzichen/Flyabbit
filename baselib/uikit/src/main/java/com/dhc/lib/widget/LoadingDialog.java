@@ -2,9 +2,9 @@ package com.dhc.lib.widget;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.NonNull;
+
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;

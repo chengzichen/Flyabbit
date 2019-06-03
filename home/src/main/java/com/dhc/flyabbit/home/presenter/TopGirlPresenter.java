@@ -3,8 +3,12 @@ package com.dhc.flyabbit.home.presenter;
 
 import android.graphics.Bitmap;
 
+import androidx.annotation.Nullable;
+
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.dhc.businesscomponent.data.net.GankApiResponse;
@@ -17,6 +21,7 @@ import com.dhc.library.base.XPresenter;
 import com.dhc.library.data.net.NetError;
 import com.dhc.library.utils.AppContext;
 import com.dhc.library.utils.sys.ScreenUtil;
+import com.ladingwu.glidelibrary.GlideOptions;
 
 import java.util.List;
 
@@ -51,21 +56,11 @@ public class TopGirlPresenter extends XPresenter<ITopGirlContract.IView> impleme
                         Flowable.fromIterable(response).map(new Function<GankItemBean, String>() {
                             @Override
                             public String apply(GankItemBean itemBean) throws Exception {
-                                Glide.with(AppContext.get().getApplicationContext()).load(itemBean.getUrl()).asBitmap()
-                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
-                                        .fitCenter().listener(new RequestListener<String, Bitmap>() {
-                                    @Override
-                                    public boolean onException(Exception e, String model, Target<Bitmap> target, boolean isFirstResource) {
-
-                                        return false;
-                                    }
-
-                                    @Override
-                                    public boolean onResourceReady(Bitmap resource, String model, Target<Bitmap> target, boolean isFromMemoryCache, boolean isFirstResource) {
-                                        return false;
-                                    }
-
-                                }).preload(ScreenUtil.getDisplayWidth(), 250);
+//                                Glide.with(AppContext.get().getApplicationContext())
+//                                        .load(itemBean.getUrl())
+//                                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+//                                        .fitCenter()
+//                                        .preload(ScreenUtil.getDisplayWidth(), 250);
                                 return itemBean.getUrl();
                             }
                         }).toList().observeOn(AndroidSchedulers.mainThread())

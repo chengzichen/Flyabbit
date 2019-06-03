@@ -3,11 +3,14 @@ package com.dhc.flyabbit.gank.app;
 import android.app.Application;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.dhc.lib.imageload.ImageLoaderManager;
 import com.dhc.library.base.BaseChildApplication;
 import com.dhc.businesscomponent.base.InitializeService;
 import com.dhc.library.utils.AppUtil;
 import com.dhc.timberhelper.TimberInitHelper;
+import com.ladingwu.glidelibrary.GlideImageLocader;
+import com.lasingwu.baselibrary.ImageLoaderConfig;
+import com.lasingwu.baselibrary.ImageLoaderManager;
+import com.lasingwu.baselibrary.LoaderEnum;
 
 
 /**
@@ -30,7 +33,11 @@ public class GirlsApp extends BaseChildApplication {
     public void onCreate() {//该方法只要在单独运行时作为入口APP类时才会调用
         super.onCreate();
         TimberInitHelper.init(AppUtil.isDebug(), this);
-        ImageLoaderManager.getInstance().init(this);
+        ImageLoaderConfig config = new ImageLoaderConfig.Builder(LoaderEnum.GLIDE,new GlideImageLocader())
+                // 配置内存缓存，单位为Byte
+                .maxMemory(40*1024*1024L)
+                .build();
+        ImageLoaderManager.getInstance().init(this,config);
         InitializeService.start(this);
     }
 

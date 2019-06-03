@@ -1,25 +1,27 @@
 package com.dhc.flyabbit.app;
 
 import android.content.Context;
-import android.support.multidex.MultiDex;
-import android.support.v7.app.AppCompatDelegate;
+import androidx.multidex.MultiDex;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.dhc.businesscomponent.Constants;
 import com.dhc.businesscomponent.data.LoginInfoBean;
 import com.dhc.businesscomponent.data.account.AccountProvider;
-import com.dhc.lib.imageload.ImageLoaderManager;
 import com.dhc.library.base.BaseApplication;
 import com.dhc.businesscomponent.base.InitializeService;
 import com.dhc.library.data.IDataHelper;
 import com.dhc.businesscomponent.data.net.TokenInterceptor;
-import com.dhc.library.framework.XAppDelegate;
 import com.dhc.library.utils.AppUtil;
 import com.dhc.library.utils.ApplicationLike;
 import com.dhc.library.utils.AsLibUtil;
 import com.dhc.timberhelper.TimberInitHelper;
 import com.google.gson.GsonBuilder;
+import com.ladingwu.glidelibrary.GlideImageLocader;
+import com.lasingwu.baselibrary.ImageLoaderConfig;
+import com.lasingwu.baselibrary.ImageLoaderManager;
+import com.lasingwu.baselibrary.LoaderEnum;
 
 import okhttp3.Interceptor;
 import retrofit2.Converter;
@@ -43,20 +45,26 @@ public class App extends BaseApplication  implements AccountProvider<LoginInfoBe
         AppCompatDelegate.setDefaultNightMode(
                 AppCompatDelegate.MODE_NIGHT_NO);
     }
-
+    @Override
     public void onCreate() {
         super.onCreate();
-//        LeakCanary.install(this);
         ARouter.getInstance().inject(this);
-        if (mApplicationLikeMoudle1!=null)
-        AsLibUtil.addAsLIbChild(mApplicationLikeMoudle1);
-        if (mApplicationLikeMoudle2!=null)
-        AsLibUtil.addAsLIbChild(mApplicationLikeMoudle2);
-        if (mApplicationLikeMoudle3!=null)
-        AsLibUtil.addAsLIbChild(mApplicationLikeMoudle3);
+        if (mApplicationLikeMoudle1!=null) {
+            AsLibUtil.addAsLIbChild(mApplicationLikeMoudle1);
+        }
+        if (mApplicationLikeMoudle2!=null) {
+            AsLibUtil.addAsLIbChild(mApplicationLikeMoudle2);
+        }
+        if (mApplicationLikeMoudle3!=null) {
+            AsLibUtil.addAsLIbChild(mApplicationLikeMoudle3);
+        }
         AsLibUtil.doCreateAsLibrary(this);
         TimberInitHelper.init(AppUtil.isDebug(),this);
-        ImageLoaderManager.getInstance().init(this);
+        ImageLoaderConfig config = new ImageLoaderConfig.Builder(LoaderEnum.GLIDE,new GlideImageLocader())
+                // 配置内存缓存，单位为Byte
+                .maxMemory(40*1024*1024L)
+                .build();
+        ImageLoaderManager.getInstance().init(this,config);
         InitializeService.start(this);
     }
 

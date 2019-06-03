@@ -1,7 +1,7 @@
 package com.dhc.flyabbit.my
 
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
+import androidx.core.content.ContextCompat
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -46,7 +46,7 @@ class MyFragment : XDaggerFragment<IBasePresenter<*>>(), View.OnClickListener {
     private fun initTitle() {
         val options = ToolBarOptions()
                 .isNeedNavigate(false).titleString("我的")
-        ToolbarUtil().setToolBar(_mActivity, `$`<View>(R.id.toolbar) as android.support.v7.widget.Toolbar, options, false)
+        ToolbarUtil().setToolBar(_mActivity, `$`<View>(R.id.toolbar) as androidx.appcompat.widget.Toolbar, options, false)
         //        setToolBar(R.id.toolbar, options);
     }
 

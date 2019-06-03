@@ -2,8 +2,8 @@ package com.dhc.lib.widget.bottombar;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;

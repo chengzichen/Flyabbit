@@ -1,13 +1,13 @@
 package com.dhc.flyabbit.home.util;
 
 import android.animation.ArgbEvaluator;
-import android.support.design.widget.CollapsingToolbarLayout;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.dhc.flyabbit.home.R;
-import com.dhc.lib.imageload.ImageLoaderManager;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.lasingwu.baselibrary.ImageLoaderManager;
 
 /**
  * @author 邓浩宸

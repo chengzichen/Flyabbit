@@ -2,11 +2,11 @@ package com.dhc.flyabbit.home.ui;
 
 import android.animation.ArgbEvaluator;
 import android.graphics.Color;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.widget.ImageView;
 
 import com.dhc.flyabbit.home.util.ColorHelper;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 /**
  * @author 邓浩宸

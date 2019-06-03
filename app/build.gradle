@@ -4,7 +4,6 @@ android {
 
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
-    buildToolsVersion rootProject.ext.android.buildToolsVersion
 
     defaultConfig {
 
@@ -22,12 +21,12 @@ android {
 
             annotationProcessorOptions {
 
-                arguments = [moduleName: project.getName()]
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
 
             }
 
         }
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
 
@@ -47,8 +46,9 @@ android {
         resolutionStrategy.force rootProject.ext.dependencies["annotations"]
         resolutionStrategy.force rootProject.ext.dependencies["support-v4"]
         resolutionStrategy.force rootProject.ext.dependencies["appcompat-v7"]
+        resolutionStrategy.force rootProject.ext.dependencies["glide"]
+        resolutionStrategy.force rootProject.ext.dependencies["glide-okhttp3-integration"]
     }
-
     lintOptions {
         checkReleaseBuilds false
         abortOnError false
@@ -68,12 +68,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation rootProject.ext.dependencies["junit"]
-    provided rootProject.ext.dependencies["javax.annotation"]
+    compileOnly rootProject.ext.dependencies["javax.annotation"]
 //    debugImplementation rootProject.ext.dependencies["canary-debug"]
 //    testImplementation rootProject.ext.dependencies["canary-test"]
 //    releaseImplementation rootProject.ext.dependencies["canary-release"]
