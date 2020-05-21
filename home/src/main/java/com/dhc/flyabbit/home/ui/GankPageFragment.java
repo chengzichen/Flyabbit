@@ -22,7 +22,7 @@ import com.dhc.lib.widget.util.ToastUtil;
 import java.util.List;
 
 
-public class GankPageFragment extends XDaggerFragment<GankTechPresenter> implements IGankTechContract.IView, BaseQuickAdapter.RequestLoadMoreListener {
+public class GankPageFragment extends XDaggerFragment<GankTechPresenter,IGankTechContract.IView> implements IGankTechContract.IView, BaseQuickAdapter.RequestLoadMoreListener {
     public static final String TECH_TAG = "tag";
     private String mTag;
     private RecyclerView lv;
@@ -54,8 +54,8 @@ public class GankPageFragment extends XDaggerFragment<GankTechPresenter> impleme
 
     @Override
     public void initEventAndData( Bundle savedInstanceState) {
-        lv = (RecyclerView) mRootView.findViewById(R.id.rv_daily_list);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) mRootView.findViewById(R.id.swipe_refresh);
+        lv = (RecyclerView) getMRootView().findViewById(R.id.rv_daily_list);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) getMRootView().findViewById(R.id.swipe_refresh);
         // 创建一个线性布局管理器
 
         mPresenter.getTechList(mTag);

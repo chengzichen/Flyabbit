@@ -37,7 +37,7 @@ import java.util.List;
  * 描述 ：TODO 请描述该类职责
  */
 @Route(path = "/home/HomeFragment")
-public class HomeFragment extends XDaggerFragment<TopGirlPresenter> implements ITopGirlContract.IView {
+public class HomeFragment extends XDaggerFragment<TopGirlPresenter,ITopGirlContract.IView > implements ITopGirlContract.IView {
     private TabLayout mToolbarTab;
     private ViewPager mMainVpContainer;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
@@ -143,7 +143,7 @@ public class HomeFragment extends XDaggerFragment<TopGirlPresenter> implements I
         if (getChildFragmentManager().getBackStackEntryCount() > 1) {
             popChild();
         } else {
-            final NormalDialog dialog = new NormalDialog(mContext);
+            final NormalDialog dialog = new NormalDialog(getContext());
             dialog.content("亲,真的要走吗?再看会儿吧~(●—●)")//
                     .style(NormalDialog.STYLE_TWO)//
                     .titleTextSize(23)//
@@ -164,7 +164,7 @@ public class HomeFragment extends XDaggerFragment<TopGirlPresenter> implements I
                         @Override
                         public void onBtnClick() {
                             dialog.superDismiss();
-                            AppManager.getInstance()
+                            AppManager.Companion.getInstance()
                                     .AppExit();
                         }
                     });

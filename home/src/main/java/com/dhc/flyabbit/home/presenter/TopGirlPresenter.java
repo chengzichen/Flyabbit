@@ -50,7 +50,7 @@ public class TopGirlPresenter extends XPresenter<ITopGirlContract.IView> impleme
     public void getRandomGirl() {
         mZhiHuRemoteDataService.getRandomGirl()
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         Flowable.fromIterable(response).map(new Function<GankItemBean, String>() {

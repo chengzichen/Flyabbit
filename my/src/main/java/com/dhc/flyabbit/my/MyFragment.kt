@@ -15,6 +15,7 @@ import com.dhc.businesscomponent.framework.OnBackToFirstListener
 import com.dhc.library.base.XDaggerFragment
 import com.dhc.lib.widget.bean.ToolBarOptions
 import com.dhc.library.framework.IBasePresenter
+import com.dhc.library.framework.IBaseView
 
 /**
  * 创建者：邓浩宸
@@ -22,16 +23,13 @@ import com.dhc.library.framework.IBasePresenter
  * 描述 ：TODO 请描述该类职责
  */
 @Route(path = "/my/MyFragment")
-class MyFragment : XDaggerFragment<IBasePresenter<*>>(), View.OnClickListener {
+class MyFragment : XDaggerFragment<IBasePresenter<IBaseView>,IBaseView>(), View.OnClickListener {
 
     protected var _mBackToFirstListener: OnBackToFirstListener? = null
     protected lateinit var mIvLogo: ImageView
     private var mGithub: TextView? = null
     private var mAuthor: TextView? = null
 
-    override fun getLayoutId(): Int {
-        return R.layout.fragment_my_main
-    }
 
     override fun initEventAndData(savedInstanceState: Bundle?) {
         val baseFragment = parentFragment as BaseFragment?
@@ -95,6 +93,7 @@ class MyFragment : XDaggerFragment<IBasePresenter<*>>(), View.OnClickListener {
         return true
     }
 
-
+    override val layoutId: Int
+        get() = R.layout.fragment_my_main
 
 }

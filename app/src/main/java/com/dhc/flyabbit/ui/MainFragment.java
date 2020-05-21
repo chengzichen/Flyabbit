@@ -81,20 +81,20 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
 
     @Override
     public void initInject(Bundle savedInstanceState)  {
-        if (savedInstanceState == null) {
-            mFragments[FIRST] = (SupportFragment) ARouter.getInstance().build("/home/HomeFragment").navigation();
-            mFragments[SECOND] = (SupportFragment) ARouter.getInstance().build("/gank/GankFragment").navigation();
-            mFragments[THIRD] = (SupportFragment) ARouter.getInstance().build("/my/MyFragment")
-                    .navigation();
-            loadMultipleRootFragment(R.id.fl_tab_container, FIRST, mFragments[FIRST], mFragments[SECOND], mFragments[THIRD]);
-        } else {
-            Class<BaseFragment> fClass=   getClass("com.dhc.flyabbit.home.ui.HomeFragment");
-            Class<BaseFragment> sClass = getClass("com.dhc.flyabbit.gank.ui.GankFragment");
-            Class<BaseFragment> tClass = getClass("com.dhc.flyabbit.my.MyFragment");
-            mFragments[FIRST] = findChildFragment(fClass);
-            mFragments[SECOND] = findChildFragment(sClass);
-            mFragments[THIRD] = findChildFragment(tClass);
-        }
+            if (savedInstanceState == null) {
+                mFragments[FIRST] = (SupportFragment) ARouter.getInstance().build("/home/HomeFragment").navigation();
+                mFragments[SECOND] = (SupportFragment) ARouter.getInstance().build("/gank/GankFragment").navigation();
+                mFragments[THIRD] = (SupportFragment) ARouter.getInstance().build("/my/MyFragment")
+                        .navigation();
+                loadMultipleRootFragment(R.id.fl_tab_container, FIRST, mFragments[FIRST], mFragments[SECOND], mFragments[THIRD]);
+            } else {
+                Class<BaseFragment> fClass=   getClass("com.dhc.flyabbit.home.ui.HomeFragment");
+                Class<BaseFragment> sClass = getClass("com.dhc.flyabbit.gank.ui.GankFragment");
+                Class<BaseFragment> tClass = getClass("com.dhc.flyabbit.my.MyFragment");
+                mFragments[FIRST] = findChildFragment(fClass);
+                mFragments[SECOND] = findChildFragment(sClass);
+                mFragments[THIRD] = findChildFragment(tClass);
+            }
     }
 
     private Class<BaseFragment> getClass(String homeFragment) {
@@ -115,7 +115,7 @@ public class MainFragment extends XDaggerFragment implements OnBackToFirstListen
 
     @Override
     public void initEventAndData(Bundle savedInstanceState) {
-        initView(mRootView);
+        initView(getMRootView());
     }
 
     @Override

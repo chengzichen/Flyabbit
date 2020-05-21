@@ -50,16 +50,16 @@ public class App extends BaseApplication  implements AccountProvider<LoginInfoBe
         super.onCreate();
         ARouter.getInstance().inject(this);
         if (mApplicationLikeMoudle1!=null) {
-            AsLibUtil.addAsLIbChild(mApplicationLikeMoudle1);
+            AsLibUtil.INSTANCE.addAsLIbChild(mApplicationLikeMoudle1);
         }
         if (mApplicationLikeMoudle2!=null) {
-            AsLibUtil.addAsLIbChild(mApplicationLikeMoudle2);
+            AsLibUtil.INSTANCE.addAsLIbChild(mApplicationLikeMoudle2);
         }
         if (mApplicationLikeMoudle3!=null) {
-            AsLibUtil.addAsLIbChild(mApplicationLikeMoudle3);
+            AsLibUtil.INSTANCE.addAsLIbChild(mApplicationLikeMoudle3);
         }
-        AsLibUtil.doCreateAsLibrary(this);
-        TimberInitHelper.init(AppUtil.isDebug(),this);
+        AsLibUtil.INSTANCE.doCreateAsLibrary(this);
+        TimberInitHelper.init(AppUtil.INSTANCE.isDebug(),this);
         ImageLoaderConfig config = new ImageLoaderConfig.Builder(LoaderEnum.GLIDE,new GlideImageLocader())
                 // 配置内存缓存，单位为Byte
                 .maxMemory(40*1024*1024L)
@@ -90,7 +90,7 @@ public class App extends BaseApplication  implements AccountProvider<LoginInfoBe
     public LoginInfoBean provideAccount(String accountJson) {
         return new GsonBuilder().create().fromJson(accountJson, LoginInfoBean.class);
     }
-
+    @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);

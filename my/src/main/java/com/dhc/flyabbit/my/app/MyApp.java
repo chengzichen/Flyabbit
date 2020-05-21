@@ -34,7 +34,7 @@ public class MyApp extends BaseChildApplication {
     @Override
     public void onCreate() {//该方法只要在单独运行时作为入口APP类时才会调用
         super.onCreate();
-        TimberInitHelper.init(AppUtil.isDebug(),this);
+        TimberInitHelper.init(AppUtil.INSTANCE.isDebug(),this);
         ImageLoaderConfig config = new ImageLoaderConfig.Builder(LoaderEnum.GLIDE,new GlideImageLocader())
                 // 配置内存缓存，单位为Byte
                 .maxMemory(40*1024*1024L)

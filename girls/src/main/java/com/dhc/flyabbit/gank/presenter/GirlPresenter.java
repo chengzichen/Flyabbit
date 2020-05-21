@@ -34,7 +34,7 @@ public class GirlPresenter extends XPresenter<IGirlContract.IView> implements IG
         currentPage = 1;
         mGirlRemoteDataService.getGirlData(currentPage)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         getV().showContent(response);
@@ -53,7 +53,7 @@ public class GirlPresenter extends XPresenter<IGirlContract.IView> implements IG
     public void getMoreGirlData() {
         mGirlRemoteDataService.getGirlData(currentPage)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         getV().showMoreContent(response);

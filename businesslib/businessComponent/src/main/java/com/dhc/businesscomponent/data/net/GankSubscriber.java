@@ -1,6 +1,5 @@
 package com.dhc.businesscomponent.data.net;
 
-import android.content.Context;
 import android.util.Log;
 
 import com.dhc.library.base.BaseSubscriber;
@@ -15,23 +14,24 @@ import com.dhc.library.data.net.SubscriberListener;
  * 描述	      ${业务异常干货统一处理,自定义的Subscriber}
  */
 
-public class GankSubscriber<T extends ApiResponse> extends BaseSubscriber<T> {
+public class GankSubscriber<T extends ApiResponse<D>,D> extends BaseSubscriber<T,D> {
     private static final String TAG =GankSubscriber.class.getSimpleName() ;
 
-    public GankSubscriber(SubscriberListener mSubscriberOnNextListener) {
+    public GankSubscriber(SubscriberListener<D> mSubscriberOnNextListener) {
         super(mSubscriberOnNextListener);
     }
 
     @Override
     public void onNext(T response) {
         Log.i(TAG,"onNext");
-        if (mSubscriberOnNextListener != null) {
+        if (getMSubscriberOnNextListener() != null) {
             if (response != null && response.isSuccess()) {
-                mSubscriberOnNextListener.onSuccess(response.getData());
+                getMSubscriberOnNextListener() .onSuccess((D)response.getData());
             } else {
                 if (response.checkReLogin())
-                    mSubscriberOnNextListener.checkReLogin("请先登陆", "请先登陆");
-                mSubscriberOnNextListener.onFail(new NetError("请先登陆", NetError.BusinessError));
+                    getMSubscriberOnNextListener() .checkReLogin("请先登陆", "请先登陆");
+                getMSubscriberOnNextListener() .onFail(new NetError("请先登陆",
+                        NetError.Companion.getBusinessError()));
             }
         }
     }

@@ -26,7 +26,8 @@ import java.util.List;
  * 时间 ：2017/3/21 9:11
  * 描述 ：
  */
-public class GirlFragment extends XDaggerFragment<GirlPresenter> implements IGirlContract.IView, BaseQuickAdapter.RequestLoadMoreListener {
+public class GirlFragment extends XDaggerFragment<GirlPresenter,IGirlContract.IView> implements IGirlContract.IView,
+        BaseQuickAdapter.RequestLoadMoreListener {
 
     RecyclerView rvGirlContent;
     SwipeRefreshLayout swipeRefresh;

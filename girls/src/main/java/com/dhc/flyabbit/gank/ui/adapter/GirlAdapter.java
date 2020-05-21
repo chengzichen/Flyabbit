@@ -39,14 +39,15 @@ public class GirlAdapter extends BaseQuickAdapter<GankItemBean, BaseViewHolder> 
         }
 
         Glide.with(mContext).asBitmap().load(item.getUrl()).diskCacheStrategy(DiskCacheStrategy.ALL).placeholder(R.mipmap.default_loading)
-                .into(new SimpleTarget<Bitmap>(ScreenUtil.getDisplayWidth() / 2, ScreenUtil.getDisplayWidth() / 2) {
+                .into(new SimpleTarget<Bitmap>(ScreenUtil.INSTANCE.getDisplayWidth() / 2,
+                        ScreenUtil.INSTANCE.getDisplayWidth() / 2) {
                     @Override
                     public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
                         if (helper.getAdapterPosition() != RecyclerView.NO_POSITION) {
                             if (item.getHeight() <= 0) {
                                 int width = resource.getWidth();
                                 int height = resource.getHeight();
-                                int realHeight = (ScreenUtil.getDisplayWidth() / 2) * height / width;
+                                int realHeight = (ScreenUtil.INSTANCE.getDisplayWidth() / 2) * height / width;
                                 item.setHeight(realHeight);
                                 ViewGroup.LayoutParams lp = helper.getView(R.id.iv_girl).getLayoutParams();
                                 lp.height = realHeight;

@@ -21,6 +21,7 @@ import com.dhc.lib.widget.util.ToolbarUtil;
 import com.dhc.library.framework.IBasePresenter;
 import com.dhc.library.base.XDaggerFragment;
 import com.dhc.lib.widget.bean.ToolBarOptions;
+import com.dhc.library.framework.IBaseView;
 
 import java.lang.reflect.Method;
 
@@ -31,7 +32,8 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  * 时间 ：2017-06-23 上午 10:29
  * 描述 ：TODO 请描述该类职责
  */
-public class WebViewCommonFragment<T extends IBasePresenter> extends XDaggerFragment<T> {
+public class WebViewCommonFragment<T extends IBasePresenter<V>,V extends IBaseView > extends XDaggerFragment<T,
+        V> {
 
     public static final String TITLE = "title";
     public static final String URL = "url";

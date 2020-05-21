@@ -83,7 +83,8 @@ public class SplashFrament extends XDaggerFragment implements View.OnClickListen
             @Override
             public void onClick(View v) {
                 mLinearLayout.setVisibility(View.GONE);
-                SPHelper.put(AppContext.get(), Constants.VERSION, AppUtil.getVersionName(AppContext.get()), SPHelper.VERSION_FILE_NAME);
+                SPHelper.put(AppContext.get(), Constants.VERSION,
+                        AppUtil.INSTANCE.getVersionName(AppContext.get()), SPHelper.getVERSION_FILE_NAME());
                 ((OnShowHomeListener)_mActivity
                 ).showHome();
             }
@@ -124,7 +125,8 @@ public class SplashFrament extends XDaggerFragment implements View.OnClickListen
     @Override
     public void initEventAndData(Bundle savedInstanceState) {
         initView();
-        if (!SPHelper.get(AppContext.get(), Constants.VERSION, "", SPHelper.VERSION_FILE_NAME).equals(AppUtil.getVersionName(AppContext.get()))) {
+        if (!SPHelper.get(AppContext.get(), Constants.VERSION, "",
+                SPHelper.getVERSION_FILE_NAME()).equals(AppUtil.INSTANCE.getVersionName(AppContext.get()))) {
             mIsShowGuid = true;
         } else {
             mIsShowGuid = false;

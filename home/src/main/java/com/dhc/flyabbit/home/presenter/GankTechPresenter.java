@@ -35,7 +35,7 @@ public class GankTechPresenter extends XPresenter<IGankTechContract.IView> imple
         currentPage = 1;
         mGankTechRemoteDataService.getTechList(tag,currentPage)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         getV().showContent(response);
@@ -52,7 +52,7 @@ public class GankTechPresenter extends XPresenter<IGankTechContract.IView> imple
     public void getMoreTechList(String tag) {
         mGankTechRemoteDataService.getTechList(tag,currentPage)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         getV().showMoreContent(response);
@@ -70,7 +70,7 @@ public class GankTechPresenter extends XPresenter<IGankTechContract.IView> imple
     public void psotTest(String url, Result.AppResult appResult) {
         mGankTechRemoteDataService.psotTest(url,appResult)
                 .compose(getV().<GankApiResponse<List<GankItemBean>>>bindLifecycle())
-                .subscribe(new GankSubscriber<GankApiResponse<List<GankItemBean>>>(new GankSubscriberListener<List<GankItemBean>>() {
+                .subscribe(new GankSubscriber<>(new GankSubscriberListener<List<GankItemBean>>() {
                     @Override
                     public void onSuccess(List<GankItemBean> response) {
                         getV().showMoreContent(response);

@@ -44,7 +44,8 @@ public class MainActivity extends XDaggerActivity implements OnShowHomeListener 
     public void initEventAndData(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             //加载主界面的Fragment
-            if (SPHelper.get(AppContext.get(), Constants.VERSION, "", SPHelper.VERSION_FILE_NAME).equals(AppUtil.getVersionName(AppContext.get()))){
+            if (SPHelper.get(AppContext.get(), Constants.VERSION, "",
+                    SPHelper.getVERSION_FILE_NAME()).equals(AppUtil.INSTANCE.getVersionName(AppContext.get()))){
 
             loadRootFragment(R.id.fl_container,  MainFragment.newInstance());
             }else{
@@ -52,7 +53,8 @@ public class MainActivity extends XDaggerActivity implements OnShowHomeListener 
             }
 //            loadMultipleRootFragment(R.id.fl_container,1, MainFragment.newInstance(),new SplashFrament());
         } else {
-            if (SPHelper.get(AppContext.get(), Constants.VERSION, "", SPHelper.VERSION_FILE_NAME).equals(AppUtil.getVersionName(AppContext.get()))){
+            if (SPHelper.get(AppContext.get(), Constants.VERSION, "",
+                    SPHelper.getVERSION_FILE_NAME()).equals(AppUtil.INSTANCE.getVersionName(AppContext.get()))){
 
             loadRootFragment(R.id.fl_container, findFragment(MainFragment.class));
             }else{
