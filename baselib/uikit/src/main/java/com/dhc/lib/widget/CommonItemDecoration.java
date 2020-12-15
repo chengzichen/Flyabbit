@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 /**
- * 创建者：郑小才
+ * 创建者：dhc
  * 时间 ：2017/10/18   16:45
  * 描述 ：线性布局管理器通用的recyclerView分割线
  */
@@ -182,7 +182,7 @@ public class CommonItemDecoration extends RecyclerView.ItemDecoration {
                 final View child = parent.getChildAt(i);
                 final float right = mDividerHeight + child.getRight();
                 final float left = child.getLeft();
-                canvas.drawRect(child.getRight(),top,right,bottom,mPaint);
+                canvas.drawRect(c`hild.getRight(),top,right,bottom,mPaint);
             }
         }else {
             for (int i = 0; i < childCount - 1; i++) {
