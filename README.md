@@ -30,7 +30,7 @@
 [Gif动态效果](https://github.com/chengzichen/Photo/raw/master/gif/show.gif)   [*DemoAPK下载*](https://github.com/chengzichen/Photo/blob/master/gif/app-release.apk)   [架构图](https://i.imgur.com/sEuZMdp.png)
 
 ## 简介
--  [AndroidStudio插件](https://juejin.im/post/5b163118f265dahttps://juejin.im/post/5b163118f265da6e1349072a6e1349072a))
+-  [AndroidStudio插件](https://juejin.im/post/5b163118f265dahttps://juejin.im/post/5b163118f265da6e1349072a6e1349072a)
 
 	- 使用简单,能够灵活配置任意的组件使用组件化
 	- 一键使用MVP,提供了选择最新或者适合自己的mvpsdk依赖版本(Dagger2 以及ARouter)
